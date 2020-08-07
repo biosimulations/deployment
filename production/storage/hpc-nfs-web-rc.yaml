@@ -1,0 +1,34 @@
+# This pod mounts the nfs volume claim into /usr/share/nginx/html and
+# serves a simple web page.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-web-private
+  labels:
+    app: web-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-frontend
+  template:
+    metadata:
+      labels:
+        app: web-frontend
+    spec:
+      containers:
+      - name: web
+        image: nginx
+        ports:
+          - name: web
+            containerPort: 80
+        volumeMounts:
+            # name must match the volume name below
+            - name: nfs
+              mountPath: "/usr/share/nginx/html"
+      volumes:
+      - name: nfs
+        nfs:
+          server: uchc-app.bioscience-ct.net
+          path: /k8sdata
