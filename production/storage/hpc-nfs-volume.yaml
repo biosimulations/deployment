@@ -5,7 +5,7 @@ metadata:
 spec:
   capacity:
     storage: 100Gi
-  storageClassName: hpc-nfs
+  storageClassName: ""
   accessModes:
     - ReadWriteMany
   nfs:
