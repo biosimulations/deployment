@@ -18,14 +18,14 @@ spec:
       volumes:
         - name: secret
           secret:
-            secretName: dispatch-api-secrets-c2kkkd57dh
+            secretName: dispatch-api-secrets
         - name: task-pv-storage
           nfs:
-            server: nfs.biosimulations.dev
-            path: /nfs
+            server: uchc-app.bioscience-ct.net
+            path: /k8sdata
       containers:
         - name: biosimulations-dispatch-api
-          image: 'crbm/biosimulations-dispatch-api:dev'
+          image: "crbm/biosimulations-dispatch-api:dev"
           ports:
             - containerPort: 3333
           env:

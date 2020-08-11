@@ -8,21 +8,21 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: api.biosimulations.dev
-    http:
-      paths:
-      - backend:
-          serviceName: biosimulations-api-service
-          servicePort: 80
-  - host: account.biosimulations.dev
-    http:
-      paths:
-      - backend:
-          serviceName: account-api-service
-          servicePort: 80
-  - host: dispatch-api.biosimulations.dev
-          http:
-            paths:
-            - backend:
-                serviceName: dispatch-api-service
-                servicePort: 80
+    - host: api.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: biosimulations-api-service
+              servicePort: 80
+    - host: account.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: account-api-service
+              servicePort: 80
+    - host: dispatch-api.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: dispatch-api-service
+              servicePort: 80

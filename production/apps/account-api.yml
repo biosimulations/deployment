@@ -28,7 +28,7 @@ spec:
       volumes:
         - name: secret
           secret:
-            secretName: account-api-secrets-t9tcgd54fh
+            secretName: account-api-secrets
 ---
 apiVersion: v1
 kind: Service

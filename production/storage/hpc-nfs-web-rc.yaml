@@ -4,9 +4,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nfs-web-private
+  name: hpc-nfs-web
   labels:
-    app: web-frontend
+    app: hpc-nfs-web
 spec:
   replicas: 2
   selector:
@@ -18,17 +18,17 @@ spec:
         app: web-frontend
     spec:
       containers:
-      - name: web
-        image: nginx
-        ports:
-          - name: web
-            containerPort: 80
-        volumeMounts:
+        - name: web
+          image: nginx
+          ports:
+            - name: web
+              containerPort: 80
+          volumeMounts:
             # name must match the volume name below
             - name: nfs
               mountPath: "/usr/share/nginx/html"
       volumes:
-      - name: nfs
-        nfs:
-          server: uchc-app.bioscience-ct.net
-          path: /k8sdata
+        - name: nfs
+          nfs:
+            server: uchc-app.bioscience-ct.net
+            path: /k8sdata
