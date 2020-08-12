@@ -20,7 +20,7 @@ spec:
           - backend:
               serviceName: account-api-service
               servicePort: 80
-    - host: dispatch-api.biosimulations.dev
+    - host: dispatch.biosimulations.dev
       http:
         paths:
           - backend:
