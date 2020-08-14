@@ -22,7 +22,7 @@ spec:
         - name: task-pv-storage
           nfs:
             server: uchc-app.bioscience-ct.net
-            path: /k8sdata
+            path: /projects/CRBM/biosimulations
       containers:
         - name: biosimulations-dispatch-service
           image: "crbm/biosimulations-dispatch-service:dev"
