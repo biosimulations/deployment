@@ -25,7 +25,7 @@ spec:
             path: /projects/CRBM/biosimulations
       containers:
         - name: biosimulations-dispatch-api
-          image: "crbm/biosimulations-dispatch-api:dev"
+          image: "biosimulations/dispatch-api:dev"
           ports:
             - containerPort: 3333
           env:
