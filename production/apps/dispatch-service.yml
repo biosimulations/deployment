@@ -25,7 +25,7 @@ spec:
             path: /projects/CRBM/biosimulations
       containers:
         - name: biosimulations-dispatch-service
-          image: "crbm/biosimulations-dispatch-service:dev"
+          image: "biosimulations/dispatch-service:dev"
           env:
             - name: FILE_STORAGE
               value: /sharedFiles
