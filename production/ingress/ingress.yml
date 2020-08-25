@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.global-static-ip-name: biosimulations-dev-address
-    networking.gke.io/managed-certificates: biosimulations-certificate
+    networking.gke.io/managed-certificates: biosimulations-certificate, biosimulators-certificate
   name: biosimulations-ingress
   namespace: default
 spec:
@@ -26,3 +26,10 @@ spec:
           - backend:
               serviceName: biosimulations-dispatch-api
               servicePort: 80
+    - host: api.biosimulators.org
+      http:
+        paths:
+          - backend:
+              serviceName: biosimulators-api-service
+              servicePort: 80
+
