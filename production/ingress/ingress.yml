@@ -33,7 +33,7 @@ spec:
               serviceName: biosimulators-api-service
               servicePort: 80
 
-    - host: ontology.biosimulations.org
+    - host: ontology.biosimulations.dev
       http:
         paths:
           - backend:
