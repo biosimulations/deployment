@@ -7,3 +7,4 @@ spec:
     - api.biosimulations.dev
     - account.biosimulations.dev
     - dispatch.biosimulations.dev
+    - ontology.biosimulations.dev
