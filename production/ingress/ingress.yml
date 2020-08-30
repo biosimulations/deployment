@@ -26,6 +26,12 @@ spec:
           - backend:
               serviceName: biosimulations-dispatch-api
               servicePort: 80
+    - host: api.biosimulators.org
+      http:
+        paths:
+          - backend:
+              serviceName: biosimulators-api-service
+              servicePort: 80
 
     - host: ontology.biosimulations.dev
       http:
