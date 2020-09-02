@@ -2,40 +2,12 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
+    kubernetes.io/ingress.class: gce
     kubernetes.io/ingress.global-static-ip-name: biosimulations-dev-address
     networking.gke.io/managed-certificates: biosimulations-certificate, biosimulators-certificate
   name: biosimulations-ingress
-  namespace: default
+  namespace: ingress-nginx
 spec:
-  rules:
-    - host: api.biosimulations.dev
-      http:
-        paths:
-          - backend:
-              serviceName: biosimulations-api-service
-              servicePort: 80
-    - host: account.biosimulations.dev
-      http:
-        paths:
-          - backend:
-              serviceName: account-api-service
-              servicePort: 80
-    - host: dispatch.biosimulations.dev
-      http:
-        paths:
-          - backend:
-              serviceName: biosimulations-dispatch-api
-              servicePort: 80
-    - host: api.biosimulators.org
-      http:
-        paths:
-          - backend:
-              serviceName: biosimulators-api-service
-              servicePort: 80
-
-    - host: ontology.biosimulations.dev
-      http:
-        paths:
-          - backend:
-              serviceName: ontology-api
-              servicePort: 80
+    backend:
+      serviceName: ingress-nginx-controller
+      servicePort: 80

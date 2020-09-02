@@ -3,35 +3,34 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    kubernetes.io/ingress.global-static-ip-name: biosimulations-dev-address
-
+   
   name: biosimulations-nginx-ingress
   namespace: default
 spec:
-  rules:
+  rules: 
     - host: api.biosimulations.dev
       http:
         paths:
           - backend:
-              serviceName: biosimulations-api-service
+              serviceName: platform-api
               servicePort: 80
     - host: account.biosimulations.dev
       http:
         paths:
           - backend:
-              serviceName: account-api-service
+              serviceName: account-api
               servicePort: 80
     - host: dispatch.biosimulations.dev
       http:
         paths:
           - backend:
-              serviceName: biosimulations-dispatch-api
+              serviceName: dispatch-api
               servicePort: 80
     - host: api.biosimulators.org
       http:
         paths:
           - backend:
-              serviceName: biosimulators-api-service
+              serviceName: simulator-api
               servicePort: 80
 
     - host: ontology.biosimulations.dev
