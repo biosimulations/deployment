@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: biosimulations-dispatch-service
+  name: dispatch-service
   labels:
-    app: biosimulations-dispatch-service
+    app: dispatch-service
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: biosimulations-dispatch-service
+      app: dispatch-service
   replicas: 1
   template:
     metadata:
       labels:
-        app: biosimulations-dispatch-service
+        app: dispatch-service
     spec:
       volumes:
         - name: secret
@@ -24,7 +24,7 @@ spec:
             server: uchc-app.bioscience-ct.net
             path: /projects/CRBM/biosimulations
       containers:
-        - name: biosimulations-dispatch-service
+        - name: dispatch-service
           image: "biosimulations/dispatch-service:dev"
           env:
             - name: FILE_STORAGE

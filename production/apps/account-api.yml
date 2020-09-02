@@ -33,7 +33,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: account-api-service
+  name: account-api
   namespace: default
   labels:
     app: account-api

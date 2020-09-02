@@ -4,10 +4,10 @@ generatorOptions:
   disableNameSuffixHash: true
 
 secretGenerator:
-  - name: biosimulations-api-secrets
+  - name: platform-api-secrets
     namespace: default
     files:
-      - biosimulations-api/secret.env
+      - platform-api/secret.env
   - name: account-api-secrets
     namespace: default
     files:
@@ -20,3 +20,7 @@ secretGenerator:
     namespace: default
     files:
       - dispatch-service/secret.env
+  - name: simulators-api-secrets
+    namespace: default
+    files:
+      - simulators-api/secret.env

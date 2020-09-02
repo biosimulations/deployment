@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: biosimulations-dispatch-api
+  name: dispatch-api
   labels:
-    app: biosimulations-dispatch-api
+    app: dispatch-api
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: biosimulations-dispatch-api
+      app: dispatch-api
   replicas: 1
   template:
     metadata:
       labels:
-        app: biosimulations-dispatch-api
+        app: dispatch-api
     spec:
       volumes:
         - name: secret
@@ -24,7 +24,7 @@ spec:
             server: uchc-app.bioscience-ct.net
             path: /projects/CRBM/biosimulations
       containers:
-        - name: biosimulations-dispatch-api
+        - name: dispatch-api
           image: "biosimulations/dispatch-api:dev"
           ports:
             - containerPort: 3333
@@ -41,9 +41,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: biosimulations-dispatch-api
+  name: dispatch-api
   labels:
-    app: biosimulations-dispatch-api
+    app: dispatch-api
   namespace: default
 spec:
   type: NodePort
@@ -53,4 +53,4 @@ spec:
       protocol: TCP
       name: dispatch-api
   selector:
-    app: biosimulations-dispatch-api
+    app: dispatch-api
