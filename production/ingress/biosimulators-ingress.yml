@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/issuer: "letsencrypt-staging"
+  name: simulators-ingress
+  namespace: default
+spec:
+  tls:
+    - hosts:
+        - api.biosimulators.org
+      secretName: biosimulators-certificate
+  rules:
+    - host: api.biosimulators.org
+      http:
+        paths:
+          - backend:
+              serviceName: simulator-api
+              servicePort: 80

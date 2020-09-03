@@ -31,6 +31,7 @@ metadata:
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
+  loadBalancerIP: biosimulations
   ports:
     - name: http
       port: 80
