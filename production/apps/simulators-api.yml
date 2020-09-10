@@ -8,16 +8,16 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: simulator-api
+      app: simulators-api
   replicas: 3
   template:
     metadata:
       labels:
-        app: simulator-api
+        app: simulators-api
     spec:
       containers:
-        - name: simulator-api
-          image: biosimulations/biosimulators-api:dev
+        - name: simulators-api
+          image: biosimulations/simulators-api:dev
           imagePullPolicy: "Always"
           volumeMounts:
             - mountPath: "/app/secret"
@@ -28,20 +28,20 @@ spec:
       volumes:
         - name: secret
           secret:
-            secretName: simulator-api-secrets
+            secretName: simulators-api-secrets
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: simulator-api
+  name: simulators-api
   namespace: default
   labels:
-    app: simulator-api
+    app: simulators-api
 spec:
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3333
   selector:
-    app: simulator-api
+    app: simulators-api
   type: NodePort
