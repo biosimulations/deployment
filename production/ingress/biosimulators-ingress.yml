@@ -16,5 +16,5 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: simulator-api
+              serviceName: simulators-api
               servicePort: 80
