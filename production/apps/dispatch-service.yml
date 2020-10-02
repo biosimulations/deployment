@@ -30,6 +30,7 @@ spec:
       containers:
         - name: dispatch-service
           image: "biosimulations/dispatch-service:dev"
+          imagePullPolicy: "Always"
           env:
             - name: FILE_STORAGE
               value: /sharedFiles
