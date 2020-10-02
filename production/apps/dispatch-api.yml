@@ -30,6 +30,7 @@ spec:
       containers:
         - name: dispatch-api
           image: "biosimulations/dispatch-api:dev"
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 3333
           env:
