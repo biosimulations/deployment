@@ -22,7 +22,7 @@ spec:
       volumes:
         - name: secret
           secret:
-            secretName: dispatch-api-secrets
+            secretName: run-api-secrets
         - name: task-pv-storage
           nfs:
             server: uchc-app.bioscience-ct.net

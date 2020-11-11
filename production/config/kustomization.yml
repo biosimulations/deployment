@@ -24,3 +24,7 @@ secretGenerator:
     namespace: default
     files:
       - simulators-api/secret.env
+  - name: run-api-secrets
+    namespace: default
+    files:
+      - run-api/secret.env
