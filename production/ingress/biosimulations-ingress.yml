@@ -13,6 +13,7 @@ spec:
         - api.biosimulations.dev
         - dispatch.biosimulations.dev
         - ontology.biosimulations.dev
+        - run.biosimulations.dev
       secretName: biosimulations-ingress-certificate
 
   rules:
