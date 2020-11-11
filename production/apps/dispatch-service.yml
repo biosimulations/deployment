@@ -31,9 +31,6 @@ spec:
         - name: dispatch-service
           image: "biosimulations/dispatch-service:dev"
           imagePullPolicy: "Always"
-          env:
-            - name: FILE_STORAGE
-              value: /sharedFiles
           volumeMounts:
             - mountPath: /app/secret
               name: secret
