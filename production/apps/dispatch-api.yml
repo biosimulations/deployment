@@ -33,9 +33,6 @@ spec:
           imagePullPolicy: "Always"
           ports:
             - containerPort: 3333
-          env:
-            - name: FILE_STORAGE
-              value: /sharedFiles
           volumeMounts:
             - mountPath: /app/secret
               name: secret

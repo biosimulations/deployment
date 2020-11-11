@@ -25,10 +25,6 @@ spec:
       containers:
         - name: biosimulations-dispatch-service
           image: "biosimulations/dispatch-service:dev"
-          # TODO: Move this ENV to config file
-          env:
-            - name: FILE_STORAGE
-              value: /sharedFiles
           volumeMounts:
             - mountPath: /app/secret
               name: secret
