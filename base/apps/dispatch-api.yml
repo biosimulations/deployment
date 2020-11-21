@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dispatch-api
+  labels:
+    app: dispatch-api
+
+spec:
+  selector:
+    matchLabels:
+      app: dispatch-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dispatch-api
+    spec:
+      securityContext:
+        runAsUser: 16997
+        runAsGroup: 10000
+        fsGroup: 16521
+      volumes:
+        - name: secret
+          secret:
+            secretName: dispatch-api-secrets
+        - name: task-pv-storage
+          nfs:
+            server: uchc-app.bioscience-ct.net
+            path: /projects/CRBM/biosimulations
+      containers:
+        - name: dispatch-api
+          image: "biosimulations/dispatch-api"
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 3333
+          volumeMounts:
+            - mountPath: /app/secret
+              name: secret
+              readOnly: true
+            - mountPath: /sharedFiles
+              name: task-pv-storage
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dispatch-api
+  labels:
+    app: dispatch-api
+  
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 3333
+      protocol: TCP
+      name: dispatch-api
+  selector:
+    app: dispatch-api

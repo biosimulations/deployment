@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: account-api
+  name: account-api
+spec:
+  selector:
+    matchLabels:
+      app: account-api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: account-api
+    spec:
+      containers:
+        - name: account-api
+          image: biosimulations/account-api
+          imagePullPolicy: "Always"
+          volumeMounts:
+            - mountPath: "/app/secret"
+              name: secret
+              readOnly: true
+          ports:
+            - containerPort: 3333
+      volumes:
+        - name: secret
+          secret:
+            secretName: account-api-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: account-api
+  labels:
+    app: account-api
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3333
+  selector:
+    app: account-api
+  type: NodePort
