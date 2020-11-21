@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: platform-api
+  name: platform-api
+
+spec:
+  selector:
+    matchLabels:
+      app: platform-api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: platform-api
+    spec:
+      containers:
+        - name: platform-api
+          image: biosimulations/platform-api
+          imagePullPolicy: "Always"
+          volumeMounts:
+            - mountPath: "/app/secret"
+              name: secret
+              readOnly: true
+          ports:
+            - containerPort: 3333
+      volumes:
+        - name: secret
+          secret:
+            secretName: platform-api-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: platform-api
+  
+  labels:
+    app: platform-api
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3333
+  selector:
+    app: platform-api
+  type: NodePort

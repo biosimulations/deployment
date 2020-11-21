@@ -1,0 +1,19 @@
+bases:
+- ../../base/apps
+namespace: dev
+namePrefix: dev-
+images:
+  - newTag: dev
+    name: biosimulations/account-api
+  - newTag: dev
+    name: biosimulations/dispatch-api
+  - newTag: dev
+    name: biosimulations/dispatch-service
+  - newTag: dev
+    name: biosimulations/ontology-api
+  - newTag: dev
+    name: biosimulations/simulators-api
+  - newTag: dev
+    name: biosimulations/platform-api
+patches:
+  - path: replicas.yml
