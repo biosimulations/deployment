@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: simulators-api
-          image: biosimulations/simulators-api
+          image: ghcr.io/biosimulations/simulators-api
           imagePullPolicy: "Always"
           volumeMounts:
             - mountPath: "/app/secret"

@@ -1,7 +1,0 @@
-resources:
-- account-api.yml
-- dispatch-api.yml
-- dispatch-service.yml
-- ontology-api.yml
-- platform-api.yml
-- simulators-api.yml

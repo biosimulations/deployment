@@ -29,7 +29,7 @@ spec:
             path: /projects/CRBM/biosimulations
       containers:
         - name: run-api
-          image: "ghcr.io/biosimulations/dispatch-api:alpha"
+          image: ghcr.io/biosimulations/dispatch-api:alpha
           imagePullPolicy: "Always"
           ports:
             - containerPort: 3333
