@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  name: ingress  
+spec:
+  tls:
+    - hosts:
+        - devaccount.biosimulations.dev
+        - devapi.biosimulations.dev
+        - devdispatch.biosimulations.dev
+        - devontology.biosimulations.dev
+        - devrun.biosimulations.dev
+      secretName: biosimulations-ingress-certificate
+
+  rules:
+    - host: devaccount.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: account-api
+              servicePort: 80
+
+    - host: devapi.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: platform-api
+              servicePort: 80
+    - host: devdispatch.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: dispatch-api
+              servicePort: 80
+    - host: devrun.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: run-api
+              servicePort: 80
+    - host: devontology.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: ontology-api
+              servicePort: 80
