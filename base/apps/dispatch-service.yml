@@ -29,7 +29,7 @@ spec:
             path: /projects/CRBM/biosimulations
       containers:
         - name: dispatch-service
-          image: "biosimulations/dispatch-service"
+          image: "ghcr.io/biosimulations/dispatch-service"
           imagePullPolicy: "Always"
           volumeMounts:
             - mountPath: /app/secret
