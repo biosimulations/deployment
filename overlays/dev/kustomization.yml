@@ -25,3 +25,5 @@ images:
     name: ghcr.io/biosimulations/platform-api
 
 #Use the development version of the secrets
+resources:
+  - ../../secrets/dev

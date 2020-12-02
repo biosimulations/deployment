@@ -1,33 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-secretGenerator:
-  - name: platform-api-secrets
-    namespace: default
-    files:
-      - config/platform-api/secret.env
-  - name: account-api-secrets
-    namespace: default
-    files:
-      - config/account-api/secret.env
-  - name: dispatch-api-secrets
-    namespace: default
-    files:
-      - config/dispatch-api/secret.env
-  - name: dispatch-service-secrets
-    namespace: default
-    files:
-      - config/dispatch-service/secret.env
-  - name: simulators-api-secrets
-    namespace: default
-    files:
-      - config/simulators-api/secret.env
-  - name: run-api-secrets
-    namespace: default
-    files:
-      - config/run-api/secret.env
-      
-
 resources:
 - apps/account-api.yml
 - apps/dispatch-api.yml
@@ -35,3 +8,6 @@ resources:
 - apps/ontology-api.yml
 - apps/platform-api.yml
 - apps/simulators-api.yml
+- resources/mongo.yml
+- resources/redis.yml
+- resources/nats.yml
