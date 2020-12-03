@@ -5,28 +5,28 @@ bases:
 
 # Change namespace, labels, and name to dev
 commonLabels:
-  environment: dev
-namespace: dev
-namePrefix: dev-
+  environment: prod
+namespace: prod
+namePrefix: prod-
 
 #Change the tag on the images
 images:
-  - newTag: dev
+  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
     name: ghcr.io/biosimulations/account-api
-  - newTag: dev
+  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
     name: ghcr.io/biosimulations/dispatch-api
-  - newTag: dev
+  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
     name: ghcr.io/biosimulations/dispatch-service
-  - newTag: dev
+  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
     name: ghcr.io/biosimulations/ontology-api
-  - newTag: dev
+  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
     name: ghcr.io/biosimulations/simulators-api
-  - newTag: dev
+  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
     name: ghcr.io/biosimulations/platform-api
 
 #Use the development version of the secrets and ingress
 resources:
-  - dev.yml
+  - prod.yml
+  - ../../secrets/prod
   - biosimulations-ingress.yml
   - biosimulators-ingress.yml
-  - ../../secrets/dev
