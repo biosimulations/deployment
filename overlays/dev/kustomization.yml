@@ -24,6 +24,7 @@ images:
   - newTag: dev
     name: ghcr.io/biosimulations/platform-api
 
-#Use the development version of the secrets
+#Use the development version of the secrets and ingress
 resources:
+  - biosimulations-ingress.yml
   - ../../secrets/dev
