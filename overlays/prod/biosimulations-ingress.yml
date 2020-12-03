@@ -3,21 +3,21 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   name: ingress
   namespace: default
 spec:
   tls:
     - hosts:
-        - account.biosimulations.org
+        - account.api.biosimulations.org
         - api.biosimulations.org
-        - dispatch.biosimulations.org
-        - ontology.biosimulations.org
-        - api.run.biosimulations.org
+        - run.api.biosimulations.org
+        - ontology.api.biosimulations.org
+
       secretName: biosimulations-ingress-certificate
 
   rules:
-    - host: account.biosimulations.org
+    - host: account.api.biosimulations.org
       http:
         paths:
           - backend:
@@ -30,19 +30,14 @@ spec:
           - backend:
               serviceName: platform-api
               servicePort: 80
-    - host: dispatch.biosimulations.org
+    - host: run.api.biosimulations.org
       http:
         paths:
           - backend:
               serviceName: dispatch-api
               servicePort: 80
-    - host: run.biosimulations.org
-      http:
-        paths:
-          - backend:
-              serviceName: run-api
-              servicePort: 80
-    - host: ontology.biosimulations.org
+              
+    - host: ontology.api.biosimulations.org
       http:
         paths:
           - backend:
