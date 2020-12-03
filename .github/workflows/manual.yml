@@ -1,0 +1,30 @@
+name: Update Deployment Image
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      overlay:
+        description: The environment to update
+        default: 'dev'
+        required: true
+      tag:
+        description: The tag to deploy
+        default: 'dev'
+        required: true
+      rollout:
+        description: The name of the app to rollout restart, all, or none
+        required: false
+        default: none
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  updateConfig:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - name: Checkout Repository
+      uses: actions/checkout@v2
