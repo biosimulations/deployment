@@ -10,17 +10,17 @@ namePrefix: dev-
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: testTag
+  newTag: dev
 - name: ghcr.io/biosimulations/dispatch-api
-  newTag: testTag
+  newTag: dev
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: testTag
+  newTag: dev
 - name: ghcr.io/biosimulations/ontology-api
-  newTag: testTag
+  newTag: dev
 - name: ghcr.io/biosimulations/platform-api
-  newTag: testTag
+  newTag: dev
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: testTag
+  newTag: dev
 
 #Use the development version of the secrets and ingress
 resources:
