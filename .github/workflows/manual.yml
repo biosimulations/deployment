@@ -25,10 +25,7 @@ jobs:
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Echo Inputs
-      run: |
-        echo ${{ github.event.inputs.overlay }}
-        echo ${{ github.event.inputs.tag }}
+      
     # Runs a single command using the runners shell
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -39,13 +36,14 @@ jobs:
         
     - name: Edit Kustomize
       run: |
-        cd overlays/${{ github.events.inputs.overlay }}
-        kustomize edit set image ghcr.io/biosimulations/account-api:${{ github.events.inputs.tag }}
-        kustomize edit set image ghcr.io/biosimulations/dispatch-api:${{ github.events.inputs.tag }}
-        kustomize edit set image ghcr.io/biosimulations/dispatch-service:${{ github.events.inputs.tag }}
-        kustomize edit set image ghcr.io/biosimulations/ontology-api:${{ github.events.inputs.tag }}
-        kustomize edit set image ghcr.io/biosimulations/simulators-api:${{ github.events.inputs.tag }}
-        kustomize edit set image ghcr.io/biosimulations/platform-api:${{ github.events.inputs.tag }}
+        DIR=overlays/
+        cd overlays/${{ github.event.inputs.overlay }}
+        kustomize edit set image ghcr.io/biosimulations/account-api:${{ github.event.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/dispatch-api:${{ github.event.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/dispatch-service:${{ github.event.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/ontology-api:${{ github.event.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/simulators-api:${{ github.event.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/platform-api:${{ github.event.inputs.tag }}
         
     - name: Commit Changes 
       uses: EndBug/add-and-commit@v5 # You can change this to use a specific version
@@ -53,7 +51,7 @@ jobs:
         author_name: Biosimulations-Daemon
         author_email: biosimulationsdaemon@gmail.com
         branch: master
-        message: 'Changed image tag of ${{ github.events.inputs.overlay }} to ${{ github.events.inputs.tag }}'
+        message: 'Changed image tag of ${{ github.event.inputs.overlay }} to ${{ github.event.inputs.tag }}'
         signoff: true
       env:
         # This is necessary in order to push a commit to the repo
