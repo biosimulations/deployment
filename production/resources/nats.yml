@@ -1,8 +1,0 @@
-apiVersion: nats.io/v1alpha2
-kind: NatsCluster
-namespace: default
-metadata:
-  name: nats-cluster
-spec:
-  size: 3
-  version: "2.1.7"
