@@ -1,7 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-bases:
-- ../../base
 
 # Change namespace, labels, and name to dev
 commonLabels:
@@ -11,22 +9,23 @@ namePrefix: prod-
 
 #Change the tag on the images
 images:
-  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
-    name: ghcr.io/biosimulations/account-api
-  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
-    name: ghcr.io/biosimulations/dispatch-api
-  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
-    name: ghcr.io/biosimulations/dispatch-service
-  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
-    name: ghcr.io/biosimulations/ontology-api
-  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
-    name: ghcr.io/biosimulations/simulators-api
-  - newTag: e8d66a8343545a8f7e66d78f595c711debea3823
-    name: ghcr.io/biosimulations/platform-api
+- name: ghcr.io/biosimulations/account-api
+  newTag: c6e8afb3e107650c9ae2ea0c0ee35ef4e102900a
+- name: ghcr.io/biosimulations/dispatch-api
+  newTag: c6e8afb3e107650c9ae2ea0c0ee35ef4e102900a
+- name: ghcr.io/biosimulations/dispatch-service
+  newTag: c6e8afb3e107650c9ae2ea0c0ee35ef4e102900a
+- name: ghcr.io/biosimulations/ontology-api
+  newTag: c6e8afb3e107650c9ae2ea0c0ee35ef4e102900a
+- name: ghcr.io/biosimulations/platform-api
+  newTag: c6e8afb3e107650c9ae2ea0c0ee35ef4e102900a
+- name: ghcr.io/biosimulations/simulators-api
+  newTag: c6e8afb3e107650c9ae2ea0c0ee35ef4e102900a
 
 #Use the development version of the secrets and ingress
 resources:
-  - prod.yml
-  - ../../secrets/prod
-  - biosimulations-ingress.yml
-  - biosimulators-ingress.yml
+- prod.yml
+- ../../secrets/prod
+- biosimulations-ingress.yml
+- biosimulators-ingress.yml
+- ../../base
