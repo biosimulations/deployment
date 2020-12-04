@@ -1,7 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-bases:
-- ../../base
 
 # Change namespace, labels, and name to dev
 commonLabels:
@@ -11,22 +9,23 @@ namePrefix: dev-
 
 #Change the tag on the images
 images:
-  - newTag: dev
-    name: ghcr.io/biosimulations/account-api
-  - newTag: dev
-    name: ghcr.io/biosimulations/dispatch-api
-  - newTag: dev
-    name: ghcr.io/biosimulations/dispatch-service
-  - newTag: dev
-    name: ghcr.io/biosimulations/ontology-api
-  - newTag: dev
-    name: ghcr.io/biosimulations/simulators-api
-  - newTag: dev
-    name: ghcr.io/biosimulations/platform-api
+- name: ghcr.io/biosimulations/account-api
+  newTag: testTag
+- name: ghcr.io/biosimulations/dispatch-api
+  newTag: testTag
+- name: ghcr.io/biosimulations/dispatch-service
+  newTag: testTag
+- name: ghcr.io/biosimulations/ontology-api
+  newTag: testTag
+- name: ghcr.io/biosimulations/platform-api
+  newTag: testTag
+- name: ghcr.io/biosimulations/simulators-api
+  newTag: testTag
 
 #Use the development version of the secrets and ingress
 resources:
-  - dev.yml
-  - biosimulations-ingress.yml
-  - biosimulators-ingress.yml
-  - ../../secrets/dev
+- dev.yml
+- biosimulations-ingress.yml
+- biosimulators-ingress.yml
+- ../../secrets/dev
+- ../../base
