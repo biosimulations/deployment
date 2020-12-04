@@ -34,8 +34,8 @@ jobs:
         curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
         
     - name: Edit Kustomize
-      working-directory: overlays/${{github.events.inputs.overlay}} 
       run: |
+        cd overlays/${{github.events.inputs.overlay}}
         kustomize edit set image ghcr.io/biosimulations/account-api:${{github.events.inputs.tag}}
         kustomize edit set image ghcr.io/biosimulations/dispatch-api:${{github.events.inputs.tag}}
         kustomize edit set image ghcr.io/biosimulations/dispatch-service:${{github.events.inputs.tag}}
