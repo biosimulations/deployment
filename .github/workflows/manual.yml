@@ -35,13 +35,13 @@ jobs:
         
     - name: Edit Kustomize
       run: |
-        cd overlays/${{github.events.inputs.overlay}}
-        kustomize edit set image ghcr.io/biosimulations/account-api:${{github.events.inputs.tag}}
-        kustomize edit set image ghcr.io/biosimulations/dispatch-api:${{github.events.inputs.tag}}
-        kustomize edit set image ghcr.io/biosimulations/dispatch-service:${{github.events.inputs.tag}}
-        kustomize edit set image ghcr.io/biosimulations/ontology-api:${{github.events.inputs.tag}}
-        kustomize edit set image ghcr.io/biosimulations/simulators-api:${{github.events.inputs.tag}}
-        kustomize edit set image ghcr.io/biosimulations/platform-api:${{github.events.inputs.tag}}
+        cd overlays/${{ github.events.inputs.overlay }}
+        kustomize edit set image ghcr.io/biosimulations/account-api:${{ github.events.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/dispatch-api:${{ github.events.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/dispatch-service:${{ github.events.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/ontology-api:${{ github.events.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/simulators-api:${{ github.events.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/platform-api:${{ github.events.inputs.tag }}
         
     - name: Commit Changes 
       uses: EndBug/add-and-commit@v5 # You can change this to use a specific version
@@ -49,7 +49,7 @@ jobs:
         author_name: Biosimulations-Daemon
         author_email: biosimulationsdaemon@gmail.com
         branch: master
-        message: 'Changed image tag of ${{github.events.inputs.overlay}} to ${{github.events.inputs.tag}}'
+        message: 'Changed image tag of ${{ github.events.inputs.overlay }} to ${{ github.events.inputs.tag }}'
         signoff: true
       env:
         # This is necessary in order to push a commit to the repo
