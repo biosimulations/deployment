@@ -26,6 +26,10 @@ spec:
     - host: api.biosimulations.dev
       http:
         paths:
+          - path: /run
+            backend: 
+              serviceName: dispatch-api
+              servicePort: 80
           - backend:
               serviceName: platform-api
               servicePort: 80
