@@ -26,7 +26,7 @@ spec:
     - host: api.biosimulations.dev
       http:
         paths:
-          - path: /run
+          - path: /runapi
             backend: 
               serviceName: dispatch-api
               servicePort: 80
@@ -39,7 +39,12 @@ spec:
           - backend:
               serviceName: dispatch-api
               servicePort: 80
-
+    - host: run.api.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: dispatch-api
+              servicePort: 80
     - host: ontology.biosimulations.dev
       http:
         paths:
