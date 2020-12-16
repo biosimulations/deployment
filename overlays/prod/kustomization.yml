@@ -5,7 +5,7 @@ kind: Kustomization
 commonLabels:
   environment: prod
 namespace: prod
-namePrefix: prod-
+
 
 #Change the tag on the images
 images:
@@ -22,7 +22,7 @@ images:
 - name: ghcr.io/biosimulations/simulators-api
   newTag: c6e8afb3e107650c9ae2ea0c0ee35ef4e102900a
 
-#Use the development version of the secrets and ingress
+#Use the prod version of the secrets and ingress
 resources:
 - prod.yml
 - ../../secrets/prod
