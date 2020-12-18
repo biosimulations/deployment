@@ -1,4 +1,4 @@
-name: Update Deployment Image
+name: Deploy
 on:
   workflow_dispatch:
     # Inputs the workflow accepts.
