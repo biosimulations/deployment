@@ -10,17 +10,17 @@ namespace: prod
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: dev
+  newTag: 465577ced01cc0a13351b4fd67652d398e16c521
 - name: ghcr.io/biosimulations/dispatch-api
-  newTag: dev
+  newTag: 465577ced01cc0a13351b4fd67652d398e16c521
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: dev
+  newTag: 465577ced01cc0a13351b4fd67652d398e16c521
 - name: ghcr.io/biosimulations/ontology-api
-  newTag: dev
+  newTag: 465577ced01cc0a13351b4fd67652d398e16c521
 - name: ghcr.io/biosimulations/platform-api
-  newTag: dev
+  newTag: 465577ced01cc0a13351b4fd67652d398e16c521
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: dev
+  newTag: 465577ced01cc0a13351b4fd67652d398e16c521
 
 #Use the prod version of the secrets and ingress
 resources:
