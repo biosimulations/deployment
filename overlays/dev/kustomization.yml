@@ -21,7 +21,8 @@ images:
   newTag: b2f8e247c4bce665370c9504aa2cedd30fcff1de
 - name: ghcr.io/biosimulations/simulators-api
   newTag: b2f8e247c4bce665370c9504aa2cedd30fcff1de
-
+- name: ghcr.io/biosimulations/mail-service
+  newTag: b2f8e247c4bce665370c9504aa2cedd30fcff1de
 #Use the development version of the secrets and ingress
 resources:
 - dev.yml
