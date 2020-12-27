@@ -10,7 +10,7 @@ spec:
   tls:
     - hosts:
         - api.biosimulators.dev
-      secretName: biosimulators-certificate
+      secretName: biosimulators-dev-certificate
   rules:
     - host: api.biosimulators.dev
       http:
