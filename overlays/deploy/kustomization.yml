@@ -27,6 +27,7 @@ images:
 resources:
 - prod.yml
 - ../../secrets/prod
+- ../../config/prod
 - biosimulations-ingress.yml
 - biosimulators-ingress.yml
 - ../../base
