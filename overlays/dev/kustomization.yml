@@ -16,7 +16,7 @@ images:
 - name: ghcr.io/biosimulations/dispatch-service
   newTag: a093597c51c1eef2d02d698a4c15b83da4695adc
 - name: ghcr.io/biosimulations/mail-service
-  newTag: a093597c51c1eef2d02d698a4c15b83da4695adc
+  newTag: dev
 - name: ghcr.io/biosimulations/ontology-api
   newTag: a093597c51c1eef2d02d698a4c15b83da4695adc
 - name: ghcr.io/biosimulations/platform-api
