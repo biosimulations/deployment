@@ -29,4 +29,5 @@ resources:
 - biosimulations-ingress.yml
 - biosimulators-ingress.yml
 - ../../secrets/dev
+- ../../config/dev
 - ../../base

@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+configMapGenerator:
+  - name: platform-api-config
+    namespace: default
+    files:
+      - platform-api/config.env
+  - name: account-api-config
+    namespace: default
+    files:
+      - account-api/config.env
+  - name: dispatch-api-config
+    namespace: default
+    files:
+      - dispatch-api/config.env
+  - name: dispatch-service-config
+    namespace: default
+    files:
+      - dispatch-service/config.env
+  - name: simulators-api-config
+    namespace: default
+    files:
+      - simulators-api/config.env
+  - name: mail-service-config
+    namespace: default
+    files:
+      - mail-service/config.env
