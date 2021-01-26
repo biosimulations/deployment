@@ -10,19 +10,19 @@ namePrefix: dev-
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: ec98f9f75206cc4a0145df543c567e6657c84237
+  newTag: 9ecec34968c2dd0477b0376955cafa3512bc4a90
 - name: ghcr.io/biosimulations/dispatch-api
-  newTag: ec98f9f75206cc4a0145df543c567e6657c84237
+  newTag: 9ecec34968c2dd0477b0376955cafa3512bc4a90
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: ec98f9f75206cc4a0145df543c567e6657c84237
+  newTag: 9ecec34968c2dd0477b0376955cafa3512bc4a90
 - name: ghcr.io/biosimulations/mail-service
-  newTag: ec98f9f75206cc4a0145df543c567e6657c84237
+  newTag: 9ecec34968c2dd0477b0376955cafa3512bc4a90
 - name: ghcr.io/biosimulations/ontology-api
-  newTag: ec98f9f75206cc4a0145df543c567e6657c84237
+  newTag: 9ecec34968c2dd0477b0376955cafa3512bc4a90
 - name: ghcr.io/biosimulations/platform-api
-  newTag: ec98f9f75206cc4a0145df543c567e6657c84237
+  newTag: 9ecec34968c2dd0477b0376955cafa3512bc4a90
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: ec98f9f75206cc4a0145df543c567e6657c84237
+  newTag: 9ecec34968c2dd0477b0376955cafa3512bc4a90
 #Use the development version of the secrets and ingress
 resources:
 - dev.yml
