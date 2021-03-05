@@ -7,7 +7,6 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 data:
-  ui.cssurl:
   # Argo CD's externally facing base URL (optional). Required when configuring SSO
   url: https://deployment.api.biosimulations.org
 
