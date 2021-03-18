@@ -11,8 +11,6 @@ spec:
     - hosts:
         - account.biosimulations.dev
         - api.biosimulations.dev
-        - dispatch.biosimulations.dev
-        - ontology.biosimulations.dev
         - run.api.biosimulations.dev
         - ontology.api.biosimulations.dev
         
@@ -33,13 +31,6 @@ spec:
               serviceName: platform-api
               servicePort: 80
 
-
-    - host: dispatch.biosimulations.dev
-      http:
-        paths:
-          - backend:
-              serviceName: dispatch-api
-              servicePort: 80
 
     - host: run.api.biosimulations.dev
       http:
