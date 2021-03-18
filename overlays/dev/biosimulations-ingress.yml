@@ -14,7 +14,7 @@ spec:
         - run.api.biosimulations.dev
         - ontology.api.biosimulations.dev
         
-      secretName: biosimulations-ingress-certificate
+      secretName: ingress-certificate
 
   rules:
     - host: account.biosimulations.dev
