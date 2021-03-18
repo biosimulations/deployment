@@ -9,15 +9,15 @@ metadata:
 spec:
   tls:
     - hosts:
-        - account.biosimulations.dev
         - api.biosimulations.dev
         - run.api.biosimulations.dev
         - ontology.api.biosimulations.dev
+        - account.api.biosimulations.dev
         
       secretName: ingress-certificate
 
   rules:
-    - host: account.biosimulations.dev
+    - host: account.api.biosimulations.dev
       http:
         paths:
           - backend:
