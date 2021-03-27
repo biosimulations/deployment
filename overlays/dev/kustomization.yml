@@ -10,19 +10,19 @@ namePrefix: dev-
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: d33c6ee55de655913e2a4536b63d2587e39e4f9e
+  newTag: 44ca8e819eaba4541700ff9e4369fc6df487cbd0
 - name: ghcr.io/biosimulations/dispatch-api
-  newTag: d33c6ee55de655913e2a4536b63d2587e39e4f9e
+  newTag: 44ca8e819eaba4541700ff9e4369fc6df487cbd0
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: d33c6ee55de655913e2a4536b63d2587e39e4f9e
+  newTag: 44ca8e819eaba4541700ff9e4369fc6df487cbd0
 - name: ghcr.io/biosimulations/mail-service
-  newTag: d33c6ee55de655913e2a4536b63d2587e39e4f9e
+  newTag: 44ca8e819eaba4541700ff9e4369fc6df487cbd0
 - name: ghcr.io/biosimulations/ontology-api
-  newTag: d33c6ee55de655913e2a4536b63d2587e39e4f9e
+  newTag: 44ca8e819eaba4541700ff9e4369fc6df487cbd0
 - name: ghcr.io/biosimulations/platform-api
-  newTag: d33c6ee55de655913e2a4536b63d2587e39e4f9e
+  newTag: 44ca8e819eaba4541700ff9e4369fc6df487cbd0
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: d33c6ee55de655913e2a4536b63d2587e39e4f9e
+  newTag: 44ca8e819eaba4541700ff9e4369fc6df487cbd0
 #Use the development version of the secrets and ingress
 resources:
 - dev.yml
