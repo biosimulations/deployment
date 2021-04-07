@@ -2,13 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- apps/account-api.yml
-- apps/dispatch-api.yml
-- apps/dispatch-service.yml
-- apps/ontology-api.yml
-- apps/platform-api.yml
-- apps/simulators-api.yml
-- apps/mail-service.yml
-- resources/mongo.yml
-- resources/redis.yml
-- resources/nats.yml
+  - apps/account-api.yml
+  - apps/dispatch-api.yml
+  - apps/dispatch-service.yml
+  - apps/ontology-api.yml
+  - apps/platform-api.yml
+  - apps/simulators-api.yml
+  - apps/mail-service.yml
+  - app/combine-service.yml
+  - resources/mongo.yml
+  - resources/redis.yml
+  - resources/nats.yml
