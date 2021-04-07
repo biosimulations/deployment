@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: combine-service
+  name: combine-service
+spec:
+  selector:
+    matchLabels:
+      app: combine-service
+    replicas: 3
+  template:
+    metadata:
+      labels:
+        app: combine-service
+    spec:
+      containers:
+        - name: combine-service
+          image: ghcr.io/biosimulations/combine-service
+          imagePullPolicy: "Always"
+          volumeMounts:
+            - mountPath: "/app/secret"
+              name: secret
+              readOnly: true
+          ports:
+            - containerPort: 3333
+      volumes:
+        - name: secret
+          secret:
+            secretName: combine-service-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: combine-service
+  labels:
+    app: combine-service
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3333
+  selector:
+    app: combine-service
+  type: NodePort

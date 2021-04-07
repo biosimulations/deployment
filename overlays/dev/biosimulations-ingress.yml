@@ -9,11 +9,12 @@ metadata:
 spec:
   tls:
     - hosts:
+        - account.api.biosimulations.dev
         - api.biosimulations.dev
         - run.api.biosimulations.dev
         - ontology.api.biosimulations.dev
-        - account.api.biosimulations.dev
-        
+        - combine.api.biosimulations.dev
+
       secretName: ingress-certificate
 
   rules:
@@ -31,7 +32,6 @@ spec:
               serviceName: platform-api
               servicePort: 80
 
-
     - host: run.api.biosimulations.dev
       http:
         paths:
@@ -44,4 +44,11 @@ spec:
         paths:
           - backend:
               serviceName: ontology-api
+              servicePort: 80
+
+    - host: combine.api.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: combine-service
               servicePort: 80
