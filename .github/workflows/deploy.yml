@@ -11,10 +11,6 @@ on:
         description: The tag to deploy
         default: 'dev'
         required: true
-      rollout:
-        description: The name of the app to rollout restart, all, or none
-        required: false
-        default: none
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
