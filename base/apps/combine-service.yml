@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: combine-service
-    replicas: 3
+  replicas: 3
   template:
     metadata:
       labels:
