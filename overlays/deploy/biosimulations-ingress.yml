@@ -13,6 +13,7 @@ spec:
         - api.biosimulations.org
         - run.api.biosimulations.org
         - ontology.api.biosimulations.org
+        - combine.api.biosimulations.org
 
       secretName: biosimulations-ingress-certificate
 
@@ -36,10 +37,16 @@ spec:
           - backend:
               serviceName: dispatch-api
               servicePort: 80
-              
+
     - host: ontology.api.biosimulations.org
       http:
         paths:
           - backend:
               serviceName: ontology-api
+              servicePort: 80
+    - host: combine.api.biosimulations.org
+      http:
+        paths:
+          - backend:
+              serviceName: combine-service
               servicePort: 80
