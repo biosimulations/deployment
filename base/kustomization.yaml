@@ -9,7 +9,7 @@ resources:
   - apps/platform-api.yml
   - apps/simulators-api.yml
   - apps/mail-service.yml
-  - app/combine-service.yml
+  - apps/combine-service.yml
   - resources/mongo.yml
   - resources/redis.yml
   - resources/nats.yml
