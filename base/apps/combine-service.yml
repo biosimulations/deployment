@@ -27,10 +27,6 @@ spec:
               readOnly: true
           ports:
             - containerPort: 3333
-          resources:
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
       volumes:
         - name: secret
           secret:
