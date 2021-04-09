@@ -22,12 +22,22 @@ spec:
             - mountPath: "/app/secret"
               name: secret
               readOnly: true
+            - mountPath: "/app/config"
+              name: config
+              readOnly: true
           ports:
             - containerPort: 3333
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
       volumes:
         - name: secret
           secret:
             secretName: combine-service-secrets
+        - name: config
+          configMap:
+            name: combine-service-config
 ---
 apiVersion: v1
 kind: Service
