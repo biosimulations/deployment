@@ -26,3 +26,8 @@ configMapGenerator:
     namespace: default
     files:
       - mail-service/config.env
+
+  - name: combine-service-config
+    namespace: default
+    files:
+      - combine-service/config.env
