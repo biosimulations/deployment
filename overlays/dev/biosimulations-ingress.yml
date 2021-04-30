@@ -16,6 +16,7 @@ spec:
         - run.api.biosimulations.dev
         - ontology.api.biosimulations.dev
         - combine.api.biosimulations.dev
+        - hsds.apu.biosimulations.dev
 
       secretName: ingress-certificate
 
