@@ -86,6 +86,16 @@ spec:
               value: "Welcome to HSDS!"
             - name: ABOUT
               value: "HSDS is a webservice for HDF data"
+          volumeMounts:
+            - name: accounts
+              mountPath: "/config/passwd.txt"
+              subPath: passwd.txt
+            - name: config
+              mountPath: "/config/config.yml"
+              subPath: config.yml
+            - name: override
+              mountPath: "/config/override.yml"
+              subPath: override.yml
         - name: dn
           image: hdfgroup/hsds
           lifecycle:
@@ -124,3 +134,23 @@ spec:
               value: DEBUG
             - name: HSDS_ENDPOINT
               value: https://hsds.api.biosimulations.dev
+          volumeMounts:
+            - name: accounts
+              mountPath: "/config/passwd.txt"
+              subPath: passwd.txt
+            - name: config
+              mountPath: "/config/config.yml"
+              subPath: config.yml
+            - name: override
+              mountPath: "/config/override.yml"
+              subPath: override.yml
+      volumes:
+        - name: accounts
+          secret:
+            secretName: user-password
+        - name: config
+          configMap:
+            name: hsds-config
+        - name: override
+          configMap:
+            name: hsds-override
