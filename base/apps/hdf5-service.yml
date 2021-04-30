@@ -1,3 +1,38 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pods-list
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["list"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pods-list
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: pods-list
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hsds
+  labels:
+    app: hsds
+spec:
+  selector:
+    app: hsds
+  ports:
+    - protocol: "TCP"
+      port: 5101
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,7 +51,7 @@ spec:
     spec:
       containers:
         - name: sn
-          image: "hsds"
+          image: hdfgroup/hsds
           imagePullPolicy: Always
           ports:
             - containerPort: 5101
@@ -50,7 +85,7 @@ spec:
             - name: ABOUT
               value: "HSDS is a webservice for HDF data"
         - name: dn
-          image: "hsds"
+          image: hdfgroup/hsds
           lifecycle:
             preStop:
               exec:
