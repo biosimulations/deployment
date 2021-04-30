@@ -54,3 +54,9 @@ spec:
           - backend:
               serviceName: combine-service
               servicePort: 80
+    - host: hsds.api.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: hsds
+              servicePort: 80
