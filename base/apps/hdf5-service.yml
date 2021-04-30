@@ -31,7 +31,9 @@ spec:
     app: hsds
   ports:
     - protocol: "TCP"
-      port: 5101
+      targetPort: 5101
+      port: 80
+      name: hsds
 ---
 apiVersion: apps/v1
 kind: Deployment
