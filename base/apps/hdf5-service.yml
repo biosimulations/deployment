@@ -137,7 +137,6 @@ spec:
           volumeMounts:
             - name: accounts
               mountPath: "/config/passwd.txt"
-              subPath: user-password
             - name: config
               mountPath: "/config/config.yml"
               subPath: config.yml
