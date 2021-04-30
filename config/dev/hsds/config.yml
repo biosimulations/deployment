@@ -6,7 +6,7 @@ aws_access_key_id: null # Replace with access key for account or use aws_iam_rol
 aws_secret_access_key: null # Replace with secret key for account
 aws_iam_role: null # For EC2 using IAM roles
 aws_region: us-east-1
-hsds_endpoint: http://hsds.hdf.test # used for hateos links in response
+hsds_endpoint: https://hsds.api.biosimulations.dev # used for hateos links in response
 head_endpoint: null # optionally used for nodes to register
 aws_s3_gateway: null # use endpoint for the region HSDS is running in, e.g. 'https://s3.amazonaws.com' for us-east-1
 aws_dynamodb_gateway: null # use for dynamodb endpint, e.g. 'https://dynamodb.us-east-1.amazonaws.com',
@@ -59,9 +59,9 @@ data_cache_max_concurrent_read: 16 # maximum number of inflight storage read req
 timeout: 30 # http timeout - 30 sec
 password_file: "/config/password/passwd.txt" # filepath to a text file of username/passwords. set to '' for no-auth access
 groups_file: /config/groups.txt # filepath to text file defining user groups
-server_name: Highly Scalable Data Service (HSDS) # this gets returned in the about request
-greeting: Welcome to HSDS!
-about: HSDS is a webservice for HDF data
+server_name: BioSimulations Data Service # this gets returned in the about request
+greeting: Thank you for using BioSimulations!
+about: The BioSimulations Data Service uses HSDS to allow for efficient and performant operations on simulation data.
 top_level_domains: [] # list of possible top-level domains, example: ["/home", "/shared"], if empty all top-level folders in default bucket will be returned
 cors_domain: "*" # domains allowed for CORS
 admin_user: admin # user with admin privileges
