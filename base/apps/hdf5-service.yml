@@ -60,8 +60,6 @@ spec:
           env:
             - name: NODE_TYPE
               value: sn
-            - name: AWS_S3_GATEWAY
-              value: http://s3low.scality.uchc.edu
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
@@ -114,8 +112,6 @@ spec:
           env:
             - name: NODE_TYPE
               value: dn
-            - name: AWS_S3_GATEWAY
-              value: https://s3low.scality.uchc.edu
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
