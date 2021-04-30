@@ -136,7 +136,8 @@ spec:
               value: https://hsds.api.biosimulations.dev
           volumeMounts:
             - name: accounts
-              mountPath: "/config/passwd.txt"
+              mountPath: "/config/password/passwd.txt"
+              subPath: "passwd.txt"
             - name: config
               mountPath: "/config/config.yml"
               subPath: config.yml
