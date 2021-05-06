@@ -76,14 +76,6 @@ spec:
               value: biosimdev
             - name: LOG_LEVEL
               value: DEBUG
-            - name: SERVER_NAME
-              value: "Highly Scalable Data Service (HSDS)"
-            - name: HSDS_ENDPOINT
-              value: https://hsds.api.biosimulations.dev
-            - name: GREETING
-              value: "Welcome to HSDS!"
-            - name: ABOUT
-              value: "HSDS is a webservice for HDF data"
           volumeMounts:
             - name: accounts
               mountPath: "/config/passwd.txt"
@@ -122,14 +114,7 @@ spec:
                 secretKeyRef:
                   name: aws-auth-keys
                   key: aws_secret_access_key
-            - name: AWS_REGION
-              value: us-east-1
-            - name: BUCKET_NAME
-              value: biosimdev
-            - name: LOG_LEVEL
-              value: DEBUG
-            - name: HSDS_ENDPOINT
-              value: https://hsds.api.biosimulations.dev
+
           volumeMounts:
             - name: accounts
               mountPath: "/config/password/passwd.txt"
