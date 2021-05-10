@@ -31,3 +31,13 @@ configMapGenerator:
     namespace: default
     files:
       - combine-service/config.env
+
+  - name: hsds-config
+    namespace: default
+    files:
+      - hsds/config.yml
+
+  - name: hsds-override
+    namespace: default
+    files:
+      - hsds/override.yml
