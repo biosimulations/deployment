@@ -79,7 +79,7 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/proxy-body-size: "600m"
     nginx.org/client-max-body-size: "600m"
-  name: testIngress
+  name: test-ingress
 
 spec:
   tls:
