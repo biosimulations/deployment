@@ -85,7 +85,7 @@ spec:
   tls:
     - hosts:
         - test.api.biosimulations.dev
-      secretName: ingress-certificate
+      secretName: test-ingress-certificate
   rules:
     - host: test.api.biosimulations.dev
       http:
