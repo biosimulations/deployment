@@ -86,7 +86,7 @@ spec:
     - hosts:
         - test.api.biosimulations.dev
       secretName: ingress-certificate
-
+  rules:
     - host: test.api.biosimulations.dev
       http:
         paths:
