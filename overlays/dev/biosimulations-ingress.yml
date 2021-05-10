@@ -55,9 +55,41 @@ spec:
           - backend:
               serviceName: combine-service
               servicePort: 80
-    - host: hsds.api.biosimulations.dev
+
+    - host: data.biosimulations.dev
       http:
         paths:
           - backend:
               serviceName: hsds
               servicePort: 80
+
+    - host: "*.data.biosimulations.dev"
+      http:
+        paths:
+          - backend:
+              serviceName: hsds
+              servicePort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/proxy-body-size: "600m"
+    nginx.org/client-max-body-size: "600m"
+  name: testIngress
+
+spec:
+  tls:
+    - hosts:
+        - test.api.biosimulations.dev
+      secretName: ingress-certificate
+
+    - host: test.api.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: combine-api
+              servicePort: 80
+            path: /combine(/|$)(.*)
