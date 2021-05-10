@@ -75,8 +75,9 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: "600m"
     nginx.org/client-max-body-size: "600m"
   name: test-ingress
@@ -84,10 +85,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - test.api.biosimulations.dev
-      secretName: test-ingress-certificate
+        - test2.api.biosimulations.dev
+      secretName: test2-ingress-certificate
   rules:
-    - host: test.api.biosimulations.dev
+    - host: test2.api.biosimulations.dev
       http:
         paths:
           - backend:
