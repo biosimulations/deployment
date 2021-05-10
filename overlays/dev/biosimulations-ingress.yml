@@ -91,6 +91,6 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: combine-api
+              serviceName: combine-service
               servicePort: 80
             path: /combine(/|$)(.*)
