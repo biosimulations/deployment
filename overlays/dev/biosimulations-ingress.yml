@@ -18,7 +18,7 @@ spec:
         - combine.api.biosimulations.dev
         - data.biosimulations.dev
 
-      secretName: ingress-certificate
+      secretName: biosimulations-dev-ingress-certificate
 
   rules:
     - host: account.api.biosimulations.dev
