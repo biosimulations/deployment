@@ -89,3 +89,7 @@ spec:
               serviceName: combine-service
               servicePort: 80
             path: /combine(/|$)(.*)
+          - backend:
+              serviceName: combine-service
+              servicePort: 80
+            path: /ui
