@@ -9,27 +9,49 @@ namePrefix: dev-
 
 #Change the tag on the images
 images:
-- name: ghcr.io/biosimulations/account-api
-  newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
-- name: ghcr.io/biosimulations/combine-service
-  newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
-- name: ghcr.io/biosimulations/dispatch-api
-  newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
-- name: ghcr.io/biosimulations/dispatch-service
-  newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
-- name: ghcr.io/biosimulations/mail-service
-  newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
-- name: ghcr.io/biosimulations/ontology-api
-  newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
-- name: ghcr.io/biosimulations/platform-api
-  newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
-- name: ghcr.io/biosimulations/simulators-api
-  newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
+  - name: ghcr.io/biosimulations/account-api
+    newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
+  - name: ghcr.io/biosimulations/combine-service
+    newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
+  - name: ghcr.io/biosimulations/dispatch-api
+    newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
+  - name: ghcr.io/biosimulations/dispatch-service
+    newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
+  - name: ghcr.io/biosimulations/mail-service
+    newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
+  - name: ghcr.io/biosimulations/ontology-api
+    newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
+  - name: ghcr.io/biosimulations/platform-api
+    newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
+  - name: ghcr.io/biosimulations/simulators-api
+    newTag: c5cba26b5332c309bdb34455f08805df1f0ffb47
+
+#scale down dev deployment
+replicas:
+  - name: account-api
+    count: 2
+  - name: dispatch-api
+    count: 2
+  - name: dispatch-service
+    count: 2
+  - name: hsds-service
+    count: 1
+  - name: mail-service
+    count: 1
+  - name: ontology-api
+    count: 1
+  - name: platform-api
+    count: 1
+  - name: run-api
+    count: 1
+  - name: simulators-api
+    count: 1
+
 #Use the development version of the secrets and ingress
 resources:
-- dev.yml
-- biosimulations-ingress.yml
-- biosimulators-ingress.yml
-- ../../secrets/dev
-- ../../config/dev
-- ../../base
+  - dev.yml
+  - biosimulations-ingress.yml
+  - biosimulators-ingress.yml
+  - ../../secrets/dev
+  - ../../config/dev
+  - ../../base
