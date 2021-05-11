@@ -28,23 +28,21 @@ images:
 
 #scale down dev deployment
 replicas:
-  - name: dev-account-api
+  - name: account-api
     count: 1
-  - name: dev-dispatch-api
+  - name: dispatch-api
     count: 2
-  - name: dev-dispatch-service
+  - name: dispatch-service
     count: 2
-  - name: dev-hsds
+  - name: hsds
     count: 2
-  - name: dev-mail-service
+  - name: mail-service
     count: 1
-  - name: dev-ontology-api
+  - name: ontology-api
     count: 1
-  - name: dev-platform-api
+  - name: platform-api
     count: 1
-  - name: dev-run-api
-    count: 1
-  - name: dev-simulators-api
+  - name: simulators-api
     count: 1
 
 #Use the development version of the secrets and ingress
