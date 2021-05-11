@@ -6,7 +6,7 @@ aws_access_key_id: null # Replace with access key for account or use aws_iam_rol
 aws_secret_access_key: null # Replace with secret key for account
 aws_iam_role: null # For EC2 using IAM roles
 aws_region: null
-hsds_endpoint: https://hsds.api.biosimulations.dev # used for hateos links in response
+hsds_endpoint: https://data.biosimulations.dev # used for hateos links in response
 head_endpoint: null # optionally used for nodes to register
 aws_s3_gateway: http://s3low.scality.uchc.edu # use endpoint for the region HSDS is running in, e.g. 'https://s3.amazonaws.com' for us-east-1
 aws_dynamodb_gateway: null # use for dynamodb endpint, e.g. 'https://dynamodb.us-east-1.amazonaws.com',
@@ -72,7 +72,7 @@ openid_audience: null # OpenID audience. This is synonymous with azure_resource_
 openid_claims: unique_name,appid,roles # Comma seperated list of claims to resolve to usernames.
 chaos_die: 0 # if > 0, have nodes randomly die after n seconds (for testing)
 standalone_app: false # True when run as a single application
-blosc_nthreads: 2 # number of threads to use for blosc compression.  Set to 0 to have blosc auto-determine thread count
+blosc_nthreads: 0 # number of threads to use for blosc compression.  Set to 0 to have blosc auto-determine thread count
 http_compression: true # Use HTTP compression
 k8s_app_label: hsds # The app label for k8s deployments
 k8s_namespace: null # Specifies if a the client should be limited to a specific namespace. Useful for some RBAC configurations.
