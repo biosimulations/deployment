@@ -29,13 +29,13 @@ images:
 #scale down dev deployment
 replicas:
   - name: account-api
-    count: 2
+    count: 1
   - name: dispatch-api
     count: 2
   - name: dispatch-service
     count: 2
-  - name: hsds-service
-    count: 1
+  - name: hsds
+    count: 2
   - name: mail-service
     count: 1
   - name: ontology-api
