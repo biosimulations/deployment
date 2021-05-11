@@ -63,12 +63,6 @@ spec:
               serviceName: hsds
               servicePort: 80
 
-    - host: "*.data.biosimulations.dev"
-      http:
-        paths:
-          - backend:
-              serviceName: hsds
-              servicePort: 80
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
