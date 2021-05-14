@@ -6,7 +6,8 @@ spec:
   template:
     spec:
       containers:
-        - resources:
+        - name: dispatch-api
+          resources:
             requests:
               memory: "4Mi"
               cpu: "25m"
