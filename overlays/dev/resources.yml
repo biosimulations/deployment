@@ -1,4 +1,6 @@
 kind: Deployment
+metadata:
+  name: not-needed
 spec:
   template:
     spec:
