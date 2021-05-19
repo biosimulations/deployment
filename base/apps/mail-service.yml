@@ -30,5 +30,5 @@ spec:
           secret:
             secretName: mail-service-secrets
         - name: config
-          secret:
-            secretName: account-api-config
+          configMap:
+            name: mail-service-config

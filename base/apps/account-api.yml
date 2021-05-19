@@ -29,8 +29,8 @@ spec:
           secret:
             secretName: account-api-secrets
         - name: config
-          secret:
-            secretName: account-api-config
+          configMap:
+            name: account-api-config
 ---
 apiVersion: v1
 kind: Service
