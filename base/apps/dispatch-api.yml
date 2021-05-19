@@ -24,8 +24,8 @@ spec:
           secret:
             secretName: dispatch-api-secrets
         - name: config
-          secret:
-            secretName: dispatch-api-config
+          configMap:
+            name: dispatch-api-config
         - name: task-pv-storage
           nfs:
             server: uchc-app.bioscience-ct.net
