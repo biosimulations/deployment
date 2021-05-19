@@ -20,6 +20,9 @@ spec:
           image: ghcr.io/biosimulations/platform-api
           imagePullPolicy: "Always"
           volumeMounts:
+            - name: config
+              mountPath: "/app/config"
+              readOnly: true
             - mountPath: "/app/secret"
               name: secret
               readOnly: true
@@ -29,12 +32,15 @@ spec:
         - name: secret
           secret:
             secretName: platform-api-secrets
+        - name: config
+          secret:
+            secretName: platform-api-config
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: platform-api
-  
+
   labels:
     app: platform-api
 spec:

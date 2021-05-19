@@ -22,8 +22,8 @@ spec:
             - mountPath: "/app/secret"
               name: secret
               readOnly: true
-            - mountPath: "/app/config"
-              name: config
+            - name: config
+              mountPath: "/app/config"
               readOnly: true
           ports:
             - containerPort: 3333

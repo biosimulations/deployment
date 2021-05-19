@@ -23,6 +23,9 @@ spec:
         - name: secret
           secret:
             secretName: dispatch-api-secrets
+        - name: config
+          secret:
+            secretName: dispatch-api-config
         - name: task-pv-storage
           nfs:
             server: uchc-app.bioscience-ct.net
@@ -34,6 +37,9 @@ spec:
           ports:
             - containerPort: 3333
           volumeMounts:
+            - name: config
+              mountPath: "/app/config"
+              readOnly: true
             - mountPath: /app/secret
               name: secret
               readOnly: true
@@ -46,7 +52,7 @@ metadata:
   name: dispatch-api
   labels:
     app: dispatch-api
-  
+
 spec:
   type: NodePort
   ports:
