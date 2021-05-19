@@ -4,7 +4,7 @@ metadata:
   name: dispatch-service
   labels:
     app: dispatch-service
-  
+
 spec:
   selector:
     matchLabels:
@@ -23,6 +23,9 @@ spec:
         - name: secret
           secret:
             secretName: dispatch-service-secrets
+        - name: config
+          configMap:
+            name: dispatch-service-config
         - name: task-pv-storage
           nfs:
             server: uchc-app.bioscience-ct.net
@@ -32,6 +35,9 @@ spec:
           image: "ghcr.io/biosimulations/dispatch-service"
           imagePullPolicy: "Always"
           volumeMounts:
+            - name: config
+              mountPath: "/app/config"
+              readOnly: true
             - mountPath: /app/secret
               name: secret
               readOnly: true

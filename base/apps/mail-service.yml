@@ -19,6 +19,9 @@ spec:
           image: ghcr.io/biosimulations/mail-service
           imagePullPolicy: "Always"
           volumeMounts:
+            - name: config
+              mountPath: "/app/config"
+              readOnly: true
             - mountPath: "/app/secret"
               name: secret
               readOnly: true
@@ -26,3 +29,6 @@ spec:
         - name: secret
           secret:
             secretName: mail-service-secrets
+        - name: config
+          secret:
+            secretName: account-api-config
