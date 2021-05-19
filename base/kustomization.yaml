@@ -12,5 +12,5 @@ resources:
   - apps/combine-service.yml
   - apps/hsds-service.yml
   - resources/mongo.yml
-  - resources/redis.yml
+  - resources/redis-ha.yml
   - resources/nats.yml
