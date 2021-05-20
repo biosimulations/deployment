@@ -8,50 +8,50 @@ namespace: dev
 
 #Change the tag on the images
 images:
-  - name: ghcr.io/biosimulations/account-api
-    newTag: 7264f87a60c994a655fd80536c33eb234efb5d2b
-  - name: ghcr.io/biosimulations/combine-service
-    newTag: 7264f87a60c994a655fd80536c33eb234efb5d2b
-  - name: ghcr.io/biosimulations/dispatch-api
-    newTag: 7264f87a60c994a655fd80536c33eb234efb5d2b
-  - name: ghcr.io/biosimulations/dispatch-service
-    newTag: 7264f87a60c994a655fd80536c33eb234efb5d2b
-  - name: ghcr.io/biosimulations/mail-service
-    newTag: 7264f87a60c994a655fd80536c33eb234efb5d2b
-  - name: ghcr.io/biosimulations/ontology-api
-    newTag: 7264f87a60c994a655fd80536c33eb234efb5d2b
-  - name: ghcr.io/biosimulations/platform-api
-    newTag: 7264f87a60c994a655fd80536c33eb234efb5d2b
-  - name: ghcr.io/biosimulations/simulators-api
-    newTag: 7264f87a60c994a655fd80536c33eb234efb5d2b
+- name: ghcr.io/biosimulations/account-api
+  newTag: bb1896a6256ff876662f289f2a31f4d68f77455c
+- name: ghcr.io/biosimulations/combine-service
+  newTag: bb1896a6256ff876662f289f2a31f4d68f77455c
+- name: ghcr.io/biosimulations/dispatch-api
+  newTag: bb1896a6256ff876662f289f2a31f4d68f77455c
+- name: ghcr.io/biosimulations/dispatch-service
+  newTag: bb1896a6256ff876662f289f2a31f4d68f77455c
+- name: ghcr.io/biosimulations/mail-service
+  newTag: bb1896a6256ff876662f289f2a31f4d68f77455c
+- name: ghcr.io/biosimulations/ontology-api
+  newTag: bb1896a6256ff876662f289f2a31f4d68f77455c
+- name: ghcr.io/biosimulations/platform-api
+  newTag: bb1896a6256ff876662f289f2a31f4d68f77455c
+- name: ghcr.io/biosimulations/simulators-api
+  newTag: bb1896a6256ff876662f289f2a31f4d68f77455c
 
 #scale down dev deployment
 replicas:
-  - count: 1
-    name: account-api
-  - count: 2
-    name: dispatch-api
-  - count: 2
-    name: dispatch-service
-  - count: 2
-    name: hsds
-  - count: 2
-    name: mail-service
-  - count: 1
-    name: ontology-api
-  - count: 1
-    name: platform-api
-  - count: 1
-    name: simulators-api
+- count: 1
+  name: account-api
+- count: 2
+  name: dispatch-api
+- count: 2
+  name: dispatch-service
+- count: 2
+  name: hsds
+- count: 2
+  name: mail-service
+- count: 1
+  name: ontology-api
+- count: 1
+  name: platform-api
+- count: 1
+  name: simulators-api
 
 #Use the development version of the secrets and ingress
 resources:
-  - dev.yml
-  - biosimulations-ingress.yml
-  - biosimulators-ingress.yml
-  - ../../secrets/dev
-  - ../../config/dev
-  - ../../base
+- dev.yml
+- biosimulations-ingress.yml
+- biosimulators-ingress.yml
+- ../../secrets/dev
+- ../../config/dev
+- ../../base
 
 patchesStrategicMerge:
-  - resources.yml
+- resources.yml
