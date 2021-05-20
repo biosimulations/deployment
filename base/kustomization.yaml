@@ -14,5 +14,5 @@ resources:
   - resources/mongo.yml
   - resources/redis-ha.yml
   - resources/nats.yml
-  - resources/prometheus
-  - resources/prometheus
+  - resources/prometheus/
+  - resources/grafana/
