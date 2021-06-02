@@ -16,6 +16,7 @@ spec:
         - run.api.biosimulations.org
         - ontology.api.biosimulations.org
         - combine.api.biosimulations.org
+        - data.biosimulations.org
 
       secretName: biosimulations-ingress-certificate
 
@@ -51,4 +52,11 @@ spec:
         paths:
           - backend:
               serviceName: combine-service
+              servicePort: 80
+              
+    - host: data.biosimulations.dev
+      http:
+        paths:
+          - backend:
+              serviceName: hsds
               servicePort: 80
