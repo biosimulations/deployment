@@ -53,8 +53,7 @@ spec:
           - backend:
               serviceName: combine-service
               servicePort: 80
-              
-    - host: data.biosimulations.dev
+    - host: data.biosimulations.org
       http:
         paths:
           - backend:
