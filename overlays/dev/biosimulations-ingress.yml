@@ -6,8 +6,6 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/proxy-body-size: "600m"
     nginx.org/client-max-body-size: "600m"
-    prometheus.io/scrape: "true"
-    prometheus.io/port: "9113"
   name: ingress
 
 spec:
