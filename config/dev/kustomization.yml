@@ -3,15 +3,12 @@ kind: Kustomization
 
 configMapGenerator:
   - name: shared-config
-    namespace: default
     files:
       - shared.env
   - name: platform-api-config
-    namespace: default
     files:
       - platform-api/config.env
   - name: account-api-config
-    namespace: default
     files:
       - account-api/config.env
   - name: dispatch-api-config
@@ -19,28 +16,23 @@ configMapGenerator:
     files:
       - dispatch-api/config.env
   - name: dispatch-service-config
-    namespace: default
     files:
       - dispatch-service/config.env
   - name: simulators-api-config
-    namespace: default
     files:
       - simulators-api/config.env
   - name: mail-service-config
-    namespace: default
     files:
       - mail-service/config.env
 
   - name: combine-service-config
-    namespace: default
     files:
       - combine-service/config.env
+
   - name: hsds-config
-    namespace: default
     files:
       - hsds/config.yml
-      
+
   - name: hsds-override
-    namespace: default
     files:
       - hsds/override.yml
