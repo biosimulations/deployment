@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: biosimulations-production
+  name: biosimulations-prod
   namespace: argocd
 spec:
   destination:
