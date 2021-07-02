@@ -16,6 +16,7 @@ data:
     p, role:org-developer, applications, get, */*, allow
     p, role:org-developer, clusters, get, *, allow
     p, role:org-developer, repositories, get, *, allow
+    p, role:org-developer, projects, create, *, allow
 
     g, biosimulations:biosimulations-software, role:org-developer
     g, biosimulations:Biosimulations-Deployments, role:org-admin
