@@ -12,7 +12,7 @@ spec:
     path: overlays/dev
     repoURL: 'git@github.com:biosimulations/Biosimulations-Deployment.git'
     targetRevision: HEAD
-  project: biosimulations
+  project: default
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
