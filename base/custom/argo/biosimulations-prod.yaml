@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: biosimulations-production
+spec:
+  destination:
+    name: ''
+    namespace: prod
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: overlays/prod
+    repoURL: 'git@github.com:biosimulations/Biosimulations-Deployment.git'
+    targetRevision: HEAD
+  project: biosimulations
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
