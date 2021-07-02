@@ -1,15 +1,21 @@
-project: default
-source:
-  repoURL: 'git@github.com:biosimulations/Biosimulations-Deployment.git'
-  path: base/cluster/argo
-  targetRevision: HEAD
-  directory:
-    jsonnet:
-      tlas:
-        - name: ''
-          value: ''
-destination:
-  server: 'https://kubernetes.default.svc'
-syncPolicy:
-  automated:
-    selfHeal: true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-cd
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'git@github.com:biosimulations/Biosimulations-Deployment.git'
+    path: base/cluster/argo
+    targetRevision: HEAD
+    directory:
+      jsonnet:
+        tlas:
+          - name: ''
+            value: ''
+  destination:
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    automated:
+      selfHeal: true
