@@ -36,6 +36,18 @@ spec:
               servicePort: 80
             path: /account
           - backend:
+              serviceName: dispatch-api
+              servicePort: 80
+              path: /run
+          - backend:
+              serviceName: dispatch-api
+              servicePort: 80
+              path: /results
+          - backend:
+              serviceName: ontology-api
+              servicePort: 80
+              path: /ontology
+          - backend:
               serviceName: platform-api
               servicePort: 80
 
