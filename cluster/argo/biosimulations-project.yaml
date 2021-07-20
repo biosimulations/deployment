@@ -1,41 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
 metadata:
   name: biosimulations
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   sourceRepos:
-  - git@github.com:biosimulations/Biosimulations-Deployment.git
+    - git@github.com:biosimulations/Biosimulations-Deployment.git
   destinations:
-  - server: https://kubernetes.default.svc
-    namespace: "*"
+    - server: https://kubernetes.default.svc
+      namespace: "*"
   description: The deployments for BioSimulations
   orphanedResources:
     warn: true
 
   # Deny all cluster-scoped resources from being created, except for Namespace
   clusterResourceWhitelist:
-  - group: ''
-    kind: Namespace
+    - group: ""
+      kind: Namespace
 
   # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
   namespaceResourceBlacklist:
-  - group: ''
-    kind: ResourceQuota
-  - group: ''
-    kind: LimitRange
-  - group: ''
-    kind: NetworkPolicy
-
-
+    - group: ""
+      kind: ResourceQuota
+    - group: ""
+      kind: LimitRange
+    - group: ""
+      kind: NetworkPolicy
 
   roles:
-  # A role which provides read-only access to all applications in the project
-  - name: read-only
-    description: Read-only privileges to biosimulations
-    policies:
-    - p, proj:biosimulations:read-only, applications, get, biosimulations/*, allow
-    groups:
-    - biosimulations-software
-
-
-
-
+    # A role which provides read-only access to all applications in the project
+    - name: read-only
+      description: Read-only privileges to biosimulations
+      policies:
+        - p, proj:biosimulations:read-only, applications, get, biosimulations/*, allow
+      groups:
+        - biosimulations-software
