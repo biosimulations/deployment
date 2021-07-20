@@ -19,13 +19,12 @@ spec:
   clusterResourceWhitelist:
     - group: ""
       kind: Namespace
-    - group: ""
+    - group: "*"
       kind: CustomResourceDefinition
-    - group: ""
+    - group: "*"
       kind: ClusterRole
-    - group: ""
+    - group: "*"
       kind: ClusterRoleBinding
-
 
   # Allow all namespaced-scoped resources to be created, except for ResourceQuota, LimitRange, NetworkPolicy
   namespaceResourceBlacklist:
