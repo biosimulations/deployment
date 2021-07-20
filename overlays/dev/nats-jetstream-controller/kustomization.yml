@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - 00-crds.yml
-  - 01-rbac.yml
-  - 02-deploy.yml
+  - crds.yml
+  - rbac.yml
+  - deploy.yml
