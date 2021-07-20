@@ -49,6 +49,7 @@ resources:
   - dev.yml
   - biosimulations-ingress.yml
   - biosimulators-ingress.yml
+  - nats.yml
   - nats-js.yml
   - ../../secrets/dev
   - ../../config/dev
