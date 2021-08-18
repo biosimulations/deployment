@@ -9,21 +9,21 @@ namespace: prod
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: eaab2fac4c7fa9d48084b536bf5d23936c7a475e
+  newTag: 0f1f31ae0383af38f9e7cd06aa28f022b7d6df07
 - name: ghcr.io/biosimulations/combine-service
-  newTag: eaab2fac4c7fa9d48084b536bf5d23936c7a475e
+  newTag: 0f1f31ae0383af38f9e7cd06aa28f022b7d6df07
 - name: ghcr.io/biosimulations/dispatch-api
-  newTag: eaab2fac4c7fa9d48084b536bf5d23936c7a475e
+  newTag: 0f1f31ae0383af38f9e7cd06aa28f022b7d6df07
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: eaab2fac4c7fa9d48084b536bf5d23936c7a475e
+  newTag: 0f1f31ae0383af38f9e7cd06aa28f022b7d6df07
 - name: ghcr.io/biosimulations/mail-service
-  newTag: eaab2fac4c7fa9d48084b536bf5d23936c7a475e
+  newTag: 0f1f31ae0383af38f9e7cd06aa28f022b7d6df07
 - name: ghcr.io/biosimulations/ontology-api
-  newTag: eaab2fac4c7fa9d48084b536bf5d23936c7a475e
+  newTag: 0f1f31ae0383af38f9e7cd06aa28f022b7d6df07
 - name: ghcr.io/biosimulations/platform-api
-  newTag: eaab2fac4c7fa9d48084b536bf5d23936c7a475e
+  newTag: 0f1f31ae0383af38f9e7cd06aa28f022b7d6df07
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: eaab2fac4c7fa9d48084b536bf5d23936c7a475e
+  newTag: 0f1f31ae0383af38f9e7cd06aa28f022b7d6df07
 #Use the prod version of the secrets and ingress
 resources:
 - prod.yml
