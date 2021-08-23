@@ -32,3 +32,6 @@ resources:
 - biosimulations-ingress.yml
 - biosimulators-ingress.yml
 - ../../base
+
+patchesStrategicMerge:
+- resources.yml
