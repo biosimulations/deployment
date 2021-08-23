@@ -47,7 +47,7 @@ replicas:
 - count: 1
   name: combine-service
 #Use the prod version of the secrets and ingress
-resources:x
+resources:
 - prod.yml
 - ../../secrets/prod
 - ../../config/prod
