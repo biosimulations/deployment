@@ -24,8 +24,30 @@ images:
   newTag: 74f24d5b26910fd783b2b337df563ca1ee436e96
 - name: ghcr.io/biosimulations/simulators-api
   newTag: 74f24d5b26910fd783b2b337df563ca1ee436e96
+
+
+#scale up prod ev deployment
+replicas:
+- count: 3
+  name: account-api
+- count: 3
+  name: dispatch-api
+- count: 3
+  name: dispatch-service
+- count: 3
+  name: hsds
+- count: 3
+  name: mail-service
+- count: 3
+  name: ontology-api
+- count: 3
+  name: platform-api
+- count: 3
+  name: simulators-api
+- count: 1
+  name: combine-service
 #Use the prod version of the secrets and ingress
-resources:
+resources:x
 - prod.yml
 - ../../secrets/prod
 - ../../config/prod
