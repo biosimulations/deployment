@@ -50,8 +50,6 @@ resources:
 - biosimulations-ingress.yml
 - biosimulators-ingress.yml
 - nats.yml
-- nats-js.yml
-- ./nats-jetstream-controller
 - ../../secrets/dev
 - ../../config/dev
 - ../../base
