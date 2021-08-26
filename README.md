@@ -1,6 +1,13 @@
-# Deployment Instructions
-## Connect to Kubernetes Cluster
-## Deploy ArgoCD 
+# BioSimulations Deployment
+## About
+### BioSimulations
+### GitOps
+### Strcture 
+## Deployment Instructions
+
+### Connect to Kubernetes Cluster
+
+### Deploy ArgoCD (bootstrap)
 Initial install: 
 
 ```
