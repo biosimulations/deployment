@@ -2,7 +2,7 @@
 ## About
 ### BioSimulations
 ### GitOps
-### Strcture 
+### Structure 
 ## Deployment Instructions
 
 ### Connect to Kubernetes Cluster
