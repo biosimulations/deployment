@@ -26,8 +26,8 @@ spec:
         - name: combine-service
           resources:
             requests:
-              memory: "4Mi"
+              memory: "256Mi"
               cpu: "25m"
             limits:
-              memory: "256Mi"
+              memory: "500Mi"
               cpu: "500m"
