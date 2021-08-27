@@ -9,21 +9,21 @@ namespace: dev
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: 03395dc95c7d79a84cde530844838c223988cd3a
+  newTag: 11ffd0238d1c8d16ffb744959d8209ea470b76e7
 - name: ghcr.io/biosimulations/combine-service
-  newTag: 03395dc95c7d79a84cde530844838c223988cd3a
+  newTag: 11ffd0238d1c8d16ffb744959d8209ea470b76e7
 - name: ghcr.io/biosimulations/dispatch-api
-  newTag: 03395dc95c7d79a84cde530844838c223988cd3a
+  newTag: 11ffd0238d1c8d16ffb744959d8209ea470b76e7
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: 03395dc95c7d79a84cde530844838c223988cd3a
+  newTag: 11ffd0238d1c8d16ffb744959d8209ea470b76e7
 - name: ghcr.io/biosimulations/mail-service
-  newTag: 03395dc95c7d79a84cde530844838c223988cd3a
+  newTag: 11ffd0238d1c8d16ffb744959d8209ea470b76e7
 - name: ghcr.io/biosimulations/ontology-api
-  newTag: 03395dc95c7d79a84cde530844838c223988cd3a
+  newTag: 11ffd0238d1c8d16ffb744959d8209ea470b76e7
 - name: ghcr.io/biosimulations/platform-api
-  newTag: 03395dc95c7d79a84cde530844838c223988cd3a
+  newTag: 11ffd0238d1c8d16ffb744959d8209ea470b76e7
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: 03395dc95c7d79a84cde530844838c223988cd3a
+  newTag: 11ffd0238d1c8d16ffb744959d8209ea470b76e7
 
 #scale down dev deployment
 replicas:
