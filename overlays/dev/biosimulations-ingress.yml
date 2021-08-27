@@ -38,7 +38,11 @@ spec:
           - backend:
               serviceName: dispatch-api
               servicePort: 80
-            path: /run
+            path: /runs
+          - backend:
+              serviceName: dispatch-api
+              servicePort: 80
+            path: /metadata
           - backend:
               serviceName: dispatch-api
               servicePort: 80
@@ -48,7 +52,7 @@ spec:
               servicePort: 80
             path: /ontology
           - backend:
-              serviceName: platform-api
+              serviceName: dispatch-api
               servicePort: 80
 
     - host: run.api.biosimulations.dev
@@ -78,33 +82,3 @@ spec:
           - backend:
               serviceName: hsds
               servicePort: 80
-
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/proxy-body-size: "600m"
-    nginx.org/client-max-body-size: "600m"
-  name: test-ingress
-
-spec:
-  tls:
-    - hosts:
-        - test2.api.biosimulations.dev
-      secretName: test2-ingress-certificate
-  rules:
-    - host: test2.api.biosimulations.dev
-      http:
-        paths:
-          - backend:
-              serviceName: combine-service
-              servicePort: 80
-            path: /combine(/|$)(.*)
-          - backend:
-              serviceName: combine-service
-              servicePort: 80
-            path: /ui
