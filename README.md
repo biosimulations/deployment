@@ -1,5 +1,6 @@
 # BioSimulations Deployment
 ## About
+This repository contains the configuration for deploying the [BioSimulations](https://github.com/biosimulations/biosimulations) platfrom onto a kubernetes cluster. The repository is organized to support a [GitOps](#gitops) workflow and continious deployment using [ArgoCD](https://argoproj.github.io/argo-cd/). The deployment can me monitored and configured at https://deployment.biosimulations.org
 ### BioSimulations
 ### GitOps
 ### Structure 
