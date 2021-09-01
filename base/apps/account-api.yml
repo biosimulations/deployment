@@ -19,8 +19,14 @@ spec:
           image: ghcr.io/biosimulations/account-api
           imagePullPolicy: "Always"
           volumeMounts:
-            - mountPath: "/app/secret"
+            - name: config
+              mountPath: "/app/config"
+              readOnly: true
+            - mountPath: /app/secret
               name: secret
+              readOnly: true
+            - name: shared
+              mountPath: "/app/shared"
               readOnly: true
           ports:
             - containerPort: 3333
@@ -31,6 +37,9 @@ spec:
         - name: config
           configMap:
             name: account-api-config
+        - name: shared
+          configMap: 
+            name: shared-config
 ---
 apiVersion: v1
 kind: Service
