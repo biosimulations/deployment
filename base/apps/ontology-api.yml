@@ -6,6 +6,16 @@ metadata:
   name: ontology-api
 
 spec:
+  volumes:
+  - name: secret
+    secret:
+      secretName: ontology-api-secrets
+  - name: config
+    configMap:
+      name: ontology-api-config
+  - name: shared
+    configMap:
+      name: shared-config
   selector:
     matchLabels:
       app: ontology-api
@@ -21,6 +31,16 @@ spec:
           imagePullPolicy: "Always"
           ports:
             - containerPort: 3333
+          volumeMounts:
+            - name: config
+              mountPath: "/app/config"
+              readOnly: true
+            - mountPath: /app/secret
+              name: secret
+              readOnly: true
+            - name: shared
+              mountPath: "/app/shared"
+              readOnly: true
 ---
 apiVersion: v1
 kind: Service
