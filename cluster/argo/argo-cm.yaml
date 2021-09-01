@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
 data:
   # Argo CD's externally facing base URL (optional). Required when configuring SSO
-  url: https://deployment.api.biosimulations.org
+  url: https://deployment.biosimulations.org
 
   # Enables application status badge feature
   statusbadge.enabled: "true"
