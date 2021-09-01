@@ -36,3 +36,6 @@ configMapGenerator:
   - name: hsds-override
     files:
       - hsds/override.yml
+  - name: ontology-api-config
+    files:
+      - ontology-api/config.env
