@@ -27,7 +27,7 @@ images:
 
 #scale down dev deployment
 replicas:
-- count: 1
+- count: 0
   name: account-api
 - count: 2
   name: dispatch-api
@@ -39,7 +39,7 @@ replicas:
   name: mail-service
 - count: 1
   name: ontology-api
-- count: 1
+- count: 0
   name: platform-api
 - count: 1
   name: simulators-api
