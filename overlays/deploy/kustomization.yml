@@ -28,7 +28,7 @@ images:
 
 #scale up prod ev deployment
 replicas:
-- count: 3
+- count: 0
   name: account-api
 - count: 3
   name: dispatch-api
@@ -40,7 +40,7 @@ replicas:
   name: mail-service
 - count: 3
   name: ontology-api
-- count: 3
+- count: 0
   name: platform-api
 - count: 3
   name: simulators-api
