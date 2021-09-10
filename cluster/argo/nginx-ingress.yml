@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "git@github.com:biosimulations/Biosimulations-Deployment.git"
+    repoURL: "ssh://git@github.com/biosimulations/deployment.git"
     path: cluster/nginx-ingress
     targetRevision: HEAD
   destination:

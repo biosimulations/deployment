@@ -77,7 +77,7 @@ data:
   #application.instanceLabelKey: mycompany.com/appname
 
   # disables admin user. Admin is enabled by default
-  admin.enabled: "false"
+  admin.enabled: "true"
   # add an additional local user with apiKey and login capabilities
   #   apiKey - allows generating API keys
   #   login - allows to login using UI

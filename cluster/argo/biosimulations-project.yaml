@@ -7,7 +7,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   sourceRepos:
-    - git@github.com:biosimulations/Biosimulations-Deployment.git
+    - ssh://git@github.com/biosimulations/deployment.git
   destinations:
     - server: https://kubernetes.default.svc
       namespace: "*"

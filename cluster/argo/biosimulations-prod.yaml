@@ -9,7 +9,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: overlays/deploy
-    repoURL: 'git@github.com:biosimulations/Biosimulations-Deployment.git'
+    repoURL: 'ssh://git@github.com/biosimulations/deployment.git'
     targetRevision: HEAD
   project: biosimulations
   syncPolicy:
