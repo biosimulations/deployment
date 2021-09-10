@@ -51,11 +51,10 @@ Apply the ArgoCD secrets folder, and create the secrets. These secrets are used 
 
 Run the following command: 
 ```
-kubectl apply -f secrets/
+kubectl apply -f secrets/argocd
 
 ```
-kubectl apply -f secrets/argocd/
-```
+
 ### Login to ArgoCD
 You should now be able to access the ArgoCD UI at https://deployment.biosimulations.org. When first deployed, it is possible that the SSL configuration is not yet ready. Your browser may prevent you from accessing the UI. If this is the case, determine how to disable HSTS on your browser and try again. 
 
