@@ -29,10 +29,10 @@ kind: Service
 metadata:
   name: nats
   labels:
-    app: nats
+    app: nats-prod
 spec:
   selector:
-    app: nats
+    app: nats-prod
   clusterIP: None
   ports:
     - name: client
@@ -53,17 +53,17 @@ kind: StatefulSet
 metadata:
   name: nats
   labels:
-    app: nats
+    app: nats-prod
 spec:
   selector:
     matchLabels:
-      app: nats
+      app: nats-prod
   replicas: 3
   serviceName: "nats"
   template:
     metadata:
       labels:
-        app: nats
+        app: nats-prod
     spec:
       # Common volumes for the containers
       volumes:
