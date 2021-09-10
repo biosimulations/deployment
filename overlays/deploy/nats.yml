@@ -58,7 +58,7 @@ spec:
   selector:
     matchLabels:
       app: nats
-  replicas: 3
+  replicas: 2
   serviceName: "nats"
   template:
     metadata:
