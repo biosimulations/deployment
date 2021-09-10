@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'ssh://git@github.com/biosimulations/deployment.git'
-    path: cluster/argo
+    path: cluster/argocd
     targetRevision: HEAD
     directory:
       jsonnet:
