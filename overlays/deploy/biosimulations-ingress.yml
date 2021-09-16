@@ -31,8 +31,33 @@ spec:
       http:
         paths:
           - backend:
+              serviceName: combine-service
+              servicePort: 80
+              path: "/combine"
+          - backend:
+              serviceName: account-api
+              servicePort: 80
+            path: /account
+          - backend:
               serviceName: dispatch-api
               servicePort: 80
+            path: /runs
+          - backend:
+              serviceName: dispatch-api
+              servicePort: 80
+            path: /metadata
+          - backend:
+              serviceName: dispatch-api
+              servicePort: 80
+            path: /results
+          - backend:
+              serviceName: ontology-api
+              servicePort: 80
+            path: /ontology
+          - backend:
+              serviceName: dispatch-api
+              servicePort: 80
+              
     - host: run.api.biosimulations.org
       http:
         paths:
