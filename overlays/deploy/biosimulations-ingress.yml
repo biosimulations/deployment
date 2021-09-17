@@ -33,7 +33,7 @@ spec:
           - backend:
               serviceName: combine-service
               servicePort: 80
-              path: "/combine"
+            path: "/combine"
           - backend:
               serviceName: account-api
               servicePort: 80
@@ -57,7 +57,20 @@ spec:
           - backend:
               serviceName: dispatch-api
               servicePort: 80
-              
+
+    - host: combine.api.biosimulations.org
+      http:
+        paths:
+          - backend:
+              serviceName: combine-service
+              servicePort: 80
+    - host: data.biosimulations.org
+      http:
+        paths:
+          - backend:
+              serviceName: hsds
+              servicePort: 80
+
     - host: run.api.biosimulations.org
       http:
         paths:
@@ -70,16 +83,4 @@ spec:
         paths:
           - backend:
               serviceName: ontology-api
-              servicePort: 80
-    - host: combine.api.biosimulations.org
-      http:
-        paths:
-          - backend:
-              serviceName: combine-service
-              servicePort: 80
-    - host: data.biosimulations.org
-      http:
-        paths:
-          - backend:
-              serviceName: hsds
               servicePort: 80
