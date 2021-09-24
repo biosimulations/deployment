@@ -53,13 +53,15 @@ spec:
     spec:
       containers:
         - name: sn
-          image: hdfgroup/hsds
+          image: hdfgroup/hsds:v0.7.0beta6
           imagePullPolicy: Always
           ports:
             - containerPort: 5101
           env:
             - name: NODE_TYPE
               value: sn
+            - name: HEAD_PORT
+              value: null # no head container
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
@@ -87,7 +89,7 @@ spec:
               mountPath: "/config/override.yml"
               subPath: override.yml
         - name: dn
-          image: hdfgroup/hsds
+          image: hdfgroup/hsds:v0.7.0beta6
           lifecycle:
             preStop:
               exec:
@@ -104,6 +106,8 @@ spec:
           env:
             - name: NODE_TYPE
               value: dn
+            - name: HEAD_PORT
+              value: null # no head container
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
