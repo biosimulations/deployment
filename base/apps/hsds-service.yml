@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
         - name: sn
-          image: hdfgroup/hsds:v0.7.0beta6
+          image: hdfgroup/hsds:v0.7.0beta4
           imagePullPolicy: Always
           ports:
             - containerPort: 5101
@@ -89,7 +89,7 @@ spec:
               mountPath: "/config/override.yml"
               subPath: override.yml
         - name: dn
-          image: hdfgroup/hsds:v0.7.0beta6
+          image: hdfgroup/hsds:v0.7.0beta4
           lifecycle:
             preStop:
               exec:
