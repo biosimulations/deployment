@@ -13,7 +13,6 @@ spec:
         - account.api.biosimulations.org
         - api.biosimulations.org
         - run.api.biosimulations.org
-        - ontology.api.biosimulations.org
         - combine.api.biosimulations.org
         - data.biosimulations.org
 
@@ -51,10 +50,6 @@ spec:
               servicePort: 80
             path: /results
           - backend:
-              serviceName: ontology-api
-              servicePort: 80
-            path: /ontology
-          - backend:
               serviceName: dispatch-api
               servicePort: 80
 
@@ -76,11 +71,4 @@ spec:
         paths:
           - backend:
               serviceName: dispatch-api
-              servicePort: 80
-
-    - host: ontology.api.biosimulations.org
-      http:
-        paths:
-          - backend:
-              serviceName: ontology-api
               servicePort: 80
