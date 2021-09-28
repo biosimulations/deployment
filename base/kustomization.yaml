@@ -5,8 +5,6 @@ resources:
   - apps/account-api.yml
   - apps/dispatch-api.yml
   - apps/dispatch-service.yml
-  - apps/ontology-api.yml
-  - apps/platform-api.yml
   - apps/simulators-api.yml
   - apps/mail-service.yml
   - apps/combine-service.yml
