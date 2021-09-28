@@ -35,11 +35,9 @@ jobs:
         DIR=overlays/
         cd overlays/${{ github.event.inputs.overlay }}
         kustomize edit set image ghcr.io/biosimulations/account-api:${{ github.event.inputs.tag }}
-        kustomize edit set image ghcr.io/biosimulations/dispatch-api:${{ github.event.inputs.tag }}
         kustomize edit set image ghcr.io/biosimulations/dispatch-service:${{ github.event.inputs.tag }}
-        kustomize edit set image ghcr.io/biosimulations/ontology-api:${{ github.event.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/api:${{ github.event.inputs.tag }}
         kustomize edit set image ghcr.io/biosimulations/simulators-api:${{ github.event.inputs.tag }}
-        kustomize edit set image ghcr.io/biosimulations/platform-api:${{ github.event.inputs.tag }}
         kustomize edit set image ghcr.io/biosimulations/mail-service:${{ github.event.inputs.tag }}
         kustomize edit set image ghcr.io/biosimulations/combine-service:${{ github.event.inputs.tag }}
     
