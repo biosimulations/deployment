@@ -34,10 +34,6 @@ replicas:
 - count: 2
   name: mail-service
 - count: 1
-  name: ontology-api
-- count: 0
-  name: platform-api
-- count: 1
   name: simulators-api
 - count: 1
   name: combine-service
