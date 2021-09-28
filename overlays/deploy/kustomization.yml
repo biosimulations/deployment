@@ -12,15 +12,11 @@ images:
   newTag: d1dad36160ddd58bc53d64fb645c0bbf4a141b09
 - name: ghcr.io/biosimulations/combine-service
   newTag: d1dad36160ddd58bc53d64fb645c0bbf4a141b09
-- name: ghcr.io/biosimulations/dispatch-api
+- name: ghcr.io/biosimulations/api
   newTag: d1dad36160ddd58bc53d64fb645c0bbf4a141b09
 - name: ghcr.io/biosimulations/dispatch-service
   newTag: d1dad36160ddd58bc53d64fb645c0bbf4a141b09
 - name: ghcr.io/biosimulations/mail-service
-  newTag: d1dad36160ddd58bc53d64fb645c0bbf4a141b09
-- name: ghcr.io/biosimulations/ontology-api
-  newTag: d1dad36160ddd58bc53d64fb645c0bbf4a141b09
-- name: ghcr.io/biosimulations/platform-api
   newTag: d1dad36160ddd58bc53d64fb645c0bbf4a141b09
 - name: ghcr.io/biosimulations/simulators-api
   newTag: d1dad36160ddd58bc53d64fb645c0bbf4a141b09
