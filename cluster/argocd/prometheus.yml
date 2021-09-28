@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "ssh://git@github.com/biosimulations/deployment.git"
+    path: cluster/promethues
+    targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: prometheus
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
