@@ -35,12 +35,8 @@ replicas:
 - count: 3
   name: mail-service
 - count: 3
-  name: ontology-api
-- count: 0
-  name: platform-api
-- count: 3
   name: simulators-api
-- count: 1
+- count: 3
   name: combine-service
 #Use the prod version of the secrets and ingress
 resources:
