@@ -27,7 +27,7 @@ spec:
             name: shared-config
       containers:
         - name: dispatch-api
-          image: "ghcr.io/biosimulations/dispatch-api"
+          image: "ghcr.io/biosimulations/api"
           imagePullPolicy: "Always"
           ports:
             - containerPort: 3333
