@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grafana
-  namespace: ingress-nginx
-spec:
+  namespace: monitoring
   strategy:
     rollingUpdate:
       maxSurge: 1
