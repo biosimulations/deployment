@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: grafana
   namespace: monitoring
+spec:
   strategy:
     rollingUpdate:
       maxSurge: 1
