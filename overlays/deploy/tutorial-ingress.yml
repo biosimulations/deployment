@@ -10,3 +10,6 @@ spec:
   - host: tutorial.biosimulations.org
     http:
       paths:
+      - backend:
+          serviceName: dispatch-api
+          servicePort: 80
