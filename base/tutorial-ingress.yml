@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: https://mybinder.org/v2/gh/biosimulators/Biosimulators_tutorials/HEAD
+  name: tutorial-ingress
+  namespace: default
+spec:
+  rules:
+  - host: tutorial.biosimulations.org
+    http:
+      paths:
