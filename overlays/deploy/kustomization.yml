@@ -45,7 +45,6 @@ resources:
 - ../../config/prod
 - biosimulations-ingress.yml
 - biosimulators-ingress.yml
-- tutorial-ingress.yml
 - ../../base
 
 
