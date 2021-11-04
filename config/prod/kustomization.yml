@@ -25,9 +25,9 @@ configMapGenerator:
     files:
       - mail-service/config.env
 
-  - name: combine-service-config
+  - name: combine-api-config
     files:
-      - combine-service/config.env
+      - combine-api/config.env
 
   - name: hsds-config
     files:

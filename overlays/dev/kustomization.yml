@@ -36,7 +36,7 @@ replicas:
 - count: 1
   name: simulators-api
 - count: 1
-  name: combine-service
+  name: combine-api
 
 #Use the development version of the secrets and ingress
 resources:
