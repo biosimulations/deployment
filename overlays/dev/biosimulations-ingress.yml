@@ -73,7 +73,7 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: combine-service
+              serviceName: combine-api
               servicePort: 80
 
     - host: data.biosimulations.dev

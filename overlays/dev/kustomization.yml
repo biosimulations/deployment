@@ -12,7 +12,7 @@ images:
   newTag: e479d2e531383e55ed64823b98b41d7be9130f7f
 - name: ghcr.io/biosimulations/api
   newTag: e479d2e531383e55ed64823b98b41d7be9130f7f
-- name: ghcr.io/biosimulations/combine-service
+- name: ghcr.io/biosimulations/combine-api
   newTag: e479d2e531383e55ed64823b98b41d7be9130f7f
 - name: ghcr.io/biosimulations/dispatch-service
   newTag: e479d2e531383e55ed64823b98b41d7be9130f7f
@@ -36,7 +36,7 @@ replicas:
 - count: 1
   name: simulators-api
 - count: 1
-  name: combine-service
+  name: combine-api
 
 #Use the development version of the secrets and ingress
 resources:

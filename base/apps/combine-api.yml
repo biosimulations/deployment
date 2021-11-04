@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: combine-service
-  name: combine-service
+    app: combine-api
+  name: combine-api
 spec:
   selector:
     matchLabels:
-      app: combine-service
+      app: combine-api
   replicas: 3
   template:
     metadata:
       labels:
-        app: combine-service
+        app: combine-api
     spec:
       containers:
-        - name: combine-service
-          image: ghcr.io/biosimulations/combine-service
+        - name: combine-api
+          image: ghcr.io/biosimulations/combine-api
           imagePullPolicy: "Always"
           volumeMounts:
             - name: config
@@ -33,10 +33,10 @@ spec:
       volumes:
         - name: secret
           secret:
-            secretName: combine-service-secrets
+            secretName: combine-api-secrets
         - name: config
           configMap:
-            name: combine-service-config
+            name: combine-api-config
         - name: shared
           configMap:
             name: shared-config
@@ -44,14 +44,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: combine-service
+  name: combine-api
   labels:
-    app: combine-service
+    app: combine-api
 spec:
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3333
   selector:
-    app: combine-service
+    app: combine-api
   type: NodePort

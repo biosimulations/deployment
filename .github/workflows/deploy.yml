@@ -39,7 +39,7 @@ jobs:
         kustomize edit set image ghcr.io/biosimulations/api:${{ github.event.inputs.tag }}
         kustomize edit set image ghcr.io/biosimulations/simulators-api:${{ github.event.inputs.tag }}
         kustomize edit set image ghcr.io/biosimulations/mail-service:${{ github.event.inputs.tag }}
-        kustomize edit set image ghcr.io/biosimulations/combine-service:${{ github.event.inputs.tag }}
+        kustomize edit set image ghcr.io/biosimulations/combine-api:${{ github.event.inputs.tag }}
     
     - name: Remove Kustomize
       run: |

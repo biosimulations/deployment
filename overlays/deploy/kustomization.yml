@@ -12,7 +12,7 @@ images:
   newTag: 469628c2d411471bab22d9223eaf3cb10d2df29f
 - name: ghcr.io/biosimulations/api
   newTag: 469628c2d411471bab22d9223eaf3cb10d2df29f
-- name: ghcr.io/biosimulations/combine-service
+- name: ghcr.io/biosimulations/combine-api
   newTag: 469628c2d411471bab22d9223eaf3cb10d2df29f
 - name: ghcr.io/biosimulations/dispatch-service
   newTag: 469628c2d411471bab22d9223eaf3cb10d2df29f
@@ -37,7 +37,7 @@ replicas:
 - count: 3
   name: simulators-api
 - count: 3
-  name: combine-service
+  name: combine-api
 #Use the prod version of the secrets and ingress
 resources:
 - prod.yml
