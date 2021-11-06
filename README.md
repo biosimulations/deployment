@@ -52,7 +52,6 @@ Apply the ArgoCD secrets folder, and create the secrets. These secrets are used 
 Run the following command: 
 ```
 kubectl apply -f secrets/argocd
-
 ```
 
 ### Login to ArgoCD
