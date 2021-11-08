@@ -9,17 +9,17 @@ namespace: prod
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: a68e5b90acc80b6e1b0c492603846f657350f2c7
+  newTag: 91ceaef21fb59e92418ecc1246066d7fec4e5d9f
 - name: ghcr.io/biosimulations/api
-  newTag: a68e5b90acc80b6e1b0c492603846f657350f2c7
+  newTag: 91ceaef21fb59e92418ecc1246066d7fec4e5d9f
 - name: ghcr.io/biosimulations/combine-api
-  newTag: a68e5b90acc80b6e1b0c492603846f657350f2c7
+  newTag: 91ceaef21fb59e92418ecc1246066d7fec4e5d9f
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: a68e5b90acc80b6e1b0c492603846f657350f2c7
+  newTag: 91ceaef21fb59e92418ecc1246066d7fec4e5d9f
 - name: ghcr.io/biosimulations/mail-service
-  newTag: a68e5b90acc80b6e1b0c492603846f657350f2c7
+  newTag: 91ceaef21fb59e92418ecc1246066d7fec4e5d9f
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: a68e5b90acc80b6e1b0c492603846f657350f2c7
+  newTag: 91ceaef21fb59e92418ecc1246066d7fec4e5d9f
 
 
 #scale up prod ev deployment
