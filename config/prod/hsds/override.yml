@@ -1,1 +1,1 @@
-default_public: false # new domains are publically readable by default
+default_public: true # new domains are publically readable by default
