@@ -14,8 +14,6 @@ images:
   newTag: sha-53690c1
 - name: ghcr.io/biosimulations/combine-api
   newTag: sha-53690c1
-- name: ghcr.io/biosimulations/combine-service
-  newTag: 88ab499d4b13d56d9b047bcf5920aa9c4d048005
 - name: ghcr.io/biosimulations/dispatch-service
   newTag: sha-53690c1
 - name: ghcr.io/biosimulations/mail-service
