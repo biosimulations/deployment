@@ -36,7 +36,3 @@ configMapGenerator:
   - name: hsds-override
     files:
       - hsds/override.yml
-      
-  - name: tools-config
-    files:
-      - tools/config.env

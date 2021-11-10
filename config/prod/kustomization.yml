@@ -39,6 +39,3 @@ configMapGenerator:
   - name: ontology-api-config
     files:
       - ontology-api/config.env
-  - name: tools-config
-    files:
-      - tools/config.env
