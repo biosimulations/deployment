@@ -9,17 +9,17 @@ namespace: dev
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: sha-53690c1
+  newTag: sha-310766e
 - name: ghcr.io/biosimulations/api
-  newTag: sha-53690c1
+  newTag: sha-310766e
 - name: ghcr.io/biosimulations/combine-api
-  newTag: sha-53690c1
+  newTag: sha-310766e
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: sha-53690c1
+  newTag: sha-310766e
 - name: ghcr.io/biosimulations/mail-service
-  newTag: sha-53690c1
+  newTag: sha-310766e
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: sha-53690c1
+  newTag: sha-310766e
 
 #scale down dev deployment
 replicas:
