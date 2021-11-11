@@ -5,9 +5,6 @@ configMapGenerator:
   - name: shared-config
     files:
       - shared.env
-  - name: platform-api-config
-    files:
-      - platform-api/config.env
   - name: account-api-config
     files:
       - account-api/config.env
