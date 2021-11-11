@@ -13,7 +13,6 @@ spec:
     - hosts:
         - account.api.biosimulations.dev
         - api.biosimulations.dev
-        - run.api.biosimulations.dev
         - combine.api.biosimulations.dev
         - data.biosimulations.dev
 
@@ -46,13 +45,6 @@ spec:
               serviceName: api
               servicePort: 80
             path: /results
-          - backend:
-              serviceName: api
-              servicePort: 80
-
-    - host: run.api.biosimulations.dev
-      http:
-        paths:
           - backend:
               serviceName: api
               servicePort: 80
