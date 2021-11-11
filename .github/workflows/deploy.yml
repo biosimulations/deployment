@@ -50,7 +50,7 @@ jobs:
       with:
         author_name: Biosimulations-Daemon
         author_email: biosimulationsdaemon@gmail.com
-        branch: master
+        branch: main
         message: 'Changed image tag of ${{ github.event.inputs.overlay }} to ${{ github.event.inputs.tag }}'
         signoff: true
       env:
