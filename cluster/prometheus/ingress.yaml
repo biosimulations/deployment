@@ -12,6 +12,7 @@ spec:
   tls:
     - hosts:
       - prometheus.api.biosimulations.org
+      secretName: prometheus-tls
   rules:
   - host: prometheus.api.biosimulations.org
     http:

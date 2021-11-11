@@ -12,6 +12,7 @@ spec:
   tls:
     - hosts:
       - grafana.api.biosimulations.org
+      secretName: grafana-tls
   rules:
   - host: grafana.api.biosimulations.org
     http:
