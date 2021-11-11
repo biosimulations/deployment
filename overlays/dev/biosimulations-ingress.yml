@@ -13,7 +13,6 @@ spec:
     - hosts:
         - account.api.biosimulations.dev
         - api.biosimulations.dev
-        - run.api.biosimulations.dev
         - combine.api.biosimulations.dev
         - data.biosimulations.dev
 
@@ -49,14 +48,6 @@ spec:
           - backend:
               serviceName: dispatch-api
               servicePort: 80
-
-    - host: run.api.biosimulations.dev
-      http:
-        paths:
-          - backend:
-              serviceName: dispatch-api
-              servicePort: 80
-
 
     - host: combine.api.biosimulations.dev
       http:

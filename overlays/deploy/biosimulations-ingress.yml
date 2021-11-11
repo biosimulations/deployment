@@ -12,7 +12,6 @@ spec:
     - hosts:
         - account.api.biosimulations.org
         - api.biosimulations.org
-        - run.api.biosimulations.org
         - combine.api.biosimulations.org
         - data.biosimulations.org
 
@@ -59,16 +58,10 @@ spec:
           - backend:
               serviceName: combine-api
               servicePort: 80
+
     - host: data.biosimulations.org
       http:
         paths:
           - backend:
               serviceName: hsds
-              servicePort: 80
-
-    - host: run.api.biosimulations.org
-      http:
-        paths:
-          - backend:
-              serviceName: dispatch-api
               servicePort: 80
