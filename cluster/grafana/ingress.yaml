@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  name: grafana
+  labels:
+    name: grafana
+spec:
+  tls:
+    - hosts:
+      - grafana.api.biosimulations.org
+  rules:
+  - host: grafana.api.biosimulations.org
+    http:
+      paths:
+      - backend:
+          service:
+            name: grafana
+            servicePort: 3000
+            

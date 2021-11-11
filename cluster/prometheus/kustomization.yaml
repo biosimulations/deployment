@@ -10,6 +10,7 @@ resources:
 - role-binding.yaml
 - deployment.yaml
 - service.yaml
+- ingress.yaml
 images:
 - name: prom/prometheus
 configMapGenerator:
