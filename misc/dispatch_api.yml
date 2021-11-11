@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: biosimulations-dispatch-api
+  name: biosimulations-api
   labels:
-    app: biosimulations-dispatch-api
+    app: biosimulations-api
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: biosimulations-dispatch-api
+      app: biosimulations-api
   replicas: 1
   template:
     metadata:
       labels:
-        app: biosimulations-dispatch-api
+        app: biosimulations-api
     spec:
       volumes:
         - name: secret
           secret:
-            secretName: dispatch-api-secrets-c2kkkd57dh
+            secretName: api-secrets-c2kkkd57dh
         - name: task-pv-storage
           persistentVolumeClaim:
             claimName: task-pv-claim
       containers:
-        - name: biosimulations-dispatch-api
-          image: "biosimulations/dispatch-api:dev"
+        - name: biosimulations-api
+          image: "biosimulations/api:dev"
           ports:
             - containerPort: 3333
           volumeMounts:
@@ -37,9 +37,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: biosimulations-dispatch-api
+  name: biosimulations-api
   labels:
-    app: biosimulations-dispatch-api
+    app: biosimulations-api
   namespace: default
 spec:
   type: NodePort
@@ -48,6 +48,6 @@ spec:
       targetPort: 3333
       protocol: TCP
       nodePort: 30333
-      name: dispatch-api
+      name: api
   selector:
-    app: biosimulations-dispatch-api
+    app: biosimulations-api
