@@ -16,7 +16,7 @@ spec:
   - host: prometheus.api.biosimulations.org
     http:
       paths:
-      - pathType: prefix
+      - pathType: Prefix
         path: /
         backend:
           service:

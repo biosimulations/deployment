@@ -16,7 +16,7 @@ spec:
   - host: grafana.api.biosimulations.org
     http:
       paths:
-      - pathType: prefix
+      - pathType: Prefix
         path: /
         backend:
           service:
