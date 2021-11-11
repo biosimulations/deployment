@@ -27,7 +27,7 @@ replicas:
 - count: 0
   name: account-api
 - count: 3
-  name: dispatch-api
+  name: api
 - count: 3
   name: dispatch-service
 - count: 3

@@ -11,10 +11,10 @@ configMapGenerator:
   - name: account-api-config
     files:
       - account-api/config.env
-  - name: dispatch-api-config
+  - name: api-config
     namespace: default
     files:
-      - dispatch-api/config.env
+      - api/config.env
   - name: dispatch-service-config
     files:
       - dispatch-service/config.env

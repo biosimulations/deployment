@@ -37,19 +37,19 @@ spec:
               servicePort: 80
             path: /account
           - backend:
-              serviceName: dispatch-api
+              serviceName: api
               servicePort: 80
             path: /runs
           - backend:
-              serviceName: dispatch-api
+              serviceName: api
               servicePort: 80
             path: /metadata
           - backend:
-              serviceName: dispatch-api
+              serviceName: api
               servicePort: 80
             path: /results
           - backend:
-              serviceName: dispatch-api
+              serviceName: api
               servicePort: 80
 
     - host: combine.api.biosimulations.org

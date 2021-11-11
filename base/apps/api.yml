@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dispatch-api
+  name: api
   labels:
-    app: dispatch-api
+    app: api
 
 spec:
   selector:
     matchLabels:
-      app: dispatch-api
+      app: api
   replicas: 1
   template:
     metadata:
       labels:
-        app: dispatch-api
+        app: api
     spec:
       volumes:
         - name: secret
           secret:
-            secretName: dispatch-api-secrets
+            secretName: api-secrets
         - name: config
           configMap:
-            name: dispatch-api-config
+            name: api-config
         - name: shared
           configMap:
             name: shared-config
       containers:
-        - name: dispatch-api
+        - name: api
           image: "ghcr.io/biosimulations/api"
           imagePullPolicy: "Always"
           ports:
@@ -45,9 +45,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: dispatch-api
+  name: api
   labels:
-    app: dispatch-api
+    app: api
 
 spec:
   type: NodePort
@@ -55,6 +55,6 @@ spec:
     - port: 80
       targetPort: 3333
       protocol: TCP
-      name: dispatch-api
+      name: api
   selector:
-    app: dispatch-api
+    app: api

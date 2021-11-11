@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - apps/account-api.yml
-  - apps/dispatch-api.yml
+  - apps/api.yml
   - apps/dispatch-service.yml
   - apps/simulators-api.yml
   - apps/mail-service.yml
