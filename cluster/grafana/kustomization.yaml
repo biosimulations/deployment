@@ -9,4 +9,4 @@ resources:
 - service.yaml
 images:
 - name: grafana/grafana
-  newTag: 6.1.6
+  newTag: 8.2.3
