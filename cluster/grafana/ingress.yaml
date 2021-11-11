@@ -16,7 +16,9 @@ spec:
   - host: grafana.api.biosimulations.org
     http:
       paths:
-      - backend:
+      - pathType: prefix
+        path: /
+        backend:
           service:
             name: grafana
             port:
