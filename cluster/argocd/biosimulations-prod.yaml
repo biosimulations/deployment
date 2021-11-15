@@ -8,7 +8,7 @@ spec:
     namespace: prod
     server: 'https://kubernetes.default.svc'
   source:
-    path: overlays/deploy
+    path: overlays/prod
     repoURL: 'ssh://git@github.com/biosimulations/deployment.git'
     targetRevision: HEAD
   project: biosimulations
