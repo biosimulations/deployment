@@ -40,9 +40,12 @@ spec:
         - name: shared
           configMap:
             name: shared-config
-      healthChecks:
-        - httpGet:
-            path: /health
+    livenessProbe:
+      httpGet:
+        path: /health
+        port: 3333
+      initialDelaySeconds: 3
+      periodSeconds: 3
 ---
 apiVersion: v1
 kind: Service
