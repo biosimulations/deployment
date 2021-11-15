@@ -18,6 +18,18 @@ spec:
         - name: combine-api
           image: ghcr.io/biosimulations/combine-api
           imagePullPolicy: "Always"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3333
+            initialDelaySeconds: 3
+            periodSeconds: 3 
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3333
+            initialDelaySeconds: 30
+            periodSeconds: 3
           volumeMounts:
             - name: config
               mountPath: "/app/config"
@@ -40,12 +52,7 @@ spec:
         - name: shared
           configMap:
             name: shared-config
-    livenessProbe:
-      httpGet:
-        path: /health
-        port: 3333
-      initialDelaySeconds: 3
-      periodSeconds: 3
+
 ---
 apiVersion: v1
 kind: Service
