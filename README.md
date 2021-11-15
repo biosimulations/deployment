@@ -10,7 +10,7 @@
 This [repository](https://github.com/biosimulations/deployment) contains the configuration for deploying the [BioSimulations](https://github.com/biosimulations/biosimulations) platform onto a Kubernetes cluster. The repository is organized to support a [GitOps](#gitops) workflow and continuous deployment using [ArgoCD](https://argoproj.github.io/argo-cd/). The deployment can be monitored and configured at https://deployment.biosimulations.org
 ### BioSimulations
 ### GitOps
-Git Ops is an approch to cluster and deployment manangement that uses a git repository as the single source of truth for the state of the cluster and deployment. The kubernetes cluster contains an continious delivery application (in our case ArgoCD) which monitors the repository and applies any changes. This allows for strict versioning of deployments and easy reverts incase of any issues. Since all changes to the deployment must go through the git repository, there is no need to worry about changes to the cluster that may be lost if the cluster is recreated or changed. You can learn more about this approach [here](https://www.weave.works/technologies/gitops/)
+Git Ops is an approach to cluster and deployment management that uses a git repository as the single source of truth for the state of the cluster and deployment. The kubernetes cluster contains an continious delivery application (in our case ArgoCD) which monitors the repository and applies any changes. This allows for strict versioning of deployments and easy reverts incase of any issues. Since all changes to the deployment must go through the git repository, there is no need to worry about changes to the cluster that may be lost if the cluster is recreated or changed. You can learn more about this approach [here](https://www.weave.works/technologies/gitops/)
 ## Structure 
 The repository is structured as follows: 
 ### Cluster
@@ -18,7 +18,7 @@ The top level cluster folder contains the declaration of each app that is runnin
 ### Base and Overlays
 This contains the template deployment for BioSimulations. The `base` and `overlay` approach comes from the `kustomize` project. The `overlays` folder contains various instances of BioSimulations deployments, such as the dev and production environments. 
 ### Config
-The config folder contains Kustomize template for the creation of config maps that can be loaded into the approriate application for each overlay. The `kustomization.yml` file in each overlay points to the appropriate config folder to use for that deployment 
+The config folder contains Kustomize template for the creation of config maps that can be loaded into the approriate application for each overlay. The `kustomization.yaml` file in each overlay points to the appropriate config folder to use for that deployment 
 ### Secrets
 The secrets for the application are set up identically to the config, but use the Kustomize `secret-generator` instead of the `config-map-generator`. The folder itself is a private git submodule which allows the deployment to be public without revealing the secrets.
 ### Hack
@@ -88,4 +88,4 @@ It is highly recommended that you disable the admin account once you have verifi
 
 
 ## Continuous Deployment
-Once the setup is complete, any changes to the configurations will automoattically be applied to the cluster by ArgoCD. This can be monitored at https://deployment.biosimulations.org
+Once the setup is complete, any changes to the configurations will automatically be applied to the cluster by ArgoCD. This can be monitored at https://deployment.biosimulations.org
