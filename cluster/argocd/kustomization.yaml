@@ -11,7 +11,7 @@ resources:
 - argo-ingress.yaml
 - argocd-repositories.yaml
 - biosimulations-project.yaml
-- ../aplications/argo-application.yaml
+- ../applications/argo-application.yaml
 - ../applications/biosimulations-dev.yaml
 - ../applications/biosimulations-prod.yaml
 - ../applications/cert-manager.yaml
