@@ -73,32 +73,32 @@ spec:
           - backend:
               serviceName: combine-api
               servicePort: 80
-              path: /combine
+            path: /combine
           - backend:
               serviceName: combine-api
               servicePort: 80
-              path: /model
+            path: /model
           - backend:
               serviceName: combine-api
               servicePort: 80
-              path: /sed-ml
+            path: /sed-ml
           - backend:
               serviceName: combine-api
               servicePort: 80
-              path: /kisao
+            path: /kisao
           - backend:
               serviceName: combine-api
               servicePort: 80
-              path: /omex-metadata
+            path: /omex-metadata
           - backend:
               serviceName: combine-api
               servicePort: 80
-              path: /run
+            path: /run
           - backend:
               serviceName: combine-api
               servicePort: 80
-              path: /health                              
-              
+            path: /health                              
+
     - host: data.biosimulations.dev
       http:
         paths:
