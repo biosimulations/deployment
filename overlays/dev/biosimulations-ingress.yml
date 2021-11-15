@@ -12,8 +12,7 @@ spec:
   tls:
     - hosts:
         - account.api.biosimulations.dev
-        - api.biosimulations.dev
-        - combine.api.biosimulations.dev
+        - api.biosimulations.dev        
         - data.biosimulations.dev
 
       secretName: biosimulations-dev-ingress-certificate
@@ -69,39 +68,7 @@ spec:
               serviceName: api
               servicePort: 80
             path: /
-
-
-    - host: combine.api.biosimulations.dev
-      http:
-        paths:
-          - backend:
-              serviceName: combine-api
-              servicePort: 80
-            path: /combine
-          - backend:
-              serviceName: combine-api
-              servicePort: 80
-            path: /model
-          - backend:
-              serviceName: combine-api
-              servicePort: 80
-            path: /sed-ml
-          - backend:
-              serviceName: combine-api
-              servicePort: 80
-            path: /kisao
-          - backend:
-              serviceName: combine-api
-              servicePort: 80
-            path: /omex-metadata
-          - backend:
-              serviceName: combine-api
-              servicePort: 80
-            path: /run
-          - backend:
-              serviceName: combine-api
-              servicePort: 80
-            path: /health                              
+                          
 
     - host: data.biosimulations.dev
       http:

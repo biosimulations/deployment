@@ -41,7 +41,9 @@ replicas:
 #Use the development version of the secrets and ingress
 resources:
 - dev.yml
-- biosimulations-ingress.yml
+- combine-ingress.yml
+- api-ingress.yml
+- dataservice-ingress.yml
 - biosimulators-ingress.yml
 - ../../secrets/dev
 - ../../config/dev
