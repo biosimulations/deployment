@@ -51,3 +51,10 @@ spec:
             name: hsds
             port: 
               number: 80              
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: hsds
+            port: 
+              number: 80                        
