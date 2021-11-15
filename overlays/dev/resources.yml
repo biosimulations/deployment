@@ -9,10 +9,10 @@ spec:
         - name: api
           resources:
             requests:
-              memory: "4Mi"
+              memory: "256Mi"
               cpu: "25m"
             limits:
-              memory: "1Gi"
+              memory: "750Mi"
               cpu: "1000m"
 ---
 apiVersion: apps/v1
