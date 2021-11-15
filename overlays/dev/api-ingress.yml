@@ -12,11 +12,11 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - api.biosimulations.org
+      - api.biosimulations.dev
       secretName: biosimulations-dev-api-ingress-tls
     
   rules:
-  - host: api.biosimulations.org
+  - host: api.biosimulations.dev
     http:
       paths:
       - pathType: Prefix
