@@ -40,6 +40,9 @@ spec:
         - name: shared
           configMap:
             name: shared-config
+      healthChecks:
+        - httpGet:
+            path: /health
 ---
 apiVersion: v1
 kind: Service

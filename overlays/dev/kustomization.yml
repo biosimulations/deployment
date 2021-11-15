@@ -35,7 +35,7 @@ replicas:
   name: mail-service
 - count: 1
   name: simulators-api
-- count: 1
+- count: 2
   name: combine-api
 
 #Use the development version of the secrets and ingress
