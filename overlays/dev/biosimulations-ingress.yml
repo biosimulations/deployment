@@ -65,6 +65,10 @@ spec:
               serviceName: api
               servicePort: 80
             path: /health
+          - backend:
+              serviceName: api
+              servicePort: 80
+              path: /
 
 
     - host: combine.api.biosimulations.dev
