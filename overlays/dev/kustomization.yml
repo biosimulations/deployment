@@ -43,7 +43,7 @@ resources:
 - dev.yml
 - combine-ingress.yml
 - api-ingress.yml
-- dataservice-ingress.yml
+- hsds-ingress.yml
 - biosimulators-ingress.yml
 - ../../secrets/dev
 - ../../config/dev
