@@ -19,13 +19,6 @@ spec:
   - host: combine.api.biosimulations.dev
     http:
       paths:
-      - pathType: Exact
-        path: "/"
-        backend:
-          service:
-            name: combine-api
-            port: 
-              number: 80
       - pathType: Prefix
         path: "/combine"
         backend:
@@ -68,3 +61,10 @@ spec:
             name: combine-api
             port: 
               number: 80                                     
+      - pathType: Exact
+        path: "/"
+        backend:
+          service:
+            name: combine-api
+            port: 
+              number: 80
