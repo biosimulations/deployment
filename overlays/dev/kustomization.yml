@@ -29,9 +29,9 @@ replicas:
   name: api
 - count: 2
   name: dispatch-service
-- count: 2
-  name: hsds
 - count: 5
+  name: hsds
+- count: 2
   name: mail-service
 - count: 1
   name: simulators-api
