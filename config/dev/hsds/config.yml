@@ -41,12 +41,12 @@ s3_sync_interval: 1 # time to wait to write object data to S3 (in sec)
 s3_sync_task_timeout: 10 # time to cancel write task if no response
 max_pending_write_requests: 20 # maxium number of inflight write requests
 flush_sleep_interval: 1 # time to wait between checking on dirty objects
-max_chunks_per_request: 1000 # maximum number of chunks to be serviced by one request
+max_chunks_per_request: 2000 # maximum number of chunks to be serviced by one request
 min_chunk_size: 1m # 1 MB
 max_chunk_size: 4m # 4 MB
 max_request_size: 100m # 100 MB - should be no smaller than client_max_body_size in nginx tmpl
 max_chunks_per_folder: 0 # max number of chunks per s3 folder. 0 for unlimiited
-max_task_count: 100 # maximum number of concurrent tasks before server will return 503 error
+max_task_count: 200 # maximum number of concurrent tasks before server will return 503 error
 aio_max_pool_connections: 64 # number of connections to keep in conection pool for aiobotocore requests
 metadata_mem_cache_size: 128m # 128 MB - metadata cache size per DN node
 metadata_mem_cache_expire: 3600 # expire cache items after one hour
@@ -55,7 +55,7 @@ chunk_mem_cache_expire: 3600 # expire cache items after one hour
 data_cache_size: 128m # cache for rangegets
 data_cache_expire_time: 3600 # expire cache items after one hour
 data_cache_page_size: 4m # page size for range get cache, set to zero to disable proxy
-data_cache_max_concurrent_read: 16 # maximum number of inflight storage read requests
+data_cache_max_concurrent_read: 32 # maximum number of inflight storage read requests
 timeout: 40 # http timeout - 30 sec
 password_file: "/config/passwd.txt" # filepath to a text file of username/passwords. set to '' for no-auth access
 groups_file: /config/groups.txt # filepath to text file defining user groups
@@ -73,8 +73,8 @@ openid_claims: unique_name,appid,roles # Comma seperated list of claims to resol
 chaos_die: 0 # if > 0, have nodes randomly die after n seconds (for testing)
 standalone_app: false # True when run as a single application
 blosc_nthreads: 2 # number of threads to use for blosc compression.  Set to 0 to have blosc auto-determine thread count
-http_compression: true # Use HTTP compression
+http_compression: false # Use HTTP compression
 k8s_app_label: hsds # The app label for k8s deployments
 k8s_namespace: dev # Specifies if a the client should be limited to a specific namespace. Useful for some RBAC configurations.
-restart_policy: on-failure # Docker restart policy
+restart_policy: always # Docker restart policy
 domain_req_max_objects_limit: 500 # maximum number of objects to return in GET domain request with use_cache
