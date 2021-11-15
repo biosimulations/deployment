@@ -11,14 +11,14 @@ resources:
 - argo-ingress.yaml
 - argocd-repositories.yaml
 - biosimulations-project.yaml
-- ../applications/argo-application.yaml
-- ../applications/biosimulations-dev.yaml
-- ../applications/biosimulations-prod.yaml
-- ../applications/cert-manager.yaml
-- ../applications/grafana.yaml
-- ../applications/nats-operator.yaml
-- ../applications/nginx-ingress.yaml
-- ../applications/prometheus.yaml
+- ./applications/argo-cd.yaml
+- ./applications/biosimulations-dev.yaml
+- ./applications/biosimulations-prod.yaml
+- ./applications/cert-manager.yaml
+- ./applications/grafana.yaml
+- ./applications/nats-operator.yaml
+- ./applications/nginx-ingress.yaml
+- ./applications/prometheus.yaml
 
 images:
   - name: quay.io/argoproj/argocd
