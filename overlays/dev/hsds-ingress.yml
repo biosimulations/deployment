@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 
   name: dev-hsds-ingress
   labels:
@@ -11,7 +12,7 @@ spec:
   tls:
     - hosts:
       - data.biosimulations.dev
-      secretName: dev-hsds-ingress-tls-2 #changed name to force recreation of deleted secret
+      secretName: dev-hsds-ingress-tls
   rules:
   - host: data.biosimulations.dev
     http:
