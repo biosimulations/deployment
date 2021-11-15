@@ -24,5 +24,7 @@ spec:
         - name: prometheus-config-volume
           configMap:
             name: prometheus-configuration
+        #Todo add persistent storage            
         - name: prometheus-storage-volume
           emptyDir: {}
+          
