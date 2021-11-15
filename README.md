@@ -21,7 +21,7 @@ This contains the template deployment for BioSimulations. The `base` and `overla
 The config folder contains Kustomize template for the creation of config maps that can be loaded into the approriate application for each overlay. The `kustomization.yml` file in each overlay points to the appropriate config folder to use for that deployment 
 ### Secrets
 The secrets for the application are set up identically to the config, but use the Kustomize `secret-generator` instead of the `config-map-generator`. The folder itself is a private git submodule which allows the deployment to be public without revealing the secrets.
-### Misc
+### Hack
 Contains files and config that are not deployed. This is a staging area for experiments, past approaches, and various resources that are relevant
 
 ## Deployment Instructions
@@ -87,5 +87,5 @@ kubectl get secrets -n argocd argocd-initial-admin-secret --template={{.data.pas
 It is highly recommended that you disable the admin account once you have verified that the GitHub authentication is working.
 
 
-## Continious Deployment
+## Continuous Deployment
 Once the setup is complete, any changes to the configurations will automoattically be applied to the cluster by ArgoCD. This can be monitored at https://deployment.biosimulations.org
