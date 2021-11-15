@@ -22,13 +22,13 @@ spec:
             httpGet:
               path: /health
               port: 3333
-            initialDelaySeconds: 60
+            initialDelaySeconds: 30
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /health
               port: 3333
-            initialDelaySeconds: 120
+            initialDelaySeconds: 60
             periodSeconds: 10
           volumeMounts:
             - name: config
