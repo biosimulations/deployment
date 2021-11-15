@@ -61,7 +61,7 @@ spec:
             name: combine-api
             port: 
               number: 80                                     
-      - pathType: Exact
+      - pathType: Prefix
         path: "/"
         backend:
           service:
