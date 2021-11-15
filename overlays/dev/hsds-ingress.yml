@@ -11,7 +11,7 @@ spec:
   tls:
     - hosts:
       - data.biosimulations.dev
-      secretName: dev-hsds-ingress-tls
+      secretName: dev-hsds-ingress-tls-2 #changed name to force recreation of deleted secret
   rules:
   - host: data.biosimulations.dev
     http:
@@ -51,7 +51,7 @@ spec:
             name: hsds
             port: 
               number: 80              
-      - pathType: Prefix
+      - pathType: Exact
         path: "/"
         backend:
           service:
