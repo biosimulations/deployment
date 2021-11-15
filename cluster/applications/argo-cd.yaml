@@ -9,13 +9,11 @@ spec:
     repoURL: 'ssh://git@github.com/biosimulations/deployment.git'
     path: cluster/argocd
     targetRevision: HEAD
-    directory:
-      jsonnet:
-        tlas:
-          - name: ''
-            value: ''
   destination:
     server: 'https://kubernetes.default.svc'
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
+      prune: true
       selfHeal: true
