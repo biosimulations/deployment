@@ -30,10 +30,6 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: account-api
-              servicePort: 80
-            path: /account
-          - backend:
               serviceName: api
               servicePort: 80
             path: /runs
@@ -48,6 +44,27 @@ spec:
           - backend:
               serviceName: api
               servicePort: 80
+            path: /logs
+          - backend:
+              serviceName: api
+              servicePort: 80
+            path: /files
+          - backend:
+              serviceName: api
+              servicePort: 80
+            path: /specifications
+          - backend:
+              serviceName: api
+              servicePort: 80
+              path: /projects
+          - backend:
+              serviceName: api
+              servicePort: 80
+              path: /ontologies
+          - backend:
+              serviceName: api
+              servicePort: 80
+              path: /health
 
 
     - host: combine.api.biosimulations.dev
@@ -56,7 +73,32 @@ spec:
           - backend:
               serviceName: combine-api
               servicePort: 80
-
+              path: /combine
+          - backend:
+              serviceName: combine-api
+              servicePort: 80
+              path: /model
+          - backend:
+              serviceName: combine-api
+              servicePort: 80
+              path: /sed-ml
+          - backend:
+              serviceName: combine-api
+              servicePort: 80
+              path: /kisao
+          - backend:
+              serviceName: combine-api
+              servicePort: 80
+              path: /omex-metadata
+          - backend:
+              serviceName: combine-api
+              servicePort: 80
+              path: /run
+          - backend:
+              serviceName: combine-api
+              servicePort: 80
+              path: /health                              
+              
     - host: data.biosimulations.dev
       http:
         paths:
