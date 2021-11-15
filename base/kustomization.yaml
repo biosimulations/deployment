@@ -8,7 +8,7 @@ resources:
   - apps/simulators-api.yaml
   - apps/mail-service.yaml
   - apps/combine-api.yaml
-  - apps/hsds-service.yaml
+  - apps/data-service.yaml
   - resources/mongo.yaml
   - resources/redis-ha.yaml
   - resources/nats.yaml

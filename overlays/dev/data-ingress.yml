@@ -5,14 +5,14 @@ metadata:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
 
-  name: dev-hsds-ingress
+  name: dev-data-ingress
   labels:
-    name: dev-hsds-ingress
+    name: dev-data-ingress
 spec:
   tls:
     - hosts:
       - data.biosimulations.dev
-      secretName: dev-hsds-ingress-tls
+      secretName: dev-data-ingress-tls
   rules:
   - host: data.biosimulations.dev
     http:
@@ -21,41 +21,41 @@ spec:
         path: "/domain"
         backend:
           service:
-            name: hsds
+            name: data
             port: 
               number: 80              
       - pathType: Prefix
         path: "/groups"
         backend:
           service:
-            name: hsds
+            name: data
             port: 
               number: 80              
       - pathType: Prefix
         path: "/datasets"
         backend:
           service:
-            name: hsds
+            name: data
             port: 
               number: 80              
       - pathType: Prefix
         path: "/acls"
         backend:
           service:
-            name: hsds
+            name: data
             port: 
               number: 80           
       - pathType: Prefix
         path: "/datatypes"
         backend:
           service:
-            name: hsds
+            name: data
             port: 
               number: 80              
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: hsds
+            name: data
             port: 
               number: 80                        

@@ -23,33 +23,33 @@ roleRef:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hsds
+  name: data
   labels:
-    app: hsds
+    app: data
 spec:
   selector:
-    app: hsds
+    app: data
   ports:
     - protocol: "TCP"
       targetPort: 5101
       port: 80
-      name: hsds
+      name: data
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: hsds
-  name: hsds
+    app: data
+  name: data
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hsds
+      app: data
   template:
     metadata:
       labels:
-        app: hsds
+        app: data
     spec:
       containers:
         - name: sn
@@ -135,7 +135,7 @@ spec:
             secretName: user-password
         - name: config
           configMap:
-            name: hsds-config
+            name: data-config
         - name: override
           configMap:
-            name: hsds-override
+            name: data-override

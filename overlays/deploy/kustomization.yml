@@ -31,7 +31,7 @@ replicas:
 - count: 3
   name: dispatch-service
 - count: 3
-  name: hsds
+  name: data
 - count: 3
   name: mail-service
 - count: 3

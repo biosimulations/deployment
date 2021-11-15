@@ -26,10 +26,10 @@ configMapGenerator:
     files:
       - combine-api/config.env
 
-  - name: hsds-config
+  - name: data-config
     files:
-      - hsds/config.yml
+      - data/config.yml
 
-  - name: hsds-override
+  - name: data-override
     files:
-      - hsds/override.yml
+      - data/override.yml

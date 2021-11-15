@@ -30,7 +30,7 @@ replicas:
 - count: 2
   name: dispatch-service
 - count: 5
-  name: hsds
+  name: data
 - count: 2
   name: mail-service
 - count: 1
@@ -43,7 +43,7 @@ resources:
 - dev.yml
 - combine-ingress.yml
 - api-ingress.yml
-- hsds-ingress.yml
+- data-ingress.yml
 - biosimulators-ingress.yml
 - ../../secrets/dev
 - ../../config/dev
