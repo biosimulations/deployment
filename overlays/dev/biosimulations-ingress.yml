@@ -56,15 +56,15 @@ spec:
           - backend:
               serviceName: api
               servicePort: 80
-              path: /projects
+            path: /projects
           - backend:
               serviceName: api
               servicePort: 80
-              path: /ontologies
+            path: /ontologies
           - backend:
               serviceName: api
               servicePort: 80
-              path: /health
+            path: /health
 
 
     - host: combine.api.biosimulations.dev
