@@ -5,9 +5,14 @@ namespace: argocd
 resources:
 - argo-cd.yaml
 - argo-ingress.yaml
+- applications/biosimulations-project.yaml
+- applications/biosimulations-dev.yaml
+- applications/biosimulations-prod.yaml
+- applications/cert-manager.yaml
+- applications/grafana.yaml
+- applications/prometheus.yaml
+- applications/nginx-ingress.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
-
-
 
 # changes to config maps
 patchesStrategicMerge:
