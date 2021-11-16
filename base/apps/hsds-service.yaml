@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
         - name: sn
-          image: hdfgroup/hsds:v0.7.0beta7
+          image: hdfgroup/hsds:v0.7.0beta8
           imagePullPolicy: Always
           ports:
             - containerPort: 5101
