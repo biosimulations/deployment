@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: argocd-cm
+  name: argocd-cm  # Don't change this name as it is used by argocd
   labels:
     app.kubernetes.io/name: argo-cm
     app.kubernetes.io/part-of: argocd
