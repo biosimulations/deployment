@@ -89,7 +89,7 @@ spec:
               mountPath: "/config/override.yaml"
               subPath: override.yaml
         - name: dn
-          image: hdfgroup/hsds:v0.7.0beta7
+          image: hdfgroup/hsds:v0.7beta8
           lifecycle:
             preStop:
               exec:
