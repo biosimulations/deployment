@@ -7,24 +7,24 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"    
-    # If you encounter a redirect loop or are getting a 307 response code
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    # If you encounter a redirect loop or are getting a 307 response code 
     # then you need to force the nginx ingress to connect to the backend using HTTPS.
     #
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
-  - host: deployment.biosimulations.dev
+  - host: deployment.biosimulations.org
     http:
       paths:
-      - pathType: Prefix
-        path: "/"
+      - path: /
+        pathType: Prefix
         backend:
-          service:
-            name: argo-cd-server
-            port: 
-              number: 443
+          service: 
+            name: argocd-server
+            port:
+              name: https
   tls:
-    - hosts:
-        - deployment.biosimulations.dev
-      secretName: argocd-secret # do not change, this is provided by Argo CD
+  - hosts:
+    - deployment.biosimulations.org
+    secretName: argocd-secret # do not change, this is provided by Argo CD
