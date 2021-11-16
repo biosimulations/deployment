@@ -7,20 +7,20 @@ commonLabels:
 namespace: dev
 
 #Change the tag on the images
+
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: sha-c6efbb7
+  newTag: sha-509eaa4
 - name: ghcr.io/biosimulations/api
-  newTag: sha-c6efbb7
+  newTag: sha-509eaa4
 - name: ghcr.io/biosimulations/combine-api
-  newTag: sha-c6efbb7
+  newTag: sha-509eaa4
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: sha-c6efbb7
+  newTag: sha-509eaa4
 - name: ghcr.io/biosimulations/mail-service
-  newTag: sha-c6efbb7
+  newTag: sha-509eaa4
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: sha-c6efbb7
-
+  newTag: sha-509eaa4
 - name: hdfgroup/hsds
   newTag: v0.7beta8
 #scale down dev deployment
