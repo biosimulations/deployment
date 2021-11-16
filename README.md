@@ -36,6 +36,12 @@ gcloud container clusters get-credentials biosimulations --zone us-central1-c --
 ```
 
 This will automatically configure your kubectl context to the connect to cluster.
+### Deploy Cluster (bootstrap)
+The applications are automatically installed and managed using [ArgoCD](https://argoproj.github.io/argo-cd/). The following steps will install ArgoCD on your cluster, deploy the cluster-wide infrastructure, and deploy the applications. 
+
+```
+kubectl apply -k cluster/
+```
 ### Load cluster secrets
 Apply the cluster secrets folder, and create the secrets. These secrets are used to 
 1. authenticate with the this repository, and the secrets submodule repository
@@ -43,13 +49,7 @@ Apply the cluster secrets folder, and create the secrets. These secrets are used
 
 Run the following command: 
 ```
-kubectl apply -f secrets/cluster
-```
-### Deploy Cluster (bootstrap)
-The applications are automatically installed and managed using [ArgoCD](https://argoproj.github.io/argo-cd/). The following steps will install ArgoCD on your cluster, deploy the cluster-wide infrastructure, and deploy the applications. 
-
-```
-kubectl apply -k cluster/
+kubectl apply -n argocd -f secrets/cluster
 ```
 
 ### Login to ArgoCD
