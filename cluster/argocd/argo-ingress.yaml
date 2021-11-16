@@ -14,7 +14,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
-  - host: deployment.biosimulations.org
+  - host: deployment.biosimulations.dev
     http:
       paths:
       - pathType: Prefix
@@ -26,5 +26,5 @@ spec:
               number: 443
   tls:
     - hosts:
-        - deployment.biosimulations.org
+        - deployment.biosimulations.dev
       secretName: argocd-secret # do not change, this is provided by Argo CD
