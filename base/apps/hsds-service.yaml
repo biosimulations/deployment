@@ -126,9 +126,7 @@ spec:
             - name: config
               mountPath: "/config/config.yaml"
               subPath: config.yaml
-            - name: override
-              mountPath: "/config/override.yaml"
-              subPath: override.yaml
+
       volumes:
         - name: accounts
           secret:
@@ -136,6 +134,3 @@ spec:
         - name: config
           configMap:
             name: hsds-config
-        - name: override
-          configMap:
-            name: hsds-override

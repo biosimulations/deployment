@@ -30,6 +30,3 @@ configMapGenerator:
     files:
       - hsds/config.yml
 
-  - name: hsds-override
-    files:
-      - hsds/override.yml
