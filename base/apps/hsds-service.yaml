@@ -85,7 +85,9 @@ spec:
             - name: config
               mountPath: "/config/config.yaml"
               subPath: config.yaml
-
+            - name: override
+              mountPath: "/config/override.yaml"
+              subPath: override.yaml
         - name: dn
           image: hdfgroup/hsds:v0.7beta8
           lifecycle:
