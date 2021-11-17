@@ -46,7 +46,7 @@ kubectl apply -k cluster/
 Apply the cluster secrets folder, and create the secrets. These secrets are used to 
 1. authenticate with the this repository, and the secrets submodule repository
 2. provide the client secret to enable the GitHub SSO
-
+3. 
 Run the following command: 
 ```
 kubectl apply -n argocd -f secrets/cluster
