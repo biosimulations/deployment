@@ -624,7 +624,7 @@ spec:
           name: tmp
         env:
           - name: BASE_HREF
-            value: /argo/
+            value: /
       nodeSelector:
         kubernetes.io/os: linux
       securityContext:
