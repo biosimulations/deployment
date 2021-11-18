@@ -3,53 +3,50 @@ kind: Kustomization
 
 # Change namespace, labels, and name to dev
 commonLabels:
-  environment: dev
-namespace: dev
+  environment: prod
+namespace: prod
 
 #Change the tag on the images
-
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: sha-a7e3928
+  newTag: sha-667b76b
 - name: ghcr.io/biosimulations/api
-  newTag: sha-a7e3928
+  newTag: sha-667b76b
 - name: ghcr.io/biosimulations/combine-api
-  newTag: sha-a7e3928
+  newTag: sha-667b76b
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: sha-a7e3928
+  newTag: sha-667b76b
 - name: ghcr.io/biosimulations/mail-service
-  newTag: sha-a7e3928
+  newTag: sha-667b76b
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: sha-a7e3928
-- name: hdfgroup/hsds
-  newTag: v0.7beta8
-#scale down dev deployment
+  newTag: sha-667b76b
+
+
+#scale up prod ev deployment
 replicas:
 - count: 0
   name: account-api
 - count: 3
   name: api
-- count: 2
+- count: 3
   name: dispatch-service
-- count: 1
+- count: 3
   name: hsds
-- count: 2
+- count: 3
   name: mail-service
-- count: 1
+- count: 3
   name: simulators-api
-- count: 2
+- count: 3
   name: combine-api
-
-#Use the development version of the secrets and ingress
+#Use the prod version of the secrets and ingress
 resources:
-- dev.yml
-- combine-ingress.yml
-- api-ingress.yml
-- hsds-ingress.yml
-- biosimulators-ingress.yml
-- ../../secrets/dev
-- ../../config/dev
+- prod.yaml
+- ../../secrets/prod
+- ../../config/prod
+- biosimulations-ingress.yaml
+- biosimulators-ingress.yaml
 - ../../base
 
+
 patchesStrategicMerge:
-- resources.yml
+- resources.yaml

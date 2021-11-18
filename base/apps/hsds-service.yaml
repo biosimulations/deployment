@@ -124,10 +124,10 @@ spec:
               mountPath: "/config/password/passwd.txt"
               subPath: "passwd.txt"
             - name: config
-              mountPath: "/config/config.yml"
+              mountPath: "/config/config.yml" #must be yml
               subPath: config.yaml
             - name: override
-              mountPath: "/config/override.yml"
+              mountPath: "/config/override.yml" #must be yml
               subPath: override.yaml
       volumes:
         - name: accounts
