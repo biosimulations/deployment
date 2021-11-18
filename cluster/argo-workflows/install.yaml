@@ -622,6 +622,9 @@ spec:
         volumeMounts:
         - mountPath: /tmp
           name: tmp
+        env:
+          - name: BASE_HREF
+            value: /argo/
       nodeSelector:
         kubernetes.io/os: linux
       securityContext:
