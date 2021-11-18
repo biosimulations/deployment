@@ -28,8 +28,8 @@ configMapGenerator:
 
   - name: hsds-config
     files:
-      - hsds/config.yml
+      - hsds/config.yaml
 
   - name: hsds-override
     files:
-      - hsds/override.yml
+      - hsds/override.yaml
