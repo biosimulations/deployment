@@ -11,3 +11,5 @@ resources:
 - prometheus.yaml
 - nginx-ingress.yaml
 - nats-operator.yaml
+- argo-workflows.yaml
+- argo-cd.yaml
