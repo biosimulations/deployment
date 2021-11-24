@@ -1,0 +1,55 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Change namespace, labels, and name to dev
+commonLabels:
+  environment: pr-3691
+namespace: pr-3691
+
+#Change the tag on the images
+
+images:
+- name: ghcr.io/biosimulations/account-api
+  newTag: pr-3691
+- name: ghcr.io/biosimulations/api
+  newTag: pr-3691
+- name: ghcr.io/biosimulations/combine-api
+  newTag: pr-3691
+- name: ghcr.io/biosimulations/dispatch-service
+  newTag: pr-3691
+- name: ghcr.io/biosimulations/mail-service
+  newTag: pr-3691
+- name: ghcr.io/biosimulations/simulators-api
+  newTag: pr-3691
+- name: hdfgroup/hsds
+  newTag: v0.7beta8
+#scale down dev deployment
+replicas:
+- count: 0
+  name: account-api
+- count: 2
+  name: api
+- count: 2
+  name: dispatch-service
+- count: 2
+  name: hsds
+- count: 2
+  name: mail-service
+- count: 1
+  name: simulators-api
+- count: 2
+  name: combine-api
+
+#Use the development version of the secrets and ingress
+resources:
+- dev.yaml
+- combine-ingress.yaml
+- api-ingress.yaml
+- hsds-ingress.yaml
+- biosimulators-ingress.yaml
+- ../../secrets/dev
+- ../../config/pr-3691
+- ../../base
+
+patchesStrategicMerge:
+- resources.yaml

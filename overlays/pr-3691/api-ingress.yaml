@@ -1,0 +1,91 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/proxy-body-size: "600m"
+    nginx.org/client-max-body-size: "600m"
+  name: biosimulations-dev-api-ingress
+  labels:
+    name: biosimulations-dev-api-ingress
+spec:
+  tls:
+    - hosts: 
+      - pr3691.api.biosimulations.dev
+      secretName: biosimulations-dev-api-ingress-tls
+    
+  rules:
+  - host: pr3691.api.biosimulations.dev
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/runs"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80        
+      - pathType: Prefix
+        path: "/projects"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/metadata"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/results"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80        
+      - pathType: Prefix
+        path: "/logs"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/files"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/specifications"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80                   
+      - pathType: Prefix
+        path: "/ontologies"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80       
+      - pathType: Prefix
+        path: "/health"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80                                
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80
