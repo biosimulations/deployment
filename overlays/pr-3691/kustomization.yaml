@@ -45,7 +45,6 @@ resources:
 - dev.yaml
 - combine-ingress.yaml
 - api-ingress.yaml
-- hsds-ingress.yaml
 - biosimulators-ingress.yaml
 - ../../secrets/dev
 - ../../config/pr-3691
