@@ -13,3 +13,4 @@ resources:
 - nats-operator.yaml
 - argo-workflows.yaml
 - argo-cd.yaml
+- argo-rollouts.yaml
