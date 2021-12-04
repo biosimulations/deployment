@@ -3,9 +3,8 @@ kind: Kustomization
 namespace: ingress-nginx
 resources:
 - https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
-- ingressClass.yaml
 - prod-issuer.yaml
 - staging-issuer.yaml
-images:
-- name: grafana/grafana
-  newTag: 8.2.4
+
+patchesStrategicMerge:
+  - replicas.yaml
