@@ -77,7 +77,7 @@ spec:
             - name: BUCKET_NAME
               value: biosimdev
             - name: LOG_LEVEL
-              value: DEBUG
+              value: WARN
           volumeMounts:
             - name: accounts
               mountPath: "/config/passwd.txt"
