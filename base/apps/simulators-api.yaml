@@ -31,6 +31,20 @@ spec:
               readOnly: true
           ports:
             - containerPort: 3333
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3333
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3333
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+        
       volumes:
         - name: secret
           secret:
