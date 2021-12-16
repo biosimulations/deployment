@@ -1,14 +1,24 @@
 # BioSimulations Deployment
 
-| BioSimulations Dev  | BioSimulations Prod | Argo CD      | NATS Operator | Nginx Ingress | Prometheus   | Grafana      | Cert Manager |
-| -------------       | -------------       |------------- |-------------  |-------------  |------------- |------------- |------------- |
-| [![App Status](https://deployment.biosimulations.org/api/badge?name=biosimulations-dev&revision=true)](https://deployment.biosimulations.org/applications/biosimulations-dev)  | [![App Status](https://deployment.biosimulations.org/api/badge?name=biosimulations-prod&revision=true)](https://deployment.biosimulations.org/applications/biosimulations-prod)  | [![App Status](https://deployment.biosimulations.org/api/badge?name=argo-cd&revision=true)](https://deployment.biosimulations.org/applications/argo-cd)| [![App Status](https://deployment.biosimulations.org/api/badge?name=nats-operator&revision=true)](https://deployment.biosimulations.org/applications/nats-operator)| [![App Status](https://deployment.biosimulations.org/api/badge?name=nginx-ingress&revision=true)](https://deployment.biosimulations.org/applications/nginx-ingress)| [![App Status](https://deployment.biosimulations.org/api/badge?name=prometheus&revision=true)](https://deployment.biosimulations.org/applications/prometheus)|[![App Status](https://deployment.biosimulations.org/api/badge?name=grafana&revision=true)](https://deployment.biosimulations.org/applications/grafana)| [![App Status](https://deployment.biosimulations.org/api/badge?name=cert-manager&revision=true)](https://deployment.biosimulations.org/applications/cert-manager)|
+## Status
+### Core
+| BioSimulations Dev  | BioSimulations Prod
+| -------------       | -------------       
+| [![App Status](https://deployment.biosimulations.org/api/badge?name=biosimulations-dev&revision=true)](https://deployment.biosimulations.org/applications/biosimulations-dev)  | [![App Status](https://deployment.biosimulations.org/api/badge?name=biosimulations-prod&revision=true)](https://deployment.biosimulations.org/applications/biosimulations-prod)  
 
+### Infrastrucrue
+ | Argo CD      | NATS Operator | Nginx Ingress | Cert Manager |
+ |------------- |-------------  |-------------  |------------- |
+| [![App Status](https://deployment.biosimulations.org/api/badge?name=argo-cd&revision=true)](https://deployment.biosimulations.org/applications/argo-cd)| [![App Status](https://deployment.biosimulations.org/api/badge?name=nats-operator&revision=true)](https://deployment.biosimulations.org/applications/nats-operator)| [![App Status](https://deployment.biosimulations.org/api/badge?name=nginx-ingress&revision=true)](https://deployment.biosimulations.org/applications/nginx-ingress)|  [![App Status](https://deployment.biosimulations.org/api/badge?name=cert-manager&revision=true)](https://deployment.biosimulations.org/applications/cert-manager)|
 
+### Monitoring
+| Prometheus   | Grafana      |
+|------------- |------------- |
+[![App Status](https://deployment.biosimulations.org/api/badge?name=prometheus&revision=true)](https://deployment.biosimulations.org/applications/prometheus)|[![App Status](https://deployment.biosimulations.org/api/badge?name=grafana&revision=true)](https://deployment.biosimulations.org/applications/grafana)|
 
 ## About
 This [repository](https://github.com/biosimulations/deployment) contains the configuration for deploying the [BioSimulations](https://github.com/biosimulations/biosimulations) platform onto a Kubernetes cluster. The repository is organized to support a [GitOps](#gitops) workflow and continuous deployment using [ArgoCD](https://argoproj.github.io/argo-cd/). The deployment can be monitored and configured at https://deployment.biosimulations.org
-### BioSimulations
+
 ### GitOps
 Git Ops is an approach to cluster and deployment management that uses a git repository as the single source of truth for the state of the cluster and deployment. The kubernetes cluster contains an continious delivery application (in our case ArgoCD) which monitors the repository and applies any changes. This allows for strict versioning of deployments and easy reverts incase of any issues. Since all changes to the deployment must go through the git repository, there is no need to worry about changes to the cluster that may be lost if the cluster is recreated or changed. You can learn more about this approach [here](https://www.weave.works/technologies/gitops/)
 ## Structure 
