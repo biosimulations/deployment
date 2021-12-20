@@ -46,7 +46,3 @@ resources:
 - biosimulations-ingress.yaml
 - biosimulators-ingress.yaml
 - ../../base
-
-
-patchesStrategicMerge:
-- resources.yaml

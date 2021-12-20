@@ -18,6 +18,13 @@ spec:
         - name: combine-api
           image: ghcr.io/biosimulations/combine-api
           imagePullPolicy: "Always"
+          resources:
+            requests: 
+              memory: "1Gi"
+              cpu: "25m"
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
           readinessProbe:
             httpGet:
               path: /health
