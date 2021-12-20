@@ -25,13 +25,35 @@ spec:
         - name: shared
           configMap:
             name: shared-config
+      affinity:
+        podAffinity:
+         preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - dispatch-service
+                  - hsds
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                    - api
       containers:
         - name: api
           image: "ghcr.io/biosimulations/api"
           imagePullPolicy: "Always"
           resources:
             requests: 
-              memory: "1Gi"
+              memory: "250Mi"
               cpu: "25m"
             limits:
               memory: "2Gi"
