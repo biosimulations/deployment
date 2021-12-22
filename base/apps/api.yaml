@@ -37,6 +37,7 @@ spec:
                   values:
                   - dispatch-service
                   - hsds
+              topologyKey: kubernetes.io/hostname
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
             - weight: 100
@@ -47,6 +48,7 @@ spec:
                     operator: In
                     values:
                     - api
+                topologyKey: kubernetes.io/hostname
       containers:
         - name: api
           image: "ghcr.io/biosimulations/api"
