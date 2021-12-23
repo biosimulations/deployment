@@ -32,7 +32,6 @@ spec:
             - mountPath: /var/lib/grafana
               name: data
       restartPolicy: Always
-      #todo add persistent storage
       volumes:
         - name: data
           persistentVolumeClaim:
