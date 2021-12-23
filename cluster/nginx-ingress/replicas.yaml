@@ -4,5 +4,5 @@ metadata:
   name: ingress-nginx-controller
   namespace: ingress-nginx
 spec:
-  replicas: 1
+  replicas: 3
   
