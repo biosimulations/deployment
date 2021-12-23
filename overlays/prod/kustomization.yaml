@@ -26,7 +26,7 @@ images:
 replicas:
 - count: 0
   name: account-api
-- count: 5
+- count: 7
   name: api
 - count: 3
   name: dispatch-service
