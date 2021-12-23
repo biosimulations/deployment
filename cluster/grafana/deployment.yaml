@@ -30,5 +30,6 @@ spec:
       restartPolicy: Always
       #todo add persistent storage
       volumes:
-        - emptyDir: {}
-          name: data
+        - name: data
+          persistentVolumeClaim:
+            claimName: grafana-storage
