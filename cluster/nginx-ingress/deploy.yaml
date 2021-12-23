@@ -396,8 +396,8 @@ spec:
               readOnly: true
           resources:
             requests:
-              cpu: 100m
-              memory: 90Mi
+              cpu: 200m
+              memory: 200Mi
       nodeSelector:
         kubernetes.io/os: linux
       serviceAccountName: ingress-nginx

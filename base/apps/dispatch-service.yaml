@@ -34,8 +34,8 @@ spec:
               memory: "1Gi"
               cpu: "25m"
             limits:
-              memory: "2Gi"
-              cpu: "1000m"
+              memory: "4Gi"
+              cpu: "2000m"
           volumeMounts:
             - name: config
               mountPath: "/app/config"
