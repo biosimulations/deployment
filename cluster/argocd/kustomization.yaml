@@ -1,23 +1,19 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
-
-
-
   
 # additional resources like ingress rules, cluster and repository secrets.
 resources:
-- https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
-- install.yaml
-- argo-ingress.yaml
-- applications.yaml
-- overlay/argocd-repositories.yaml
-- ../../secrets/cluster
+- https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml # Install argo-cd in HA mode
+- https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml # Add image update plugin
+- argo-ingress.yaml # Expose the UI at https://deployment.biosimulations.org
+- argocd-repositories.yaml  # The repository to connect to for deployment files
+- ../../secrets/cluster # The argocd-secrets to connect to repo 
+- applications.yaml # "App of Apps" that declares the rest of the cluster apps (see https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/ )
 
 # changes to config maps
-
 patchesStrategicMerge:
-- overlay/argo-cm.yaml
+- overlay/argo-cm.yaml 
 - overlay/argo-cm-rbac.yaml
 - overlay/argo-cd-known-hosts.yaml
 
