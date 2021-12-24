@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: grafana/loki
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: loki-2.8.4
+    helm:
+      releaseName: loki
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
