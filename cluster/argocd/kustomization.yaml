@@ -8,7 +8,7 @@ namespace: argocd
 # additional resources like ingress rules, cluster and repository secrets.
 resources:
 - https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
-- install.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
 - argo-ingress.yaml
 - applications.yaml
 - overlay/argocd-repositories.yaml
