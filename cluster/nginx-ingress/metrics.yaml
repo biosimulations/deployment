@@ -3,13 +3,27 @@ kind: Service
 metadata:
   name: ingress-nginx-controller
   namespace: ingress-nginx
-  annotations:
-    prometheus.io/scrape: "true"
-    prometheus.io/port: "10254"
 spec:
   ports:
     - name: prometheus
       port: 10254
       targetPort: prometheus
-
-
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
+spec:
+  template:
+    metadata:
+      annotations:
+        prometheus.io/port: "10254"
+        prometheus.io/scrape: "true"
+    spec:
+      containers:
+        - name: controller
+          ports:
+            - name: metrics
+              containerPort: 10254
+              protocol: TCP
