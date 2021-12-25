@@ -9,17 +9,17 @@ namespace: prod
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: sha-b492f02
+  newTag: sha-1658971
 - name: ghcr.io/biosimulations/api
-  newTag: sha-b492f02
+  newTag: sha-1658971
 - name: ghcr.io/biosimulations/combine-api
-  newTag: sha-b492f02
+  newTag: sha-1658971
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: sha-b492f02
+  newTag: sha-1658971
 - name: ghcr.io/biosimulations/mail-service
-  newTag: sha-b492f02
+  newTag: sha-1658971
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: sha-b492f02
+  newTag: sha-1658971
 
 
 #scale up prod ev deployment
