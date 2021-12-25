@@ -9,7 +9,7 @@ resources:
 - argo-ingress.yaml
 - applications.yaml
 - overlay/argocd-repositories.yaml
-- ../../secrets/cluster/argocd-repo-creds.yaml
+
 
 # changes to config maps
 
