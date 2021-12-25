@@ -10,4 +10,6 @@ spec:
   ports:
     - name: prometheus
       port: 10254
+      targetPort: prometheus
+
 
