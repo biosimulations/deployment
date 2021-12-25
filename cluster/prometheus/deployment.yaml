@@ -24,7 +24,21 @@ spec:
         - name: prometheus-config-volume
           configMap:
             name: prometheus-configuration
-        #Todo add persistent storage            
+        
         - name: prometheus-storage-volume
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: prometheus-storage-volume-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prometheus-storage-volume-claim
+spec:
+  resources:
+    requests:
+      storage: 300Gi
+  accessModes:
+    - ReadWriteOnce
+
+
           
