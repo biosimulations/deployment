@@ -64,7 +64,8 @@ data:
   # NOTE: events.k8s.io and metrics.k8s.io are excluded by default
 
   # Build options/parameters to use with `kustomize build` (optional)
-  #kustomize.buildOptions: --load_restrictor none
+  kustomize.buildOptions: --load-restrictor LoadRestrictionsNone
+
 
   # Additional Kustomize versions and corresponding binary paths
   #$kustomize.version.v3.5.1: /custom-tools/kustomize_3_5_1
