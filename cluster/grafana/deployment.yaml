@@ -20,6 +20,10 @@ spec:
             storage: 100Gi
   template:
     spec:      
+       # To get storage working. See https://stackoverflow.com/questions/60727107/how-can-i-give-grafana-user-appropriate-permission-so-that-it-can-start-successf
+      securityContext:
+        runAsUser: 0
+        fsGroup: 0
       containers:
         - image: grafana/grafana
           name: grafana
