@@ -11,10 +11,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - grafana.api.biosimulations.org
+      - monitoring.biosimulations.org
       secretName: grafana-tls
   rules:
-  - host: grafana.api.biosimulations.org
+  - host: monitoring.biosimulations.org
     http:
       paths:
       - pathType: Prefix
