@@ -6,7 +6,7 @@
 | -------------       | -------------       
 | [![App Status](https://deployment.biosimulations.org/api/badge?name=biosimulations-dev&revision=true)](https://deployment.biosimulations.org/applications/biosimulations-dev)  | [![App Status](https://deployment.biosimulations.org/api/badge?name=biosimulations-prod&revision=true)](https://deployment.biosimulations.org/applications/biosimulations-prod)  
 
-### Infrastrucrue
+### Infrastructure
  | Argo CD      | NATS Operator | Nginx Ingress | Cert Manager |
  |------------- |-------------  |-------------  |------------- |
 | [![App Status](https://deployment.biosimulations.org/api/badge?name=argo-cd&revision=true)](https://deployment.biosimulations.org/applications/argo-cd)| [![App Status](https://deployment.biosimulations.org/api/badge?name=nats-operator&revision=true)](https://deployment.biosimulations.org/applications/nats-operator)| [![App Status](https://deployment.biosimulations.org/api/badge?name=nginx-ingress&revision=true)](https://deployment.biosimulations.org/applications/nginx-ingress)|  [![App Status](https://deployment.biosimulations.org/api/badge?name=cert-manager&revision=true)](https://deployment.biosimulations.org/applications/cert-manager)|
