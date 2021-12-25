@@ -8,3 +8,4 @@ resources:
 
 patchesStrategicMerge:
   - replicas.yaml
+  - metrics.yaml
