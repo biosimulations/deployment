@@ -10,17 +10,17 @@ namespace: dev
 
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: sha-e46146b
+  newTag: sha-64cf93b
 - name: ghcr.io/biosimulations/api
-  newTag: sha-e46146b
+  newTag: sha-64cf93b
 - name: ghcr.io/biosimulations/combine-api
-  newTag: sha-e46146b
+  newTag: sha-64cf93b
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: sha-e46146b
+  newTag: sha-64cf93b
 - name: ghcr.io/biosimulations/mail-service
-  newTag: sha-e46146b
+  newTag: sha-64cf93b
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: sha-e46146b
+  newTag: sha-64cf93b
 - name: hdfgroup/hsds
   newTag: v0.7beta8
 #scale down dev deployment
