@@ -29,14 +29,14 @@ spec:
             httpGet:
               path: /health
               port: 3333
-            initialDelaySeconds: 30
-            periodSeconds: 10
+            initialDelaySeconds: 60
+            periodSeconds: 30
           livenessProbe:
             httpGet:
               path: /health
               port: 3333
             initialDelaySeconds: 60
-            periodSeconds: 10
+            periodSeconds: 30
           volumeMounts:
             - name: config
               mountPath: "/app/config"
