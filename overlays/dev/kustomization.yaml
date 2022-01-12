@@ -14,7 +14,7 @@ images:
 - name: ghcr.io/biosimulations/api
   newTag: sha-e5eaec7
 - name: ghcr.io/biosimulations/combine-api
-  newTag: sha-e5eaec7
+  newTag: pr-4040
 - name: ghcr.io/biosimulations/dispatch-service
   newTag: sha-e5eaec7
 - name: ghcr.io/biosimulations/mail-service
