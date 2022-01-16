@@ -31,7 +31,7 @@ replicas:
   name: api
 - count: 2
   name: dispatch-service
-- count: 5
+- count: 1
   name: hsds
 - count: 2
   name: mail-service
