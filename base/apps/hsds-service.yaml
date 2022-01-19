@@ -72,21 +72,15 @@ spec:
                 secretKeyRef:
                   name: aws-auth-keys
                   key: aws_secret_access_key
-            - name: AWS_REGION
-              value: us-east-1
-            - name: BUCKET_NAME
-              value: biosimdev
-            - name: LOG_LEVEL
-              value: WARN
           volumeMounts:
             - name: accounts
               mountPath: "/config/passwd.txt"
               subPath: passwd.txt
             - name: config
-              mountPath: "/config/config.yaml"
+              mountPath: "/config/config.yml"
               subPath: config.yaml
             - name: override
-              mountPath: "/config/override.yaml"
+              mountPath: "/config/override.yml"
               subPath: override.yaml
         - name: dn
           image: hdfgroup/hsds:v0.7beta8
