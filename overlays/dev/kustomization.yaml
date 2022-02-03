@@ -29,7 +29,7 @@ replicas:
   name: account-api
 - count: 3
   name: api
-- count: 3
+- count: 5
   name: dispatch-service
 - count: 5
   name: hsds
