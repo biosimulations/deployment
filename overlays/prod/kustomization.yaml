@@ -45,4 +45,6 @@ resources:
 - ../../config/prod
 - biosimulations-ingress.yaml
 - biosimulators-ingress.yaml
+- combine-ingress.yaml
+- hsds-ingress.yaml
 - ../../base

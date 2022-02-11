@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
@@ -6,61 +6,86 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     nginx.ingress.kubernetes.io/proxy-body-size: "600m"
     nginx.org/client-max-body-size: "600m"
-  name: prod-biosimulations-ingress
+  name: biosimulations-prod-api-ingress
+  labels:
+    name: biosimulations-prod-api-ingress
 spec:
   tls:
-    - hosts:
-        - account.api.biosimulations.org
-        - api.biosimulations.org
-        - combine.api.biosimulations.org
-        - data.biosimulations.org
-
-      secretName: biosimulations-ingress-certificate
-
+    - hosts: 
+      - api.biosimulations.org
+      secretName: biosimulations-prod-api-ingress-tls
+    
   rules:
-    - host: account.api.biosimulations.org
-      http:
-        paths:
-          - backend:
-              serviceName: account-api
-              servicePort: 80
-
-    - host: api.biosimulations.org
-      http:
-        paths:
-          - backend:
-              serviceName: combine-api
-              servicePort: 80
-            path: "/combine"
-          - backend:
-              serviceName: account-api
-              servicePort: 80
-            path: /account
-          - backend:
-              serviceName: api
-              servicePort: 80
-            path: /runs
-          - backend:
-              serviceName: api
-              servicePort: 80
-            path: /metadata
-          - backend:
-              serviceName: api
-              servicePort: 80
-            path: /results
-          - backend:
-              serviceName: api
-              servicePort: 80
-
-    - host: combine.api.biosimulations.org
-      http:
-        paths:
-          - backend:
-              serviceName: combine-api
-              servicePort: 80
-    - host: data.biosimulations.org
-      http:
-        paths:
-          - backend:
-              serviceName: hsds
-              servicePort: 80
+  - host: api.biosimulations.org
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/runs"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80        
+      - pathType: Prefix
+        path: "/projects"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/metadata"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/results"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80        
+      - pathType: Prefix
+        path: "/logs"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/files"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/specifications"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80                   
+      - pathType: Prefix
+        path: "/ontologies"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80       
+      - pathType: Prefix
+        path: "/health"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80                                
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: api
+            port: 
+              number: 80

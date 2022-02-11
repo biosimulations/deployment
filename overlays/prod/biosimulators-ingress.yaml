@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
@@ -7,16 +7,20 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "600m"
     nginx.org/client-max-body-size: "600m"
   name: prod-simulators-ingress
-  namespace: default
+  namespace: prod
 spec:
   tls:
     - hosts:
         - api.biosimulators.org
       secretName: biosimulators-certificate
   rules:
-    - host: api.biosimulators.org
-      http:
-        paths:
-          - backend:
-              serviceName: simulators-api
-              servicePort: 80
+  - host:  api.biosimulators.dev
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: simulators-api
+            port: 
+              number: 80
