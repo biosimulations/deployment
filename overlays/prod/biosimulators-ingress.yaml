@@ -12,9 +12,9 @@ spec:
   tls:
     - hosts:
         - api.biosimulators.org
-      secretName: biosimulators-certificate
+      secretName: biosimulators-prod-certificate
   rules:
-  - host:  api.biosimulators.dev
+  - host:  api.biosimulators.org
     http:
       paths:
       - pathType: Prefix
