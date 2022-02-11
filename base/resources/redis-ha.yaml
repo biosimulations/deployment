@@ -25,6 +25,13 @@ spec:
             - "no"
           ports:
             - containerPort: 6379
+          resources:
+            requests:
+              cpu: 100m
+              memory: 1000Mi
+            limits:
+              cpu: 1000m
+              memory: 4000Mi
 ---
 apiVersion: apps/v1
 kind: Deployment
