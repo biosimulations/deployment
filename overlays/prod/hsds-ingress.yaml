@@ -7,9 +7,9 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "300m"
     nginx.org/client-max-body-size: "300m"
 
-  name: dev-hsds-ingress
+  name: prod-hsds-ingress
   labels:
-    name: dev-hsds-ingress
+    name: prod-hsds-ingress
 spec:
   tls:
     - hosts:
