@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-        name: grafana-config
-        labels:
-          apps: grafana
-data:
-    GF_INSTALL_PLUGINS: redis-datasource, redis-app

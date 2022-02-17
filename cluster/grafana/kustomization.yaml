@@ -7,7 +7,6 @@ resources:
 - deployment.yaml
 - service.yaml
 - ingress.yaml
-- config.yaml
 images:
 - name: grafana/grafana
   newTag: 8.3.1
