@@ -18,6 +18,27 @@ spec:
     http:
       paths:
       - pathType: Prefix
+        path: "/simulators"
+        backend:
+          service:
+            name: simulators-api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/ontologies"
+        backend:
+          service:
+            name: simulators-api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/health"
+        backend:
+          service:
+            name: simulators-api
+            port: 
+              number: 80
+      - pathType: Prefix
         path: "/"
         backend:
           service:
