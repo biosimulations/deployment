@@ -8,3 +8,5 @@ spec:
       protocol: TCP
       targetPort: 3000
   type: NodePort
+  selector:
+    app.kubernetes.io/name: grafana
