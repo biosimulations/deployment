@@ -37,6 +37,7 @@ spec:
               port: 3333
             initialDelaySeconds: 60
             periodSeconds: 30
+            timeoutSeconds: 30
           volumeMounts:
             - name: config
               mountPath: "/app/config"

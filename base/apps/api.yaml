@@ -26,18 +26,6 @@ spec:
           configMap:
             name: shared-config
       affinity:
-        podAffinity:
-         preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 1
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                - key: app
-                  operator: In
-                  values:
-                  - dispatch-service
-                  - hsds
-              topologyKey: kubernetes.io/hostname
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
             - weight: 100
@@ -66,12 +54,14 @@ spec:
               port: 3333
             initialDelaySeconds: 10
             periodSeconds: 10
+            timeoutSeconds: 10
           readinessProbe:
             httpGet:
               path: /health
               port: 3333
             initialDelaySeconds: 10
             periodSeconds: 10
+            
           ports:
             - containerPort: 3333
           volumeMounts:
