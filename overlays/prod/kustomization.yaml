@@ -26,11 +26,11 @@ images:
 replicas:
 - count: 0
   name: account-api
-- count: 5
-  name: api
 - count: 3
+  name: api
+- count: 5
   name: dispatch-service
-- count: 7
+- count: 5
   name: hsds
 - count: 3
   name: mail-service
