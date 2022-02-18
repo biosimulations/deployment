@@ -4,8 +4,6 @@ namespace: monitoring
 resources:
 - deployment.yaml
 - service.yaml
-- ingress.yaml
-- promtail.yaml
 images:
 - name: grafana/grafana
   newTag: 8.3.1
