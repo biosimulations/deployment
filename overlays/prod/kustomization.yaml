@@ -11,7 +11,7 @@ images:
 - name: ghcr.io/biosimulations/account-api
   newTag: v9.11.2
 - name: ghcr.io/biosimulations/api
-  newTag: v9.11.2
+  newTag: v9.13.2
 - name: ghcr.io/biosimulations/combine-api
   newTag: v9.11.2
 - name: ghcr.io/biosimulations/dispatch-service
