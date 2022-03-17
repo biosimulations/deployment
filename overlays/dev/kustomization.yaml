@@ -22,7 +22,7 @@ images:
 - name: ghcr.io/biosimulations/simulators-api
   newTag: v9.13.2
 - name: hdfgroup/hsds
-  newTag: v0.7beta8
+  newTag: v0.7beta12
 #scale down dev deployment
 replicas:
 - count: 0
