@@ -20,7 +20,8 @@ images:
   newTag: v9.13.2
 - name: ghcr.io/biosimulations/simulators-api
   newTag: v9.13.2
-
+- name: hdfgroup/hsds
+  newTag: v0.7beta12
 
 #scale up prod ev deployment
 replicas:
