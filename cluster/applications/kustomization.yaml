@@ -16,3 +16,4 @@ resources:
 - argo-rollouts.yaml
 - loki.yaml
 - prometheus-operator.yaml
+- prometheus-using-operator.yaml
