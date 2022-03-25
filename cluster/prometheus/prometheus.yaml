@@ -29,3 +29,9 @@ scrape_configs:
   - source_labels: [__meta_kubernetes_service_name]
     regex: prometheus-server
     action: drop
+- job_name: 'argocd'
+  kubernetes_sd_configs:
+  - role: pod
+    namespaces:
+      names:
+      - argocd
