@@ -4,14 +4,23 @@ metadata:
   name: prometheus
 spec:
   serviceAccountName: prometheus
-  securityContext:
-    runAsGroup: 0
-    runAsNonRoot: false
-    runAsUser: 0
-    fsGroup: 0
+  podMonitorNamespaceSelector: {}
+  podMonitorSelector: {}
+  probeNamespaceSelector: {}
+  probeSelector: {}
+  replicas: 2
   resources:
     requests:
       memory: 400Mi
+  ruleNamespaceSelector: {}
+  ruleSelector: {}
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  
+  serviceMonitorNamespaceSelector: {}
+  serviceMonitorSelector: {}
   enableAdminAPI: true
   storage:
     volumeClaimTemplate:
