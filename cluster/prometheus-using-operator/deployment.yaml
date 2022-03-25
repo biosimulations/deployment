@@ -4,6 +4,11 @@ metadata:
   name: prometheus
 spec:
   serviceAccountName: prometheus
+  securityContext:
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
+    fsGroup: 0
   resources:
     requests:
       memory: 400Mi
