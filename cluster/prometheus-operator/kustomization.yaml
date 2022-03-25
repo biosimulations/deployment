@@ -4,5 +4,5 @@ namespace: prom-operator
   
 
 resources:
- - https://github.com/prometheus-operator/prometheus-operator/releases/latest
+ - https://github.com/prometheus-operator/prometheus-operator/?ref=v0.55.0
 
