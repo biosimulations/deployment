@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
-  namespace: argocd
+  name: monitoring
 spec:
-  project: default
-  source:
-    repoURL: "ssh://git@github.com/biosimulations/deployment.git"
-    path: cluster/prometheus
-    targetRevision: HEAD
   destination:
-    server: "https://kubernetes.default.svc"
-    namespace: ingress-nginx
+    name: monitoring
+    namespace: monitoring
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: cluster/prometheus
+    repoURL: 'ssh://git@github.com/biosimulations/deployment.git'
+    targetRevision: HEAD
+    plugin:
+      name: kustomized-helm
+  project: default
   syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true

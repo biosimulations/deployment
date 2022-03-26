@@ -1,18 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: monitoring
-commonLabels:
-  app.kubernetes.io/name: prometheus
-  app.kubernetes.io/part-of: ingress-nginx
 resources:
-- role.yaml
-- service-account.yaml
-- role-binding.yaml
-- deployment.yaml
-- service.yaml
-images:
-- name: prom/prometheus
-configMapGenerator:
-- name: prometheus-configuration
-  files:
-  - prometheus.yaml
+- all.yaml
