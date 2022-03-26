@@ -1,3 +1,4 @@
-prometheusOperator:
-  admissionWebhooks:
-    enabled: false
+kube-prometheus-stack:
+  prometheusOperator:
+    admissionWebhooks:
+      enabled: false
