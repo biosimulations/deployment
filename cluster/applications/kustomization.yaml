@@ -7,13 +7,12 @@ resources:
 - biosimulations-dev.yaml
 - biosimulations-prod.yaml
 - cert-manager.yaml
-- grafana.yaml
 - prometheus.yaml
 - nginx-ingress.yaml
 - nats-operator.yaml
 - argo-workflows.yaml
 - argo-cd.yaml
 - argo-rollouts.yaml
-- loki.yaml
+
 
 
