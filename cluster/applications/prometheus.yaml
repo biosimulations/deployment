@@ -13,6 +13,11 @@ spec:
     targetRevision: HEAD
     plugin:
       name: kustomized-helm
+      env:
+        - name: ARGOCD_APP_NAME
+          value: monitoring
+        - name: ARGOCD_APP_NAMESPACE
+          value: monitoring
   project: default
   syncPolicy:
     automated:
