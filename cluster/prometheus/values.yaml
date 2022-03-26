@@ -4,3 +4,7 @@ kube-prometheus-stack:
       enabled: false
     admissionWebhooks:
       enabled: false
+  prometheus:
+  prometheusSpec:
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
