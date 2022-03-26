@@ -4,7 +4,7 @@ metadata:
   name: monitoring
 spec:
   destination:
-    name: monitoring
+
     namespace: monitoring
     server: 'https://kubernetes.default.svc'
   source:
