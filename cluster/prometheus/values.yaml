@@ -1,11 +1,10 @@
-kube-prometheus-stack:
-  prometheusOperator:
+prometheusOperator:
     tls:
       enabled: false
     admissionWebhooks:
       enabled: false
-  prometheus:
-    prometheusSpec:
-      podMonitorSelectorNilUsesHelmValues: false
-      serviceMonitorSelectorNilUsesHelmValues: false
-      ruleSelectorNilUsesHelmValues: false
+prometheus:
+  prometheusSpec:
+    podMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false

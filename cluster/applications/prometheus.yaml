@@ -9,18 +9,16 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: cluster/prometheus
-    repoURL: 'ssh://git@github.com/biosimulations/deployment.git'
-    targetRevision: HEAD
-    plugin:
-      name: kustomized-helm
-      env:
-        - name: ARGOCD_APP_NAME
-          value: monitoring
-        - name: ARGOCD_APP_NAMESPACE
-          value: monitoring
+    repoURL: 'https://prometheus-community.github.io/helm-charts'
+    targetRevision: 34.1.1
+    chart: kube-prometheus-stack
+    helm:
+      valueFiles:
+      - values.yaml
   project: default
   revisionHistoryLimit: 0
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+
