@@ -19,15 +19,12 @@ spec:
         fullnameOverride: prometheus
         prometheus:
           prometheusSpec:
-            podMonitorSelectorNilUsesHelmValues: false
-            serviceMonitorSelectorNilUsesHelmValues: false
-            ruleSelectorNilUsesHelmValues: false
             storageSpec:
               volumeClaimTemplate:
                 spec:
                   resources:
                     requests:
-                      storage: 5Gi     # Size of volume used by prometheus'. Can be modified depending on  required retention
+                      storage: 300Gi     # Size of volume used by prometheus'. Can be modified depending on  required retention
         grafana:
           grafana.ini:
             feature_toggles:
