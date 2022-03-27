@@ -18,6 +18,8 @@ spec:
   project: default
   revisionHistoryLimit: 0
   syncPolicy:
+    syncOptions:
+      - Replace=true
     automated:
       prune: true
       selfHeal: true
