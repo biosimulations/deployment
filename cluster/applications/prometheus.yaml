@@ -13,53 +13,11 @@ spec:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 34.1.1
+    path: cluster/prometheus
     helm:
-      values: |
-        fullnameOverride: prometheus
-        prometheus:
-          prometheusSpec:
-            storageSpec:
-              volumeClaimTemplate:
-                spec:
-                  resources:
-                    requests:
-                      storage: 5Gi     # Size of volume used by prometheus'. Can be modified depending on  required retention
-        grafana:
-          grafana.ini:
-            feature_toggles:
-              enable: tempoSearch      # To enable search option for tempo traces on Grafana
-          persistence:
-            type: statefulset          # To deploy Grafana as a StatefulSet
-            enabled: true
-            size: 5Gi                  # Size of volume used by Grafana for storing dashboards created from the Grafana UI
-          datasources:                 # Omit this if no additional datasources are required
-            datasources.yaml:
-              apiVersion: 1
-              datasources:
-              - name: Loki             # Adding Loki as datasource
-                type: loki
-                uid: Loki
-                access: proxy
-                editable: false
-                url: http://loki-gateway.monitoring:80     # DNS of loki-gateway
-                jsonData:                                  # To setup integration between Loki and Tempo
-                  derivedFields:
-                    - datasourceUid: Tempo
-                      matcherRegex: "(?:traceID|traceId)(?:=|\\s)(\\w+)"
-                      name: TraceID
-                      url: "$${__value.raw}"
-              - name: Tempo                         # Adding Tempo datasource
-                type: tempo
-                uid: Tempo
-                access: proxy
-                editable: false
-                url: http://tempo-gateway.monitoring:80
-          sidecar:                              
-            dashboards:
-              enabled: true                        # To enable dashboards as configMaps automatically picked up by Grafana
-              label: grafana_dashboard             # Label the configMaps should have in order to be added
-              folder: /tmp/dashboards
-              searchNamespace: ALL                 # To look for dashboard configMaps in all namespaces
+      valudFiles:
+        - values.yaml
+
   syncPolicy:
     automated:
       prune: true
