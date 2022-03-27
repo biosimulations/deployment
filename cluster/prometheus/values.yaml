@@ -1,8 +1,8 @@
 prometheusOperator:
-    tls:
-      enabled: false
-    admissionWebhooks:
-      enabled: false
+  tls:
+    enabled: false
+  admissionWebhooks:
+    enabled: false
 prometheus:
   prometheusSpec:
     podMonitorSelectorNilUsesHelmValues: false
