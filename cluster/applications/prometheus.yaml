@@ -19,6 +19,13 @@ spec:
         fullnameOverride: prometheus
         prometheus:
           prometheusSpec:
+            podMonitorSelectorNilUsesHelmValues: false
+            serviceMonitorNamespaceSelector:
+              any: true
+            serviceMonitorSelectorNilUsesHelmValues: false
+            ruleSelectorNilUsesHelmValues: false
+            ruleNamespaceSelector:
+              any: true
             storageSpec:
               volumeClaimTemplate:
                 spec:
