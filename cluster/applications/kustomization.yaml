@@ -12,6 +12,8 @@ resources:
 - argo-workflows.yaml
 - argo-cd.yaml
 - argo-rollouts.yaml
+- prometheus.yaml
+
 
 
 
