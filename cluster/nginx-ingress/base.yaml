@@ -475,9 +475,9 @@ spec:
       interval: 30s
       relabelings:
       - sourceLabels: [__meta_kubernetes_service_label_app_kubernetes_io_instance]
-        action: replace
+        action: keep
         regex: "nginx-ingress"
-        replacement: "ingress-nginx"
+        
   namespaceSelector:
     matchNames:
       - ingress-nginx
