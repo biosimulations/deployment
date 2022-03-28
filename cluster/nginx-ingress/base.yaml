@@ -473,6 +473,26 @@ spec:
   endpoints:
     - port: metrics
       interval: 30s
+      relabelings:
+      - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance]
+        action: keep
+        regex: "nginx-ingress"
+      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scheme]
+        action: replace
+        target_label: __scheme__
+        regex: (https?)
+      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+        action: replace
+        target_label: __metrics_path__
+        regex: (.+)
+      - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+        action: replace
+        target_label: __address__
+        regex: ([^:]+)(?::\d+)?;(\d+)
+        replacement: $1:$2
+      - source_labels: [__meta_kubernetes_service_name]
+        regex: prometheus-server
+        action: drop
   namespaceSelector:
     matchNames:
       - ingress-nginx
@@ -481,6 +501,8 @@ spec:
       app.kubernetes.io/name: ingress-nginx
       app.kubernetes.io/instance: ingress-nginx
       app.kubernetes.io/component: controller
+  
+    
 ---
 # Source: ingress-nginx/templates/admission-webhooks/validating-webhook.yaml
 # before changing this value, check the required kubernetes version
