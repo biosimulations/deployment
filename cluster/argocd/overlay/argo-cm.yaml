@@ -101,6 +101,7 @@ data:
   # You can have bannercontent without a bannerurl, but not the other way around.
   ui.bannerurl: "https://github.com/Biosimulations"
 
+  application.instanceLabelKey: argocd.argoproj.io/instance
   # Plugins for argo
   configManagementPlugins: |
     - name: kustomized-helm
