@@ -29,6 +29,20 @@ spec:
                     requests:
                       storage: 300Gi     # Size of volume used by prometheus'. Can be modified depending on  required retention
         grafana:
+        ingress:
+          enabled: true
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt-prod"
+            kubernetes.io/ingress.class: nginx
+            
+          tls:
+            - secretName: monitoring-tls
+              hosts:
+                monitoring.biosimulations.org
+          hosts:
+            - monitoring.biosimulations.org
+          paths:
+            - /
           grafana.ini:
             feature_toggles:
               enable: tempoSearch      # To enable search option for tempo traces on Grafana
