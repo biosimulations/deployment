@@ -22,12 +22,13 @@ spec:
             podMonitorSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
             ruleSelectorNilUsesHelmValues: false
+            retension: 2d
             storageSpec:
               volumeClaimTemplate:
                 spec:
                   resources:
                     requests:
-                      storage: 300Gi     # Size of volume used by prometheus'. Can be modified depending on  required retention
+                      storage: 600Gi     # Size of volume used by prometheus'. Can be modified depending on  required retention
         grafana:
           ingress:
             enabled: true
