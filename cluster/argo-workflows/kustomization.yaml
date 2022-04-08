@@ -5,3 +5,4 @@ resources:
 - ./install.yaml
 - ./ingress.yaml
 - ./artifact-repository.yaml
+- ../../secrets/argo-workflows
