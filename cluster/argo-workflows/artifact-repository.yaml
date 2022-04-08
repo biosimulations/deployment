@@ -20,6 +20,6 @@ data:
       #
       # If it's running on GKE and Workload Identity is used,
       # serviceAccountKeySecret is not needed.
-      #serviceAccountKeySecret:
-      #  name: my-gcs-credentials
-      #  key: serviceAccountKey
+      serviceAccountKeySecret:
+        name: argo-workflows-repository-secrets
+        key: gcsKey
