@@ -31,6 +31,12 @@ data:
   # https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/sso
   # https://github.com/dexidp/dex/tree/master/Documentation/connectors
   dex.config: |
+    staticClients:
+      - id: argo-workflows-sso
+        name: Argo Workflow
+        redirectURIs:
+          - https:/workflows.biosimulations.org/oauth2/callback
+        secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
     connectors:
       # GitHub example
       - type: github

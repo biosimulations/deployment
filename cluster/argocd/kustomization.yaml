@@ -4,7 +4,7 @@ namespace: argocd
   
 # additional resources like ingress rules, cluster and repository secrets.
 resources:
-- https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
+- https://raw.githubusercontentE.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
 - argo-ingress.yaml
 - applications.yaml
@@ -17,8 +17,8 @@ patchesStrategicMerge:
 - overlay/argo-cm.yaml
 - overlay/argo-cm-rbac.yaml
 - overlay/argo-cd-known-hosts.yaml
+- overlay/argo-dex-deployment.yaml
 - ../../secrets/cluster/argo-secret.yaml
-
 
       
 
