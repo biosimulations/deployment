@@ -7,3 +7,6 @@ resources:
 - ./artifact-repository.yaml
 - ./service-monitor.yaml
 - ../../secrets/argo-workflows
+
+patchesStrategicMerge:
+  - argo-server.yaml
