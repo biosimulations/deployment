@@ -19,7 +19,18 @@ spec:
             name: argo-server
             port:
               number: 2746
+  - host: workflows.biosimulations.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: argo-server
+            port:
+              number: 2746
   tls:
   - hosts:
     -  workflows.api.biosimulations.org
+    - workflows.biosimulations.org
     secretName: argo-workflow-ingress-secret
