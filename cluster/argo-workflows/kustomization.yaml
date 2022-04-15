@@ -7,6 +7,6 @@ resources:
 - ./artifact-repository.yaml
 - ./service-monitor.yaml
 - ../../secrets/argo-workflows
-- ./workflow-controller-config.yaml
 patchesStrategicMerge:
   - argo-server.yaml
+  - ./workflow-controller-config.yaml
