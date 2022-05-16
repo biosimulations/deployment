@@ -1,0 +1,86 @@
+type: argowo
+metadata:
+  name: update-hpc-singularity-image
+  namespace: argo
+spec:
+  templates:
+    - name: generate-sbatch-script
+      script:
+      image: node:9.1-alpine
+      command: [node]
+      source: |
+          const template = `#!/bin/bash
+          #SBATCH --job-name=Build-simulator-${simulator}-${simulatorVersion}
+          #SBATCH --chdir=${singularityPullFolder}
+          #SBATCH --output=${outputFilename}
+          #SBATCH --ntasks=1
+          #SBATCH --cpus-per-task=${cpus}
+          #SBATCH --mem=${memory}
+          #SBATCH --time=${maxTime}
+          #SBATCH --constraint=${slurmConstraints}
+          #SBATCH --partition=${slurmPartition}
+          #SBATCH --qos=${slurmQos}
+
+          # configure error handling
+          set -e
+
+          # load Singularity
+          export MODULEPATH=${modulePath}
+          source ${moduleInitScript}
+          export ${executablesPath}
+          module load ${singularityModule}
+
+          # set up Singularity
+          export SINGULARITY_CACHEDIR=${singularityCacheDir}
+          export SINGULARITY_PULLFOLDER=${singularityPullFolder}
+
+          # report Singularity version and node
+          echo "Building image with Singularity '$(singularity --version)' on '$(hostname)' ... "
+
+          # build image
+          singularity -v pull --tmpdir /local ${
+                forceOverwrite ? '--force' : ''
+              } ${dockerImageUrl}`;
+          
+          console.log(template);
+    - name: update-image
+      inputs:
+        parameters:
+          - name: simulator
+            value: '{{workflow.parameters.simulator}}'
+          - name: version
+            value: '{{workflow.parameters.version}}'
+      outputs: {}
+      metadata: {}
+      script:
+        name: 'Submit container script'
+        image: 'alpine:latest'
+        command:
+          - sh
+        resources: {}
+        volumeMounts:
+          - name: hpc-ssh-key
+            mountPath: /mnt/sshConfig
+        source: |
+          apk --no-cache add openssh-client
+          mkdir -p ~/.ssh
+          cp /mnt/sshConfig/hpc_key  ~/.ssh/id_rsa
+          chmod 0400 ~/.ssh/id_rsa 
+          ssh -o StrictHostKeyChecking=no crbmapi@biosim-submit-ext.cam.uchc.edu echo hello
+        archiveLocation:      
+          archiveLogs: true
+  entrypoint: update-image
+  arguments:
+    parameters:
+      - name: simulator
+        value: tellurium
+      - name: version
+        value: latest
+  volumes:
+    - name: hpc-ssh-key
+      secret:
+        secretName: hpc-ssh-key
+  ttlStrategy:
+    secondsAfterCompletion: 3600
+  podGC:
+    strategy: OnWorkflowSuccess
