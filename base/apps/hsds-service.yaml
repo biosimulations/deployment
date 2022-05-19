@@ -51,7 +51,8 @@ spec:
       labels:
         app: hsds
     spec:
-      containers:
+      terminationGracePeriodSeconds: 120
+      containers:        
         - name: sn
           image: hdfgroup/hsds:v0.7beta8
           imagePullPolicy: Always
@@ -88,6 +89,7 @@ spec:
             preStop:
               exec:
                 command: ["/sbin/killall5", "-15"]
+            
           imagePullPolicy: Always
           ports:
             - containerPort: 6101
