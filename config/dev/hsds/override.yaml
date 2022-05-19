@@ -1,1 +1,13 @@
 default_public: true # new domains are publically readable by default
+hsds_endpoint: https://data.biosimulations.dev # used for hateos links in response
+aws_s3_gateway: https://storage.googleapis.com # use endpoint for the region HSDS is running in, e.g. 'https://s3.amazonaws.com' for us-east-1
+bucket_name: biosim-hsds-dev-central # set to use a default bucket, otherwise bucket param is needed for all requests
+log_level: WARNING # log level.  One of ERROR, WARNING, INFO, DEBUG
+server_name: BioSimulations Data Service # this gets returned in the about request
+greeting: Thank you for using BioSimulations!
+about: The BioSimulations Data Service uses HSDS to allow for efficient and performant operations on simulation data.
+http_compression: false # Use HTTP compression
+k8s_namespace: dev # Specifies if a the client should be limited to a specific namespace. Useful for some RBAC configurations.
+# the following two values with give backof times of approx: 0.2, 0.4, 0.8, 1.6, 3.2, 6.4, 12.8
+dn_max_retries: 7  # number of time to retry DN requests
+dn_retry_backoff_exp: 0.1  # backoff factor for retries
