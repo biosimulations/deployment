@@ -8,7 +8,6 @@ resources:
 - biosimulations-prod.yaml
 - cert-manager.yaml
 - nginx-ingress.yaml
-- nats-operator.yaml
 - argo-workflows.yaml
 - argo-cd.yaml
 - argo-rollouts.yaml
