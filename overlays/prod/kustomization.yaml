@@ -42,6 +42,7 @@ replicas:
 #Use the prod version of the secrets and ingress
 resources:
 - prod.yaml
+- nats.yaml
 - ../../secrets/prod
 - ../../config/prod
 - biosimulations-ingress.yaml

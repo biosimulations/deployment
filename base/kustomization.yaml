@@ -11,4 +11,4 @@ resources:
   - apps/hsds-service.yaml
   - resources/mongo.yaml
   - resources/redis-ha.yaml
-  - resources/nats.yaml
+  
