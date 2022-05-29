@@ -44,6 +44,7 @@ replicas:
 resources:
 - dev.yaml
 - combine-ingress.yaml
+- nats.yaml
 - api-ingress.yaml
 - hsds-ingress.yaml
 - biosimulators-ingress.yaml
