@@ -7,14 +7,14 @@
 | [![App Status](https://deployment.biosimulations.org/api/badge?name=biosimulations-dev&revision=true)](https://deployment.biosimulations.org/applications/biosimulations-dev)  | [![App Status](https://deployment.biosimulations.org/api/badge?name=biosimulations-prod&revision=true)](https://deployment.biosimulations.org/applications/biosimulations-prod)  
 
 ### Infrastructure
- | Argo CD      | NATS Operator | Nginx Ingress | Cert Manager |
- |------------- |-------------  |-------------  |------------- |
-| [![App Status](https://deployment.biosimulations.org/api/badge?name=argo-cd&revision=true)](https://deployment.biosimulations.org/applications/argo-cd)| [![App Status](https://deployment.biosimulations.org/api/badge?name=nats-operator&revision=true)](https://deployment.biosimulations.org/applications/nats-operator)| [![App Status](https://deployment.biosimulations.org/api/badge?name=nginx-ingress&revision=true)](https://deployment.biosimulations.org/applications/nginx-ingress)|  [![App Status](https://deployment.biosimulations.org/api/badge?name=cert-manager&revision=true)](https://deployment.biosimulations.org/applications/cert-manager)|
+ | Argo CD      | Nginx Ingress | Cert Manager |
+ |------------- |-------------  |------------- |
+| [![App Status](https://deployment.biosimulations.org/api/badge?name=argo-cd&revision=true)](https://deployment.biosimulations.org/applications/argo-cd)| [![App Status](https://deployment.biosimulations.org/api/badge?name=nginx-ingress&revision=true)](https://deployment.biosimulations.org/applications/nginx-ingress)|  [![App Status](https://deployment.biosimulations.org/api/badge?name=cert-manager&revision=true)](https://deployment.biosimulations.org/applications/cert-manager)|
 
 ### Monitoring
-| Prometheus   | Grafana      |
-|------------- |------------- |
-[![App Status](https://deployment.biosimulations.org/api/badge?name=prometheus&revision=true)](https://deployment.biosimulations.org/applications/prometheus)|[![App Status](https://deployment.biosimulations.org/api/badge?name=grafana&revision=true)](https://deployment.biosimulations.org/applications/grafana)|
+| Prometheus-Grafana|
+|-------------|
+[![App Status](https://deployment.biosimulations.org/api/badge?name=prometheus&revision=true)](https://deployment.biosimulations.org/applications/prometheus)|
 
 ## About
 This [repository](https://github.com/biosimulations/deployment) contains the configuration for deploying the [BioSimulations](https://github.com/biosimulations/biosimulations) platform onto a Kubernetes cluster. The repository is organized to support a [GitOps](#gitops) workflow and continuous deployment using [ArgoCD](https://argoproj.github.io/argo-cd/). The deployment can be monitored and configured at https://deployment.biosimulations.org
