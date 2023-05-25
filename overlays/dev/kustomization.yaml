@@ -48,6 +48,6 @@ resources:
 - api-ingress.yaml
 - hsds-ingress.yaml
 - biosimulators-ingress.yaml
-- ../../secrets/prod
-- ../../config/dev_use_prod
+- ../../secrets/dev
+- ../../config/dev
 - ../../base
