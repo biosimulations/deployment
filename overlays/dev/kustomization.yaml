@@ -31,7 +31,7 @@ replicas:
   name: api
 - count: 5
   name: dispatch-service
-- count: 5
+- count: 7
   name: hsds
 - count: 2
   name: mail-service
@@ -48,6 +48,6 @@ resources:
 - api-ingress.yaml
 - hsds-ingress.yaml
 - biosimulators-ingress.yaml
-- ../../secrets/prod
-- ../../config/dev_use_prod
+- ../../secrets/dev
+- ../../config/dev
 - ../../base

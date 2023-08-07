@@ -8,7 +8,7 @@ aws_iam_role: null  # For EC2 using IAM roles
 aws_region: null
 hsds_endpoint: https://data.biosimulations.dev # used for hateos links in response
 aws_s3_gateway: https://storage.googleapis.com # use endpoint for the region HSDS is running in, e.g. 'https://s3.amazonaws.com' for us-east-1
-bucket_name: biosim-hsds-dev-central # set to use a default bucket, otherwise bucket param is needed for all requests
+bucket_name: biosim-hsds-dev # set to use a default bucket, otherwise bucket param is needed for all requests
 #aws_s3_gateway: http://s3low.scality.uchc.edu 
 aws_dynamodb_gateway: null # use for dynamodb endpint, e.g. 'https://dynamodb.us-east-1.amazonaws.com',
 aws_dynamodb_users_table: null # set to table name if dynamodb is used to store usernames and passwords
