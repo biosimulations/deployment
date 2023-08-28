@@ -53,6 +53,13 @@ spec:
       containers:
         - name: redis
           image: redis
+          resources:
+            requests: 
+              memory: "1Gi"
+              cpu: "100m"
+            limits:
+              memory: "2Gi"
+              cpu: "200m"
           command:
             - "redis-server"
           args:
