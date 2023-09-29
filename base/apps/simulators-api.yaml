@@ -19,6 +19,13 @@ spec:
         - name: simulators-api
           image: ghcr.io/biosimulations/simulators-api
           imagePullPolicy: "Always"
+          resources:
+            requests: 
+              memory: "500Mi"
+              cpu: "50m"
+            limits:
+              memory: "1Gi"
+              cpu: "200m"
           volumeMounts:
             - name: config
               mountPath: "/app/config"

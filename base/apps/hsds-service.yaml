@@ -56,6 +56,13 @@ spec:
         - name: sn
           image: hdfgroup/hsds:v0.7beta8
           imagePullPolicy: Always
+          resources:
+            requests: 
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
           ports:
             - containerPort: 5101
           env:
@@ -97,6 +104,13 @@ spec:
                 command: ["/sbin/killall5", "-15"]
             
           imagePullPolicy: Always
+          resources:
+            requests: 
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
           livenessProbe:
             httpGet:
               path: /info

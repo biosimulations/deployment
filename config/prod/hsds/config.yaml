@@ -10,6 +10,7 @@ hsds_endpoint: https://data.biosimulations.org # used for hateos links in respon
 aws_s3_gateway: https://storage.googleapis.com # use endpoint for the region HSDS is running in, e.g. 'https://s3.amazonaws.com' for us-east-1
 bucket_name: biosim-hsds-prod # set to use a default bucket, otherwise bucket param is needed for all requests
 #aws_s3_gateway: http://s3low.scality.uchc.edu 
+#aws_s3_no_sign_request: false # do not use credentials for S3 requests, equivalent of --no-sign-request for AWS CLI
 aws_dynamodb_gateway: null # use for dynamodb endpint, e.g. 'https://dynamodb.us-east-1.amazonaws.com',
 aws_dynamodb_users_table: null # set to table name if dynamodb is used to store usernames and passwords
 azure_connection_string: null # use for connecting to Azure blob storage
@@ -17,11 +18,11 @@ azure_resource_id: null  # resource id for use with Azure Active Directory
 azure_storage_account: null  # storage account to use on Azure
 azure_resource_group: null  # Azure resource group the container (BUCKET_NAME) belongs to
 root_dir: null   # base directory to use for Posix storage
-password_salt: null  # salt value if dynamically generated passwords are used
+password_salt: null  # salt value to generate password based on username.  Not recommended for public deployments
 head_port: 5100     # port to use for head node
 head_ram: 512m  # memory for head container
 dn_port: 6101  # Start dn ports at 6101
-dn_ram: 3g     # memory for DN container (per container)
+dn_ram: 1g     # memory for DN container (per container)
 sn_port: 5101   # Start sn ports at 5101
 sn_ram: 1g     # memory for SN container
 rangeget_port: 6900  # singleton proxy at port 6900
@@ -78,17 +79,19 @@ standalone_app: false   # True when run as a single application
 blosc_nthreads: 2  # number of threads to use for blosc compression.  Set to 0 to have blosc auto-determine thread count
 http_compression: false  # Use HTTP compression 
 http_max_url_length: 512 # Limit http request url + params to be less than this
-k8s_app_label: hsds  # The app label for k8s deployments
+k8s_dn_label_selector: app=hsds # Selector for getting data node pods from a k8s deployment (https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors)
 k8s_namespace: prod # Specifies if a the client should be limited to a specific namespace. Useful for some RBAC configurations.
 restart_policy: on-failure # Docker restart policy
 domain_req_max_objects_limit: 500  # maximum number of objects to return in GET domain request with use_cache
 # the following two values with give backof times of approx: 0.2, 0.4, 0.8, 1.6, 3.2, 6.4, 12.8
 dn_max_retries: 7  # number of time to retry DN requests
 dn_retry_backoff_exp: 0.1  # backoff factor for retries
+
 # DEPRECATED - the remaining config values are not used in currently but kept for backward compatibility with older container images
 aws_lambda_chunkread_function: null  # name of aws lambda function for chunk reading
 aws_lambda_threshold: 4   # number of chunks per node per request to reach before using lambda
 aws_lambda_max_invoke: 1000  # max number of lambda functions to invoke simultaneously
 aws_lambda_gateway: null # use lambda endpoint for region HSDS is running in
+k8s_app_label: hsds  # The app label for k8s deployments (use k8s_dn_label_selector instead)
 write_zero_chunks: False # write chunk to storage even when it's all zeros (or in general equial to the fill value)
 max_chunks_per_request: 1000  # maximum number of chunks to be serviced by one request

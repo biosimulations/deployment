@@ -18,6 +18,13 @@ spec:
         - name: account-api
           image: ghcr.io/biosimulations/account-api
           imagePullPolicy: "Always"
+          resources:
+            requests: 
+              memory: "500Mi"
+              cpu: "200m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
           volumeMounts:
             - name: config
               mountPath: "/app/config"
