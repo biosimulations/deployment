@@ -68,6 +68,13 @@ data:
   # These are globs, so a "*" will match all values.
   # If you omit groups/kinds/clusters then they will match all groups/kind/clusters.
   # NOTE: events.k8s.io and metrics.k8s.io are excluded by default
+  resource.exclusions: |
+    - apiGroups:
+      - policy
+      kinds:
+      - PodSecurityPolicy
+      clusters:
+      - "*"
 
   # Build options/parameters to use with `kustomize build` (optional)
   kustomize.buildOptions: --load-restrictor LoadRestrictionsNone
