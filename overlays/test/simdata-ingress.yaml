@@ -1,0 +1,49 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: "300m"
+    nginx.org/client-max-body-size: "300m"
+
+  name: simdata-ingress
+  labels:
+    name: simdata-ingress
+spec:
+  tls:
+    - hosts:
+      - data.biosimulations.test
+      secretName: simdata-ingress-tls
+  rules:
+  - host: data.biosimulations.test
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/datasets"
+        backend:
+          service:
+            name: simdata-api
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: simdata-api
+            port: 
+              number: 80                        
+      - pathType: Prefix
+        path: "/health"
+        backend:
+          service:
+            name: simdata-api
+            port: 
+              number: 80                                     
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: simdata-api
+            port: 
+              number: 80

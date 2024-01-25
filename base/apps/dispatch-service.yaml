@@ -4,6 +4,7 @@ metadata:
   name: dispatch-service
   labels:
     app: dispatch-service
+    registry: ghcr.io
 
 spec:
   selector:

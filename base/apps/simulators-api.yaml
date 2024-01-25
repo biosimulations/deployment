@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: simulators-api
+    registry: ghcr.io
   name: simulators-api
 
 spec:

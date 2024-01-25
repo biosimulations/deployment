@@ -3,51 +3,65 @@ kind: Kustomization
 
 # Change namespace, labels, and name to dev
 commonLabels:
-  environment: dev
-namespace: dev
+  environment: test
+namespace: test
 
 #Change the tag on the images
 
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: v9.54.5
+  newTag: sha-d39bc54
 - name: ghcr.io/biosimulations/api
-  newTag: v9.54.5
+  newTag: sha-d39bc54
 - name: ghcr.io/biosimulations/combine-api
-  newTag: v9.54.5
+  newTag: sha-d39bc54
 - name: ghcr.io/biosimulations/simdata-api
-  newTag: v9.54.5
+  newTag: sha-d39bc54
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: v9.54.5
+  newTag: sha-d39bc54
 - name: ghcr.io/biosimulations/mail-service
-  newTag: v9.54.5
+  newTag: sha-d39bc54
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: v9.54.5
+  newTag: sha-d39bc54
 #scale down dev deployment
 replicas:
 - count: 0
   name: account-api
-- count: 3
+- count: 0
   name: api
-- count: 5
+- count: 0
   name: dispatch-service
-- count: 3
-  name: simdata-api
-- count: 2
-  name: mail-service
 - count: 1
+  name: simdata-api
+- count: 0
+  name: mail-service
+- count: 0
   name: simulators-api
-- count: 2
+- count: 0
   name: combine-api
+
+# create patches section to add imagePullSecrets to all containers
+# and remove readiness and liveness probes from account-api
+patches:
+- target:
+    kind: Deployment
+    labelSelector: registry=ghcr.io
+  patch: |-
+    - op: add
+      path: /spec/template/spec/imagePullSecrets
+      value:
+      - name: regcred
+    - op: remove
+      path: /spec/template/spec/containers/0/resources
 
 #Use the development version of the secrets and ingress
 resources:
-- dev.yaml
+- test.yaml
 - combine-ingress.yaml
-- nats.yaml
+# - nats.yaml
 - api-ingress.yaml
 - simdata-ingress.yaml
 - biosimulators-ingress.yaml
-- ../../secrets/dev
-- ../../config/dev
+- ../../secrets/test
+- ../../config/test
 - ../../base
