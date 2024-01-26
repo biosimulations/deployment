@@ -26,10 +26,6 @@ configMapGenerator:
     files:
       - combine-api/config.env
 
-  - name: hsds-config
+  - name: simdata-api-config
     files:
-      - hsds/config.yaml
-
-  - name: hsds-override
-    files:
-      - hsds/override.yaml
+      - simdata-api/config.env
