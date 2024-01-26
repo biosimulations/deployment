@@ -13,12 +13,12 @@ metadata:
 spec:
   tls:
     - hosts: 
-      - combine.api.biosimulations.dev
+      - combine.api.biosimulations.test
     
       secretName: combine-ingress-tls
   
   rules:
-  - host: combine.api.biosimulations.dev
+  - host: combine.api.biosimulations.test
     http:
       paths:
       - pathType: Prefix
