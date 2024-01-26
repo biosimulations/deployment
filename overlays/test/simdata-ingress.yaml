@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - data.biosimulations.test
+      - simdata.api.biosimulations.test
       secretName: simdata-ingress-tls
   rules:
-  - host: data.biosimulations.test
+  - host: simdata.api.biosimulations.test
     http:
       paths:
       - pathType: Prefix
