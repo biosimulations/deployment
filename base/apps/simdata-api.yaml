@@ -48,9 +48,6 @@ spec:
             - name: secret
               mountPath: /app/secret
               readOnly: true
-            - name: gcs-credentials
-              mountPath: /app/gcs_credentials.json
-              readOnly: true
             - name: shared
               mountPath: "/app/shared"
               readOnly: true
@@ -65,9 +62,6 @@ spec:
         - name: secret
           secret:
             secretName: simdata-api-secrets
-        - name: gcs-credentials
-          secret:
-            secretName: gcs-credentials
         - name: shared
           configMap:
             name: shared-config
