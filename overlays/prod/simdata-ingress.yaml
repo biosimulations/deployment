@@ -14,7 +14,7 @@ spec:
   tls:
     - hosts:
       - data.biosimulations.org
-      secretName: prod-hsds-ingress-tls
+      secretName: simdata-prod-ingress-tls
   rules:
   - host: data.biosimulations.org
     http:
