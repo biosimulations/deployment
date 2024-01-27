@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - data.biosimulations.org
-      secretName: prod-hsds-ingress-tls
+      - simdata.api.biosimulations.org
+      secretName: simdata-ingress-tls
   rules:
-  - host: data.biosimulations.org
+  - host: simdata.api.biosimulations.org
     http:
       paths:
       - pathType: Prefix
@@ -26,6 +26,13 @@ spec:
             name: simdata-api
             port: 
               number: 80              
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: simdata-api
+            port: 
+              number: 80                        
       - pathType: Prefix
         path: "/health"
         backend:
