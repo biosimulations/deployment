@@ -14,7 +14,7 @@ spec:
   tls:
     - hosts:
       - data.biosimulations.test
-      secretName: simdata-test-ingress-tls
+      secretName: test-simdata-ingress-tls-dummy
   rules:
   - host: data.biosimulations.test
     http:

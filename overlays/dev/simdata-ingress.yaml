@@ -14,7 +14,7 @@ spec:
   tls:
     - hosts:
       - data.biosimulations.dev
-      secretName: simdata-dev-ingress-tls
+      secretName: dev-hsds-ingress-tls
   rules:
   - host: data.biosimulations.dev
     http:
