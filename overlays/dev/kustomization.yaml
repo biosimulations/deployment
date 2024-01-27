@@ -10,19 +10,19 @@ namespace: dev
 
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: v9.55.1
+  newTag: v9.55.2
 - name: ghcr.io/biosimulations/api
-  newTag: v9.55.1
+  newTag: v9.55.2
 - name: ghcr.io/biosimulations/combine-api
-  newTag: v9.55.1
+  newTag: v9.55.2
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: v9.55.1
+  newTag: v9.55.2
 - name: ghcr.io/biosimulations/mail-service
-  newTag: v9.55.1
+  newTag: v9.55.2
 - name: ghcr.io/biosimulations/simdata-api
-  newTag: v9.55.1
+  newTag: v9.55.2
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: v9.55.1
+  newTag: v9.55.2
 #scale down dev deployment
 replicas:
 - count: 0
