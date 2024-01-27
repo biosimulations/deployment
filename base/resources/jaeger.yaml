@@ -7,7 +7,7 @@ spec:
   ingress:
     enabled: true
     annotations:
-      ingress.class: "nginx"
+      kubernetes.io/ingress.class: "nginx"
       cert-manager.io/cluster-issuer: "letsencrypt-prod"
     hosts:
       - tracing.api.biosimulations.dev

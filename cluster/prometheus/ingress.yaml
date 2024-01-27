@@ -3,7 +3,7 @@ kind: Ingress
 
 metadata:
   annotations:
-    ingress.class: nginx
+    kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   name: prometheus
   labels:

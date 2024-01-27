@@ -1,0 +1,156 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pods-list
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["list"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pods-list
+subjects:
+  - kind: ServiceAccount
+    name: default
+
+roleRef:
+  kind: Role
+  name: pods-list
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hsds
+  labels:
+    app: hsds
+spec:
+  selector:
+    app: hsds
+  ports:
+    - protocol: "TCP"
+      targetPort: 5101
+      port: 80
+      name: hsds
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hsds
+  name: hsds
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hsds
+  template:
+    metadata:
+      labels:
+        app: hsds
+    spec:
+      terminationGracePeriodSeconds: 120
+      containers:        
+        - name: sn
+          image: hdfgroup/hsds:v0.7beta8
+          imagePullPolicy: Always
+          resources:
+            requests: 
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          ports:
+            - containerPort: 5101
+          env:
+            - name: NODE_TYPE
+              value: sn
+            - name: HEAD_PORT
+              value: null # no head container
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-auth-keys
+                  key: aws_access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-auth-keys
+                  key: aws_secret_access_key
+          livenessProbe:
+            httpGet:
+              path: /info
+              port: 5101
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          volumeMounts:
+            - name: accounts
+              mountPath: "/config/passwd.txt"
+              subPath: passwd.txt
+            - name: config
+              mountPath: "/config/config.yml"
+              subPath: config.yaml
+            - name: override
+              mountPath: "/config/override.yml"
+              subPath: override.yaml
+        - name: dn
+          image: hdfgroup/hsds:v0.7beta8
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/sbin/killall5", "-15"]
+            
+          imagePullPolicy: Always
+          resources:
+            requests: 
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /info
+              port: 6101
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          ports:
+            - containerPort: 6101
+          env:
+            - name: NODE_TYPE
+              value: dn
+            - name: HEAD_PORT
+              value: null # no head container
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-auth-keys
+                  key: aws_access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-auth-keys
+                  key: aws_secret_access_key
+          volumeMounts:
+            - name: accounts
+              mountPath: "/config/password/passwd.txt"
+              subPath: "passwd.txt"
+            - name: config
+              mountPath: "/config/config.yml" #must be yml
+              subPath: config.yaml
+            - name: override
+              mountPath: "/config/override.yml" #must be yml
+              subPath: override.yaml
+      volumes:
+        - name: accounts
+          secret:
+            secretName: user-password
+        - name: config
+          configMap:
+            name: hsds-config
+        - name: override
+          configMap:
+            name: hsds-override

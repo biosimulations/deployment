@@ -34,7 +34,7 @@ spec:
             enabled: true
             annotations:
               cert-manager.io/cluster-issuer: "letsencrypt-prod"
-              ingress.class: nginx
+              kubernetes.io/ingress.class: nginx
               
             tls:
               - secretName: monitoring-tls

@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: combine-api
-    registry: ghcr.io
   name: combine-api
 spec:
   selector:

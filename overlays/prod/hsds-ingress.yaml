@@ -1,0 +1,70 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: "300m"
+    nginx.org/client-max-body-size: "300m"
+
+  name: prod-hsds-ingress
+  labels:
+    name: prod-hsds-ingress
+spec:
+  tls:
+    - hosts:
+      - data.biosimulations.org
+      secretName: prod-hsds-ingress-tls
+  rules:
+  - host: data.biosimulations.org
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/domain"
+        backend:
+          service:
+            name: hsds
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/groups"
+        backend:
+          service:
+            name: hsds
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/datasets"
+        backend:
+          service:
+            name: hsds
+            port: 
+              number: 80              
+      - pathType: Prefix
+        path: "/acls"
+        backend:
+          service:
+            name: hsds
+            port: 
+              number: 80           
+      - pathType: Prefix
+        path: "/datatypes"
+        backend:
+          service:
+            name: hsds
+            port: 
+              number: 80          
+      - pathType: Prefix
+        path: "/info"
+        backend:
+          service:
+            name: hsds
+            port: 
+              number: 80          
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: hsds
+            port: 
+              number: 80                        

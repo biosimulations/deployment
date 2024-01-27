@@ -15,14 +15,14 @@ images:
   newTag: v9.55.0
 - name: ghcr.io/biosimulations/combine-api
   newTag: v9.55.0
-- name: ghcr.io/biosimulations/simdata-api
-  newTag: v9.55.0
 - name: ghcr.io/biosimulations/dispatch-service
   newTag: v9.55.0
 - name: ghcr.io/biosimulations/mail-service
   newTag: v9.55.0
 - name: ghcr.io/biosimulations/simulators-api
   newTag: v9.55.0
+- name: hdfgroup/hsds
+  newTag: "0.8"
 #scale down dev deployment
 replicas:
 - count: 0
@@ -31,8 +31,8 @@ replicas:
   name: api
 - count: 5
   name: dispatch-service
-- count: 3
-  name: simdata-api
+- count: 7
+  name: hsds
 - count: 2
   name: mail-service
 - count: 1
@@ -46,7 +46,7 @@ resources:
 - combine-ingress.yaml
 - nats.yaml
 - api-ingress.yaml
-- simdata-ingress.yaml
+- hsds-ingress.yaml
 - biosimulators-ingress.yaml
 - ../../secrets/dev
 - ../../config/dev
