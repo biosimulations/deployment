@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: account-api
+    registry: ghcr.io
+  name: account-api
+spec:
+  selector:
+    matchLabels:
+      app: account-api
+  replicas: 0
+  template:
+    metadata:
+      labels:
+        app: account-api
+    spec:
+      containers:
+        - name: account-api
+          image: ghcr.io/biosimulations/account-api
+          imagePullPolicy: "Always"
+          resources:
+            requests: 
+              memory: "500Mi"
+              cpu: "200m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          volumeMounts:
+            - name: config
+              mountPath: "/app/config"
+              readOnly: true
+            - mountPath: /app/secret
+              name: secret
+              readOnly: true
+            - name: shared
+              mountPath: "/app/shared"
+              readOnly: true
+          ports:
+            - containerPort: 3333
+      volumes:
+        - name: secret
+          secret:
+            secretName: account-api-secrets
+        - name: config
+          configMap:
+            name: account-api-config
+        - name: shared
+          configMap: 
+            name: shared-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: account-api
+  labels:
+    app: account-api
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3333
+  selector:
+    app: account-api
+  type: NodePort

@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: simulators-api
+    registry: ghcr.io
+  name: simulators-api
+
+spec:
+  selector:
+    matchLabels:
+      app: simulators-api
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: simulators-api
+    spec:
+      containers:
+        - name: simulators-api
+          image: ghcr.io/biosimulations/simulators-api
+          imagePullPolicy: "Always"
+          resources:
+            requests: 
+              memory: "500Mi"
+              cpu: "50m"
+            limits:
+              memory: "1Gi"
+              cpu: "200m"
+          volumeMounts:
+            - name: config
+              mountPath: "/app/config"
+              readOnly: true
+            - mountPath: "/app/secret"
+              name: secret
+              readOnly: true
+            - name: shared
+              mountPath: "/app/shared"
+              readOnly: true
+          ports:
+            - containerPort: 3333
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3333
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3333
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+        
+      volumes:
+        - name: secret
+          secret:
+            secretName: simulators-api-secrets
+        - name: config
+          configMap:
+            name: simulators-api-config
+        - name: shared
+          configMap:
+            name: shared-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simulators-api
+  labels:
+    app: simulators-api
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3333
+  selector:
+    app: simulators-api
+  type: NodePort

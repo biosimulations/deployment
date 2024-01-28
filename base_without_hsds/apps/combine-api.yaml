@@ -2,31 +2,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: simdata-api
+    app: combine-api
     registry: ghcr.io
-  name: simdata-api
+  name: combine-api
 spec:
   selector:
     matchLabels:
-      app: simdata-api
+      app: combine-api
   replicas: 3
   template:
     metadata:
       labels:
-        app: simdata-api
+        app: combine-api
     spec:
-      imagePullSecrets:
-        - name: regcred
       containers:
-        - name: simdata-api
-          image: ghcr.io/biosimulations/simdata-api
+        - name: combine-api
+          image: ghcr.io/biosimulations/combine-api
           imagePullPolicy: "Always"
           resources:
             requests: 
-              memory: "500Mi"
+              memory: "1Gi"
               cpu: "500m"
             limits:
-              memory: "1Gi"
+              memory: "2Gi"
               cpu: "1000m"
           readinessProbe:
             httpGet:
@@ -45,42 +43,37 @@ spec:
             - name: config
               mountPath: "/app/config"
               readOnly: true
-            - name: secret
-              mountPath: /app/secret
+            - mountPath: /app/secret
+              name: secret
               readOnly: true
             - name: shared
               mountPath: "/app/shared"
               readOnly: true
-            - name: scratch
-              mountPath: "/app/scratch"
           ports:
             - containerPort: 3333
       volumes:
-        - name: config
-          configMap:
-            name: simdata-api-config
         - name: secret
           secret:
-            secretName: simdata-api-secrets
+            secretName: combine-api-secrets
+        - name: config
+          configMap:
+            name: combine-api-config
         - name: shared
           configMap:
             name: shared-config
-        - name: scratch
-          emptyDir: 
-            sizeLimit: "1Gi"
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: simdata-api
+  name: combine-api
   labels:
-    app: simdata-api
+    app: combine-api
 spec:
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3333
   selector:
-    app: simdata-api
+    app: combine-api
   type: NodePort

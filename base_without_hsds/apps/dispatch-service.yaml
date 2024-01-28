@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dispatch-service
+  labels:
+    app: dispatch-service
+    registry: ghcr.io
+
+spec:
+  selector:
+    matchLabels:
+      app: dispatch-service
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: dispatch-service
+    spec:
+      volumes:
+        - name: secret
+          secret:
+            secretName: dispatch-service-secrets
+        - name: config
+          configMap:
+            name: dispatch-service-config
+        - name: shared
+          configMap:
+            name: shared-config
+      containers:
+        - name: dispatch-service
+          image: "ghcr.io/biosimulations/dispatch-service"
+          imagePullPolicy: "Always"
+          resources:
+            requests: 
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "4Gi"
+              cpu: "2000m"
+          volumeMounts:
+            - name: config
+              mountPath: "/app/config"
+              readOnly: true
+            - mountPath: /app/secret
+              name: secret
+              readOnly: true
+            - name: shared
+              mountPath: "/app/shared"
+              readOnly: true

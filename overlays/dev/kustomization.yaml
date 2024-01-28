@@ -46,9 +46,8 @@ resources:
 - combine-ingress.yaml
 - nats.yaml
 - api-ingress.yaml
-- simdata-api.yaml
 - simdata-ingress.yaml
 - biosimulators-ingress.yaml
 - ../../secrets/dev
 - ../../config/dev
-- ../../base
+- ../../base_without_hsds
