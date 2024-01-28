@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: account-api
+    registry: ghcr.io
   name: account-api
 spec:
   selector:

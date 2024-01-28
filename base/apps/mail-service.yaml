@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: mail-service
+    registry: ghcr.io
   name: mail-service
 spec:
   selector:
@@ -18,6 +19,13 @@ spec:
         - name: mail-service
           image: ghcr.io/biosimulations/mail-service
           imagePullPolicy: "Always"
+          resources:
+            requests: 
+              memory: "500Mi"
+              cpu: "200m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
           volumeMounts:
             - name: config
               mountPath: "/app/config"
