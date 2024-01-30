@@ -50,4 +50,4 @@ resources:
 - biosimulators-ingress.yaml
 - ../../secrets/dev
 - ../../config/dev
-- ../../base_without_hsds
+- ../../base

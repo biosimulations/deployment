@@ -64,4 +64,4 @@ resources:
 - biosimulators-ingress.yaml
 - ../../secrets/test
 - ../../config/test
-- ../../base_without_hsds
+- ../../base

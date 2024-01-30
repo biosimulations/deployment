@@ -9,21 +9,20 @@ namespace: prod
 #Change the tag on the images
 images:
 - name: ghcr.io/biosimulations/account-api
-  newTag: v9.54.1
+  newTag: v9.55.5
 - name: ghcr.io/biosimulations/api
-  newTag: v9.54.1
+  newTag: v9.55.5
 - name: ghcr.io/biosimulations/combine-api
-  newTag: v9.54.1
+  newTag: v9.55.5
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: v9.54.1
+  newTag: v9.55.5
 - name: ghcr.io/biosimulations/mail-service
-  newTag: v9.54.1
+  newTag: v9.55.5
+- name: ghcr.io/biosimulations/simdata-api
+  newTag: v9.55.5
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: v9.54.1
-- name: hdfgroup/hsds
-  newTag: 36a7c61
-
-#scale up prod ev deployment
+  newTag: v9.55.5
+#scale down dev deployment
 replicas:
 - count: 0
   name: account-api
@@ -31,8 +30,8 @@ replicas:
   name: api
 - count: 5
   name: dispatch-service
-- count: 7
-  name: hsds
+- count: 3
+  name: simdata-api
 - count: 3
   name: mail-service
 - count: 3
@@ -48,5 +47,5 @@ resources:
 - biosimulations-ingress.yaml
 - biosimulators-ingress.yaml
 - combine-ingress.yaml
-- hsds-ingress.yaml
+- simdata-ingress.yaml
 - ../../base
