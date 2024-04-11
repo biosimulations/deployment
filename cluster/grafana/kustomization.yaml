@@ -8,4 +8,4 @@ resources:
 - promtail.yaml
 images:
 - name: grafana/grafana
-  newTag: 8.4.1
+  newTag: 10.4.2
