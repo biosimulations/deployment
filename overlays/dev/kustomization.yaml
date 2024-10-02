@@ -16,7 +16,7 @@ images:
 - name: ghcr.io/biosimulations/combine-api
   newTag: v9.61.0
 - name: ghcr.io/biosimulations/dispatch-service
-  newTag: v9.61.0
+  newTag: v9.61.1
 - name: ghcr.io/biosimulations/mail-service
   newTag: v9.61.0
 - name: ghcr.io/biosimulations/simdata-api
