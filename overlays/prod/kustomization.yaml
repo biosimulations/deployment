@@ -19,7 +19,7 @@ images:
 - name: ghcr.io/biosimulations/mail-service
   newTag: v9.60.0
 - name: ghcr.io/biosimulations/simdata-api
-  newTag: v9.60.0
+  newTag: v9.61.3
 - name: ghcr.io/biosimulations/simulators-api
   newTag: v9.60.0
 #scale down dev deployment
