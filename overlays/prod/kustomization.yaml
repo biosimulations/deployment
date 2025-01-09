@@ -21,7 +21,7 @@ images:
 - name: ghcr.io/biosimulations/simdata-api
   newTag: v9.62.3
 - name: ghcr.io/biosimulations/simulators-api
-  newTag: v9.62.3
+  newTag: v9.64.0
 #scale down dev deployment
 replicas:
 - count: 0
