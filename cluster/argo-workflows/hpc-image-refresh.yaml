@@ -66,7 +66,7 @@ spec:
           mkdir -p ~/.ssh
           cp /mnt/sshConfig/hpc_key  ~/.ssh/id_rsa
           chmod 0400 ~/.ssh/id_rsa 
-          ssh -o StrictHostKeyChecking=no crbmapi@biosim-submit-ext.cam.uchc.edu echo hello
+          ssh -o StrictHostKeyChecking=no crbmapi@login.hpc.cam.uchc.edu echo hello
         archiveLocation:      
           archiveLogs: true
   entrypoint: update-image
