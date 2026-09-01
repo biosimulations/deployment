@@ -30,55 +30,12 @@ spec:
                     requests:
                       storage: 600Gi     # Size of volume used by prometheus'. Can be modified depending on  required retention
         grafana:
-          ingress:
-            enabled: false
-            annotations:
-              cert-manager.io/cluster-issuer: "letsencrypt-prod"
-              kubernetes.io/ingress.class: nginx
-              
-            tls:
-              - secretName: monitoring-tls
-                hosts:
-                  - monitoring.biosimulations.org
-            hosts:
-              - monitoring.biosimulations.org
-            paths:
-              - /
-          grafana.ini:
-            feature_toggles:
-              enable: tempoSearch      # To enable search option for tempo traces on Grafana
-          persistence:
-            type: statefulset          # To deploy Grafana as a StatefulSet
-            enabled: true
-            size: 5Gi                  # Size of volume used by Grafana for storing dashboards created from the Grafana UI
-          datasources:                 # Omit this if no additional datasources are required
-            datasources.yaml:
-              apiVersion: 1
-              datasources:
-              - name: Loki             # Adding Loki as datasource
-                type: loki
-                uid: Loki
-                access: proxy
-                editable: false
-                url: http://loki-gateway.monitoring:80     # DNS of loki-gateway
-                jsonData:                                  # To setup integration between Loki and Tempo
-                  derivedFields:
-                    - datasourceUid: Tempo
-                      matcherRegex: "(?:traceID|traceId)(?:=|\\s)(\\w+)"
-                      name: TraceID
-                      url: "$${__value.raw}"
-              - name: Tempo                         # Adding Tempo datasource
-                type: tempo
-                uid: Tempo
-                access: proxy
-                editable: false
-                url: http://tempo-gateway.monitoring:80
-          sidecar:                              
-            dashboards:
-              enabled: true                        # To enable dashboards as configMaps automatically picked up by Grafana
-              label: grafana_dashboard             # Label the configMaps should have in order to be added
-              folder: /tmp/dashboards
-              searchNamespace: ALL                 # To look for dashboard configMaps in all namespaces
+          # Decommissioned 2026-09-01: Grafana 8.4.2 (chart 34.1.1) was flagged by
+          # attack-surface monitoring for ~23 CVEs while exposed at
+          # monitoring.biosimulations.org. Its only datasources (Loki, Tempo) no
+          # longer exist in this cluster, so the UI had nothing left to render.
+          # Re-enabling requires a supported Grafana release, not this chart version.
+          enabled: false
   syncPolicy:
     automated:
       prune: true
